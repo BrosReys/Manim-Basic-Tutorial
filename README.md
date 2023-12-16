@@ -60,4 +60,4 @@ class Ejemplo(Scene):
     self.wait(1) # esperar un segundo
     self.play(FadeOut(Texto)) # desaparecer el texto
 ```
-
+![](https://github.com/BrosReys/ManimCE/blob/main/Captura%20de%20pantalla%20(68).png)
