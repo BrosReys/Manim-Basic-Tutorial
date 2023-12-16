@@ -1,7 +1,61 @@
 # ManimCE
-Libreta de código para programar animaciones en ManimCE, para python.
-```
+### Libreta de código para programar animaciones en ManimCE, para python.
+
+_¿Qué es Manim?_
+
+**Manim** es una biblioteca de animación matemática de código abierto desarrollada en Python. El nombre "Manim" proviene de "Mathematical Animation Engine". Fue creado por Grant Sanderson, el creador de la plataforma educativa en línea "3Blue1Brown". 
+
+Manim permite a los usuarios crear animaciones interactivas y visualizaciones matemáticas de alta calidad. Es particularmente útil para explicar conceptos matemáticos de manera intuitiva, ya que las animaciones pueden proporcionar una comprensión más clara y profunda de los temas.
+
+Por ejemplo:
+
+```python
 from manim import *
-class Example(Scene):
-def construct(self):
+class Circulo(Scene):
+    def construct(self):
+        circulo = Circle(radius=3)  # crear el círculo
+        circulo.set_fill(PINK, opacity=0.5)  # establecer el color y la opacidad
+        self.play(Create(circulo))  # animar el círculo
+        self.wait(2) # esperar dos segundos
 ```
+En este caso, hemos creado un círculo utilizando la clase `Circulo`, concretamente hemos establecido el Mobject `Circle`, de radio=3, PINK, opacity=0,5. De esta forma, Manim analiza el script y lo "traduce" a una animación que renderizará en un vídeo.
+
+La primera línea del script importa todo el contenido necesario de la biblioteca para llevar a cabo la animación.
+```python
+from manim import *
+```
+Ahora analicemos las segundas dos líneas:
+```python
+class Circulo(Scene):
+    def construct(self):
+    # resto del código
+```
+En Manim, la creación de animaciones se realiza en gran medida dentro del método `construct()` de una clase `Scene()`.
+1. **Clase `Scene()`**: En primer lugar, creamos una clase que hereda de `Scene()` que actuará como contenedor de las animaciones.
+2. **Método construct `construct()`**: Dentro de la clase que hemos creado, en este caso llamada `Circulo`, definimos un método llamado `construct`. Este método es donde colocas el código que crea y anima los objetos de la escena, dicho código es `self`.
+
+Las próximas dos líneas crean un círculo y establecen, en este caso, su opacidad.
+
+```python
+circulo = Circle(radius=3)  # crear el círculo
+circulo.set_fill(PINK, opacity=0.5)  # establecer el color y la opacidad
+```
+
+
+
+
+## Mobjects: Manim objects
+### Text
+
+Para añadir un texto tan sólo es necesario utilizar la class `Text`. Quedaría de la siguiente forma:
+
+```python
+from manim import *
+class Ejemplo(Scene):
+  def construct(self):
+    Texto = Text("Aquí va el texto") # crear el texto
+    self.play(Write(Texto)) # animar el texto
+    self.wait(1) # esperar un segundo
+    self.play(FadeOut(Texto)) # desaparecer el texto
+```
+
