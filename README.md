@@ -44,11 +44,13 @@ circulo.set_fill(PINK, opacity=0.5)  # establecer el color y la opacidad
 
 
 
-## Mobjects: Manim objects
-### Text
+## Manim Objects
+### Text and Tex mobjects
+En Manim podemos renderizar el texto principalmente de dos formas:
+1. Usando **Pango**, que es una biblioteca utilizada para el diseño y dibujo de texto internacional `Text_mobject`.
+2. Usando **LaTeX**, que es un sistema de composición de textos especializado para escribrir lenguaje matemático `Tex_mobject`.
 
-Para añadir un texto tan sólo es necesario utilizar la class `Text`. Quedaría de la siguiente forma:
-
+Por ejemplo, la forma más simple de animar un texto no LaTeX es a través del mobject `Text` :
 ```python
 from manim import *
 class Ejemplo(Scene):
