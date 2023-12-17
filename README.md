@@ -4,7 +4,7 @@
 Tabla de contenidos                  
 ------------------------------------| 
 [Manim: Mathematical Animation Engine](https://www.manim.community/)
-[Manim Objects: `Mobjects`](https://github.com/BrosReys/ManimCE/edit/main/README.md#manim-objects)       
+Manim Objects: `Mobjects`   
 Textos              
 Figuras geométricas                 
 Vectores                             
