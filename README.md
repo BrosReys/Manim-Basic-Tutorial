@@ -1,7 +1,19 @@
 # **ManimCE**
 ### Libreta de código para programar animaciones en ManimCE, para python.
 
-_¿Qué es Manim?_
+Tabla de contenidos                  
+------------------------------------| 
+[Manim: Mathematical Animation Engine](https://www.manim.community/)
+Manim Objects: `Mobjects`         
+Textos              
+Figuras geométricas                 
+Vectores                             
+Gráficos y Funciones                 
+
+
+
+
+## ¿Qué es Manim?
 
 **Manim** es una biblioteca de animación matemática de código abierto desarrollada en Python. El nombre "Manim" proviene de "Mathematical Animation Engine". Fue creado por Grant Sanderson, el creador de la plataforma educativa en línea "3Blue1Brown". 
 
@@ -43,6 +55,8 @@ circulo.set_fill(PINK, opacity=0.5)  # establecer el color y la opacidad
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(72).png)
 
 ## Manim Objects
+En Manim (Mathematical Animation Engine), los "Manim Objects" (`Mobjects`) son las entidades fundamentales que representan diferentes elementos que pueden aparecer y animarse en la pantalla durante una animación matemática. Estos objetos abarcan desde formas geométricas simples hasta objetos más complejos como ecuaciones, gráficos, texto, cámaras, luces, etc.
+
 ### Text and Tex mobjects
 En Manim podemos renderizar el texto principalmente de dos formas:
 1. Usando **Pango**, que es una biblioteca utilizada para el diseño y dibujo de texto internacional `Text_mobject`.
