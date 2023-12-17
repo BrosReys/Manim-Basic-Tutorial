@@ -1,4 +1,4 @@
-# ManimCE
+# **ManimCE**
 ### Libreta de código para programar animaciones en ManimCE, para python.
 
 _¿Qué es Manim?_
@@ -40,9 +40,7 @@ Las próximas dos líneas crean un círculo y establecen, en este caso, su opaci
 circulo = Circle(radius=3)  # crear el círculo
 circulo.set_fill(PINK, opacity=0.5)  # establecer el color y la opacidad
 ```
-
-
-
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(72).png)
 
 ## Manim Objects
 ### Text and Tex mobjects
@@ -65,10 +63,31 @@ class Ejemplo(Scene):
 
 Usamos `stant` para especificar el estilo de texto, que puede ser el por defecto `NORMAL`, o bien `ITALIC` y `OBLIQUE`. Por lo general, el estilo `ITALIC` y el `OBLIQUE` lucen igual, sin embargo, el `ITALIC` usa el _**Roman Style**_, mientras que el `OBLIQUE` utiliza el _**Italic Style**_.
 
+**_¿Cómo usamos las fuentes de texto?_**
+
+Podemos utilizar los distintos tipos de fuentes a través de `font`.
+> Nota: La fuente que utilicemos debe de estar instalada en el sistema, y _Pango_ tiene que saberlo. Podemos insertar una lista fuentes utilizando `manimpango.list_fonts()`.
+> ```python
+>>>>import manimpango
+>>>>manimpango.list_fonts()
+> ```
+A modo de ejemplo, insertemos un texto escrito en la fuente _Noto Sans_.
+```python
+from manim import *
+import manimpango # importar de manimpango
+manimpango.list_fonts()
+class Texto(Scene): # establecer escena
+  def construct(self):
+    Textoejemplo = Text("Soy un texto escrito en Noto Sans.", font="Noto Sans", font_size=50) # Establecemos el texto, su fuente y su tamaño
+    self.play(Write(Textoejemplo)) # añadimos el texto
+    self.wait(3) #esperar tres segundos
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(73).png)
+
 **_¿Cómo ponemos color al texto?_**
 
 Podemos poner color a un texto utilizando `color`. También podemos utilizar `t2c`para especificar los caracteres que queremos pintar. Concretamente `t2c`[^1] acepta dos formas de escritura, aunque la siguiente es la recomendable:
-- Las _keys_ pueden contener índices como `[2:-1]` o `[4:8]`, que funcionan como el "_string slicing_" en python. Los valores deben de estar determinados por el caracter específico al y el color se indicará `color=COLOR`.
+- Las _keys_ pueden contener índices como `[2:-1]` o `[4:8]`, que funcionan como el "_string slicing_" en python. Los valores deben de estar determinados por el caracter específico y el color se indicará `color=COLOR`.
 [^1]:https://realpython.com/python-strings/#string-manipulation
 ```python
 from manim import *
@@ -80,10 +99,7 @@ class Texto(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/main/Captura%20de%20pantalla%20(70).png)
 
-
-
  
-
 Por otro lado, también podemos insertar ecuaciones matemáticas utilizado el mobject `MathTex`:
 ```python
 from manim import *
