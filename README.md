@@ -62,6 +62,17 @@ class Ejemplo(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/main/Captura%20de%20pantalla%20(68).png)
 
+Usamos `stant` para especificar el estilo de texto, que puede ser el por defecto `NORMAL`, o bien `ITALIC` y `OBLIQUE`. Por lo general, el estilo `ITALIC` y el `OBLIQUE` lucen igual, sin embargo, el `ITALIC` usa el _**Roman Style**_, mientras que el `OBLIQUE` utiliza el _**Italic Style**_.
+
 Por otro lado, también podemos insertar ecuaciones matemáticas utilizado el mobject `MathTex`:
 ```python
+from manim import *
+class Latex(Scene):
+  def construct(self):
+    Ecuación = MathTex(r"f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}") # crear ecuación
+    self.play(Create(Ecuación)) # animar ecuación
+    self.wait(4) # esperar cuatro segundos
+```
+![](https://github.com/BrosReys/ManimCE/blob/main/Captura%20de%20pantalla%20(69).png)
+
 
