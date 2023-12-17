@@ -3,7 +3,7 @@
 
 Tabla de contenidos                  
 ------------------------------------| 
-Objetos de Manim: `Mobjects`.  
+[Objetos de Manim: `Mobjects`.](https://github.com/BrosReys/ManimCE/edit/main/README.md#manim-objects)  
 Textos: `Text_mobject` y `Tex_mobject`.             
 Figuras geométricas: `Circle`, `Rectangle`, `Triangle`, etc.                 
 Vectores                             
