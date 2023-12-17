@@ -61,3 +61,7 @@ class Ejemplo(Scene):
     self.play(FadeOut(Texto)) # desaparecer el texto
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/main/Captura%20de%20pantalla%20(68).png)
+
+Por otro lado, también podemos insertar ecuaciones matemáticas utilizado el mobject `MathTex`:
+```python
+
