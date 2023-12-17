@@ -49,6 +49,7 @@ circulo.set_fill(PINK, opacity=0.5)  # establecer el color y la opacidad
 En Manim podemos renderizar el texto principalmente de dos formas:
 1. Usando **Pango**, que es una biblioteca utilizada para el diseño y dibujo de texto internacional `Text_mobject`.
 2. Usando **LaTeX**, que es un sistema de composición de textos especializado para escribrir lenguaje matemático `Tex_mobject`.
+### Texto utilizando **_Pango_**
 
 Por ejemplo, la forma más simple de animar un texto no LaTeX es a través del mobject `Text` :
 ```python
@@ -63,6 +64,11 @@ class Ejemplo(Scene):
 ![](https://github.com/BrosReys/ManimCE/blob/main/Captura%20de%20pantalla%20(68).png)
 
 Usamos `stant` para especificar el estilo de texto, que puede ser el por defecto `NORMAL`, o bien `ITALIC` y `OBLIQUE`. Por lo general, el estilo `ITALIC` y el `OBLIQUE` lucen igual, sin embargo, el `ITALIC` usa el _**Roman Style**_, mientras que el `OBLIQUE` utiliza el _**Italic Style**_.
+
+_¿Cómo ponemos color al texto?_
+
+
+ 
 
 Por otro lado, también podemos insertar ecuaciones matemáticas utilizado el mobject `MathTex`:
 ```python
