@@ -67,9 +67,9 @@ Usamos `stant` para especificar el estilo de texto, que puede ser el por defecto
 
 **_¿Cómo ponemos color al texto?_**
 
-Podemos poner color a un texto utilizando `color`. También podemos utilizar `t2c`para especificar los caracteres que queremos pintar. Concretamente `t2c` acepta dos formas de escritura:
-- Las _keys_ pueden contener índices como `[2:-1]` o `[4:8]`. Los valores deben ser el color del Text de `color`.
-- Las _keys_ contienen palabras que deben de ser coloreados por separado y los valores deben de ser el color de `color`.
+Podemos poner color a un texto utilizando `color`. También podemos utilizar `t2c`para especificar los caracteres que queremos pintar. Concretamente `t2c`[^1] acepta dos formas de escritura, aunque la siguiente es la recomendable:
+- Las _keys_ pueden contener índices como `[2:-1]` o `[4:8]`, que funcionan como el "_string slicing_" en python. Los valores deben de estar determinados por el caracter específico al y el color se indicará `color=COLOR`.
+[^1]:https://realpython.com/python-strings/#string-manipulation
 ```python
 from manim import *
 class Texto(Scene):
@@ -78,7 +78,7 @@ class Texto(Scene):
     self.play(Write(Textocolor)) # animar el texto
     self.wait(3) # esperar durante tres segundos
 ```
-! 
+![](https://github.com/BrosReys/ManimCE/blob/main/Captura%20de%20pantalla%20(70).png)
 
 
 
