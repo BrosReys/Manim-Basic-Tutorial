@@ -56,12 +56,12 @@ Por ejemplo, la forma más simple de animar un texto no LaTeX es a través del m
 from manim import *
 class Ejemplo(Scene):
   def construct(self):
-    Texto = Text("Aquí va el texto") # crear el texto
+    Texto = Text("Soy un texto en ITALIC.", slant=ITALIC) # crear el texto y establecer colo y estilo
     self.play(Write(Texto)) # animar el texto
     self.wait(1) # esperar un segundo
     self.play(FadeOut(Texto)) # desaparecer el texto
 ```
-![](https://github.com/BrosReys/ManimCE/blob/main/Captura%20de%20pantalla%20(68).png)
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(71).png)
 
 Usamos `stant` para especificar el estilo de texto, que puede ser el por defecto `NORMAL`, o bien `ITALIC` y `OBLIQUE`. Por lo general, el estilo `ITALIC` y el `OBLIQUE` lucen igual, sin embargo, el `ITALIC` usa el _**Roman Style**_, mientras que el `OBLIQUE` utiliza el _**Italic Style**_.
 
