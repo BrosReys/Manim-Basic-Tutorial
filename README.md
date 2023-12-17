@@ -4,7 +4,7 @@
 Tabla de contenidos                  
 ------------------------------------| 
 [Manim: Mathematical Animation Engine](https://www.manim.community/)
-Manim Objects: `Mobjects`         
+[Manim Objects: `Mobjects`](https://github.com/BrosReys/ManimCE/edit/main/README.md#:~:text=y%20la%20opacidad-,Manim%20Objects,-En%20Manim%20(Mathematical))         
 Textos              
 Figuras geométricas                 
 Vectores                             
