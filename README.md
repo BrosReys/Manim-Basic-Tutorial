@@ -1,17 +1,6 @@
 # **ManimCE**
 ### Libreta de código para programar animaciones en [ManimCE](https://www.manim.community/), para python.
 
-Tabla de contenidos                  
-------------------------------------| 
-[Objetos de Manim: `Mobjects`.](https://github.com/BrosReys/ManimCE/edit/main/README.md#manim-objects)  
-Textos: `Text_mobject` y `Tex_mobject`.             
-Figuras geométricas: `Circle`, `Rectangle`, `Triangle`, etc.                 
-Vectores                             
-Gráficos y Funciones                 
-
-
-
-
 ## ¿Qué es Manim?
 
 **Manim** es una biblioteca de animación matemática de código abierto desarrollada en Python. El nombre "Manim" proviene de "Mathematical Animation Engine". Fue creado por Grant Sanderson, el creador de la plataforma educativa en línea "3Blue1Brown". 
