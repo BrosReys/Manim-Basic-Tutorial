@@ -65,7 +65,21 @@ class Ejemplo(Scene):
 
 Usamos `stant` para especificar el estilo de texto, que puede ser el por defecto `NORMAL`, o bien `ITALIC` y `OBLIQUE`. Por lo general, el estilo `ITALIC` y el `OBLIQUE` lucen igual, sin embargo, el `ITALIC` usa el _**Roman Style**_, mientras que el `OBLIQUE` utiliza el _**Italic Style**_.
 
-_¿Cómo ponemos color al texto?_
+**_¿Cómo ponemos color al texto?_**
+
+Podemos poner color a un texto utilizando `color`. También podemos utilizar `t2c`para especificar los caracteres que queremos pintar. Concretamente `t2c` acepta dos formas de escritura:
+- Las _keys_ pueden contener índices como `[2:-1]` o `[4:8]`. Los valores deben ser el color del Text de `color`.
+- Las _keys_ contienen palabras que deben de ser coloreados por separado y los valores deben de ser el color de `color`.
+```python
+from manim import *
+class Texto(Scene):
+  def construct(self):
+    Textocolor = Text("Google", t2c={'[0:1]': BLUE,'[1:2]': RED, '[2:3]': YELLOW, '[3:4]': BLUE, '[4:5]': GREEN, '[5:6]': RED}, font_size=144) #establecer texto
+    self.play(Write(Textocolor)) # animar el texto
+    self.wait(3) # esperar durante tres segundos
+```
+! 
+
 
 
  
