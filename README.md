@@ -102,8 +102,8 @@ class Texto(Scene):
     self.play(Write(Textocolor)) # animar el texto
     self.wait(3) # esperar durante tres segundos
 ```
-![](https://github.com/BrosReys/ManimCE/blob/main/Captura%20de%20pantalla%20(70).png)
-
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(70).png)
+   
 ## Texto utilizando LaTeX
  
 Por otro lado, también podemos insertar ecuaciones matemáticas utilizado el mobject `MathTex`:
