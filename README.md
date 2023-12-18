@@ -115,6 +115,20 @@ class Latex(Scene):
     self.play(Create(Ecuación)) # animar ecuación
     self.wait(4) # esperar cuatro segundos
 ```
+## Utilizando gradient
+En Manim, el término "gradient" se refiere generalmente a la transición suave de un color a otro a lo largo de un objeto. Por ejemplo, podemos utilizar gradientes para darle un aspecto más atractivo a las animaciones, especialmente en situaciones donde deseamos resaltar la estructura o forma de un objeto mediante una variación gradual de colores.
+
+Para implementar los colores gradientes en el texto, utilizamos `gradient=COLOR1, COLOR2`. De esta forma establecemos un gradiente conformado por los colores que hemos nombrado.
+```python
+from manim import *
+class TextoGradiente(Scene):
+  def construct(self):
+    gradiente = Text("Soy un texto gradiente.", gradient=(BLUE, PINK), font_size=50) # establecer texto gradiente
+    self.play(Write(gradiente)) # escribir el texto
+    self.wait(3) # esperar tres segundos
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(74).png)
+
 ![](https://github.com/BrosReys/ManimCE/blob/main/Captura%20de%20pantalla%20(69).png)
 
 
