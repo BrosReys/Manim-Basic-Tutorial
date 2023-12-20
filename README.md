@@ -121,6 +121,7 @@ class TextoGradiente(Scene):
 ## Texto utilizando LaTeX
  
 Por otro lado, también podemos insertar ecuaciones matemáticas utilizado LaTeX[^2] mediante el mobject `MathTex`. 
+
 En el contexto de la librería de animación matemática Manim, `MathTex` es una clase que se utiliza para renderizar expresiones matemáticas escritas en el formato LaTeX. LaTeX es un sistema de composición de documentos que se utiliza ampliamente para la creación de documentos científicos y matemáticos debido a su capacidad para producir fórmulas matemáticas de alta calidad.
 
 A modo de ejemplo, escribamos la fórmula general de la derivada de una función:
@@ -134,7 +135,19 @@ class Latex(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(75).png)
 
-
+### Lista con viñetas
+En Manim podemos crear una lista de viñetas utilizando `BulletedList`:
+```python
+from manim import *
+class ListadeViñetas(Scene):
+  def construct(self):
+    lista = BulletedList("Zanahorias", "Manzanas", "Fresas") # establecer los ítems de la lista
+    lista.set_color_by_tex("Zanahorias", color=ORANGE) # color
+    lista.set_color_by_tex("Manzanas", color=GREEN) # color
+    lista.set_color_by_tex("Fresas", color=PINK) # color
+    self.play(Create(lista), run_time=3) # animar la lista
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(76).png)
 
 
 
