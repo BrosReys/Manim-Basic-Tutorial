@@ -158,6 +158,10 @@ class Título(Scene):
     título = Title("Soy un título") # establecemos un título
     self.add(título) # añadimos el título
 ```
+# VMobject (Vectorized Movable Object)
+En Manim, la clase `VMobject` sirve como base para la creación de diversas figuras y objetos visuales en animaciones matemáticas. Estos son unos de los aspectos claves de _VMobject_:
+1. "_Vectorized_": Se refiere a que los 
+
 
 
 
