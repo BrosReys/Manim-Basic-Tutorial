@@ -149,6 +149,17 @@ class ListadeViñetas(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(76).png)
 
+### Títulos
+Podemos poner títulos utilizando `Title`, es decir:
+```python
+from manim import *
+class Título(Scene):
+  def construct(self):
+    título = Title("Soy un título") # establecemos un título
+    self.add(título) # añadimos el título
+```
+
+
 
 
 
