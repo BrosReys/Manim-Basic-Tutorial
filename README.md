@@ -103,18 +103,7 @@ class Texto(Scene):
     self.wait(3) # esperar durante tres segundos
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(70).png)
-   
-## Texto utilizando LaTeX
- 
-Por otro lado, también podemos insertar ecuaciones matemáticas utilizado el mobject `MathTex`:
-```python
-from manim import *
-class Latex(Scene):
-  def construct(self):
-    Ecuación = MathTex(r"f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}") # crear ecuación
-    self.play(Create(Ecuación)) # animar ecuación
-    self.wait(4) # esperar cuatro segundos
-```
+
 ## Utilizando gradient
 En Manim, el término "gradient" se refiere generalmente a la transición suave de un color a otro a lo largo de un objeto. Por ejemplo, podemos utilizar gradientes para darle un aspecto más atractivo a las animaciones, especialmente en situaciones donde deseamos resaltar la estructura o forma de un objeto mediante una variación gradual de colores.
 
@@ -129,6 +118,26 @@ class TextoGradiente(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(74).png)
 
-![](https://github.com/BrosReys/ManimCE/blob/main/Captura%20de%20pantalla%20(69).png)
+## Texto utilizando LaTeX
+ 
+Por otro lado, también podemos insertar ecuaciones matemáticas utilizado LaTeX[^2] mediante el mobject `MathTex`. 
+En el contexto de la librería de animación matemática Manim, `MathTex` es una clase que se utiliza para renderizar expresiones matemáticas escritas en el formato LaTeX. LaTeX es un sistema de composición de documentos que se utiliza ampliamente para la creación de documentos científicos y matemáticos debido a su capacidad para producir fórmulas matemáticas de alta calidad.
+
+A modo de ejemplo, escribamos la fórmula general de la derivada de una función:
+```python
+from manim import *
+class Latex(Scene):
+  def construct(self):
+    Ecuación = MathTex(r"\frac{d}{dx}f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}").set_color_by_gradient(BLUE, ORANGE) # crear la ecuación utilizando LaTeX
+    self.play(Write(Ecuación)) # escribir la ecuación
+    self.wait(4) # esperar cuatro segundos
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(75).png)
 
 
+
+
+
+
+
+[^2]:https://manualdelatex.com/
