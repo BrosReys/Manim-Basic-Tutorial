@@ -193,8 +193,8 @@ class Polígonos(Scene):
 En este caso hemos creado un polígono de nueve lados, de color rojo y opacidad 0.5.
 
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(77).png)
-## [Posicionamiento](https://www.youtube.com/watch?v=1Fv0Nu-Tb7Q&t=676s) en Manim
-Antes de utilizar las clases mencionadas anteriormente, es importante entender como funciona el posicionamiento en Manim. Concretamente, se realiza mediante la especificación de puntos en un sistema de coordenadas tridimensional. Podemos utilizar las coordenadas `x, y, y z` para definir la posición de los elementos en la escena. Estas son algunas de las pautas para entender cómo funciona el posicionamiento en Manim:
+## Posicionamiento en Manim
+Antes de utilizar las clases mencionadas anteriormente, es importante entender como funciona el posicionamiento[^3] en Manim. Concretamente, se realiza mediante la especificación de puntos en un sistema de coordenadas tridimensional. Podemos utilizar las coordenadas `x, y, y z` para definir la posición de los elementos en la escena. Estas son algunas de las pautas para entender cómo funciona el posicionamiento en Manim:
 - Coordenadas básicas
     - _X_: Posición horizontal (derecha/izquierda).
     - _Y_: Posición vertical (arriba/abajo).
@@ -242,3 +242,4 @@ class Puntos(Scene):
 
 
 [^2]: Como usar LaTeX: https://manualdelatex.com/
+[^3]: Vídeo tutorial de posicionamiento: https://www.youtube.com/watch?v=1Fv0Nu-Tb7Q&t=676s
