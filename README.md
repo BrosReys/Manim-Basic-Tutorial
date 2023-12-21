@@ -92,8 +92,7 @@ class Texto(Scene): # establecer escena
 ### ¿Cómo ponemos color al texto?
 
 Podemos poner color a un texto utilizando `color`. También podemos utilizar `t2c`para especificar los caracteres que queremos pintar. Concretamente `t2c`[^1] acepta dos formas de escritura, aunque la siguiente es la recomendable:
-- Las _keys_ pueden contener índices como `[2:-1]` o `[4:8]`, que funcionan como el "_string slicing_" en python. Los valores deben de estar determinados por el caracter específico y el color se indicará `color=COLOR`.
-[^1]:https://realpython.com/python-strings/#string-manipulation
+- Las _keys_ pueden contener índices como `[2:-1]` o `[4:8]`, que funcionan como el ["_string slicing_"](https://realpython.com/python-strings/#string-manipulation) en python. Los valores deben de estar determinados por el caracter específico y el color se indicará `color=COLOR`.
 ```python
 from manim import *
 class Texto(Scene):
@@ -159,13 +158,40 @@ class Título(Scene):
     self.add(título) # añadimos el título
 ```
 # VMobject (Vectorized Movable Object)
-En Manim, la clase `VMobject` sirve como base para la creación de diversas figuras y objetos visuales en animaciones matemáticas. Estos son unos de los aspectos claves de _VMobject_:
+En Manim, la clase `VMobject` sirve como base para la creación de diversas figuras y objetos visuales en animaciones matemáticas. Estos son algunos de los aspectos claves de _VMobject_:
 1. "_Vectorized_": Se refiere a que las formas `VMobject` están definidas en términos de vectores, lo que permite una representación eficiente ya que los vectores pueden describir direcciones, magnitudes y formas en el espacio.
 2. "_Movable_": Los `VMobject` son móviles, es decir, se pueden trasladar por toda la pantalla y, de esta forma, crear animaciones dinámicas.
 3. "_Manipulación de propiedades_": Se pueden manipular diversas propiedades como la posición, la escala, el color, la opacidad, entre otras.
 
 A modo de ejemplo:
 ```python
+from manim import *
+class VMobjects(Scene):
+  def construct(self):
+    círculo = Circle(radius=2, color=ORANGE, fill_opacity=0.5) # establecemos el círculo
+    cuadrado = Square(color=BLUE, fill_opacity=0.5) # creamos el cuadrado
+    self.play(Create(círculo), run_time=2) #animamos el círculo
+    self.play(Transform(círculo, cuadrado), run_time=3) # hacemos la transformación
+    self.wait(3)
+```
+En este caso, hemos creado un círculo utilizando `Circle` y un cuadrado `Square` para, posteriormente, animar ambos VMobjects. Concretamente, hemos transformado el círculo al cuadrado mediante `Transform`.
+```python
+self.play(Transform(círculo, cuadrado), run_time=3) # hacemos la transformación
+```
+### Polígonos regulares de _n_ lados
+La librería de Manim contiene figuras geométricas muy variadas tales como los polígonos regulares, estrellas y círculos que podemos modificar sus parámetros según nuestras necesidades.
+
+Los polígonos regulares son aquellos que creamos mediante `RegularPolygon` e indicamos sus lados utilizando `n=Xlados`. Por ejemplo:
+```python
+from manim import *
+class Polígonos(Scene):
+  def construct(self):
+    polígono = RegularPolygon(n=9, color=RED, fill_opacity=0.5) # establecemos el polígono
+    self.play(Create(polígono), run_time=3) # creamos el polígono
+    self.wait()
+```
+En este caso hemos creado un polígono de nueve lados, de color rojo y opacidad 0.5.
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(77).png)
 
 
 
@@ -175,4 +201,8 @@ A modo de ejemplo:
 
 
 
-[^2]:https://manualdelatex.com/
+
+
+
+
+[^2]: Como usar LaTeX: https://manualdelatex.com/
