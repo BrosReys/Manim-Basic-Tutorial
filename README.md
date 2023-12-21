@@ -209,7 +209,7 @@ Para visualizar mejor el posicionamiento de los `Mobjects` podemos utilizar un p
 >>>self.add(Plano)
 ```
 ### Puntos
-Los puntos los representamos utilizando `Dot`, que representa un punto en el espacio y se puede colocar en una escena en una ubicación específica. 
+Los puntos los representamos utilizando `Dot`, que representa un punto en el espacio y se puede colocar en una escena en una ubicación específica. Para indicar la ubicación del punto en el espacio utilizamos el sistema de coordenadas `x, y e z` mediante `point=[x,y,z]`.
 ```python
 from manim import *
 class Puntos(Scene):
