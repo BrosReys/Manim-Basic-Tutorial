@@ -170,7 +170,7 @@ class VMobjects(Scene):
   def construct(self):
     círculo = Circle(radius=2, color=ORANGE, fill_opacity=0.5) # establecemos el círculo
     cuadrado = Square(color=BLUE, fill_opacity=0.5) # creamos el cuadrado
-    self.play(Create(círculo), run_time=2) #animamos el círculo
+    self.play(Create(círculo), run_time=2) # animamos el círculo
     self.play(Transform(círculo, cuadrado), run_time=3) # hacemos la transformación
     self.wait(3)
 ```
@@ -228,6 +228,31 @@ class Puntos(Scene):
     self.add(Punto1, Punto2, Punto3)
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20Plano.png)
+
+Los puntos son la forma mas fácil de entender las posiciones en Manim, sin embargo, también podemos utilizar las posiciones para otros tipos de `Mobjects` , tal es el caso de las figuras geométricas e incluso el texto. A modo de ejemplo:
+```python
+from manim import *
+class Puntos(Scene):
+  def construct(self):
+
+    # establecemos los Mobjects principales
+
+    cuadrado = Square(color=GREY, fill_opacity=0.5)
+    rectángulo = Rectangle(width=3, height=1.5, fill_opacity=0.5).set_color_by_gradient(BLUE, RED)
+
+    # configuramos la posición 
+
+    cuadrado.move_to([3,2,1])
+    rectángulo.move_to([-3,-2,2])
+
+    # animamos las figuras
+
+    self.play(Create(cuadrado), run_time=3)
+    self.play(Create(rectángulo))
+    self.wait()
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(78).png)
+
 
 
 
