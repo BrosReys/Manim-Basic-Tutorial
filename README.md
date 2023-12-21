@@ -191,7 +191,9 @@ class Polígonos(Scene):
     self.wait()
 ```
 En este caso hemos creado un polígono de nueve lados, de color rojo y opacidad 0.5.
+
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(77).png)
+### Puntos, Flechas y Vectores
 
 
 
