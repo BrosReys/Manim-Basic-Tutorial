@@ -134,7 +134,7 @@ class Latex(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(75).png)
 
-### Lista con viñetas
+## Lista con viñetas
 En Manim podemos crear una lista de viñetas utilizando `BulletedList`:
 ```python
 from manim import *
@@ -148,7 +148,7 @@ class ListadeViñetas(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(76).png)
 
-### Títulos
+## Títulos
 Podemos poner títulos utilizando `Title`, es decir:
 ```python
 from manim import *
@@ -178,7 +178,7 @@ En este caso, hemos creado un círculo utilizando `Circle` y un cuadrado `Square
 ```python
 self.play(Transform(círculo, cuadrado), run_time=3) # hacemos la transformación
 ```
-### Polígonos regulares de _n_ lados
+## Polígonos regulares de _n_ lados
 La librería de Manim contiene figuras geométricas muy variadas tales como los polígonos regulares, estrellas y círculos que podemos modificar sus parámetros según nuestras necesidades.
 
 Los polígonos regulares son aquellos que creamos mediante `RegularPolygon` e indicamos sus lados utilizando `n=Xlados`. Por ejemplo:
@@ -193,7 +193,7 @@ class Polígonos(Scene):
 En este caso hemos creado un polígono de nueve lados, de color rojo y opacidad 0.5.
 
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(77).png)
-### Puntos, Flechas y Vectores
+## Puntos, Flechas y Vectores
 Antes de utilizar las clases mencionadas anteriormente, es importante entender como funciona el posicionamiento en Manim. Concretamente, se realiza mediante la especificación de puntos en un sistema de coordenadas tridimensional. Podemos utilizar las coordenadas `x, y, y z` para definir la posición de los elementos en la escena. Estas son algunas de las pautas para entender cómo funciona el posicionamiento en Manim:
 - Coordenadas básicas
     - _X_: Posición horizontal (derecha/izquierda).
@@ -204,10 +204,10 @@ Antes de utilizar las clases mencionadas anteriormente, es importante entender c
     - _Mano de derecha_: Manim sigue una convención de mano derecha para las coordenadas tridimensionales.
 Para visualizar mejor el posicionamiento de los `Mobjects` podemos utilizar un plano de coordenadas. Es decir:
 ```python
->>>
-Plano = Plane()
-self.add(Plano)
-```  
+>>>Plano = Plane()
+>>>self.add(Plano)
+```
+
 
 
 
