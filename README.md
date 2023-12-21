@@ -46,7 +46,7 @@ circulo.set_fill(PINK, opacity=0.5)  # establecer el color y la opacidad
 
 En Manim (Mathematical Animation Engine), los "Manim Objects" (`Mobjects`) son las entidades fundamentales que representan diferentes elementos que pueden aparecer y animarse en la pantalla durante una animación matemática. Estos objetos abarcan desde formas geométricas simples hasta objetos más complejos como ecuaciones, gráficos, texto, cámaras, luces, etc.
 
-### `Text` and `Tex` mobjects
+## Text and `Tex mobjects
 
 En Manim podemos renderizar el texto principalmente de dos formas:
 1. Usando **Pango**, que es una biblioteca utilizada para el diseño y dibujo de texto internacional `Text_mobject`.
