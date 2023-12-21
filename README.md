@@ -179,7 +179,7 @@ En este caso, hemos creado un círculo utilizando `Circle` y un cuadrado `Square
 self.play(Transform(círculo, cuadrado), run_time=3) # hacemos la transformación
 ```
 ## Polígonos regulares de _n_ lados
-La librería de Manim contiene figuras geométricas muy variadas tales como los polígonos regulares, estrellas y círculos que podemos modificar sus parámetros según nuestras necesidades.
+La librería de Manim contiene figuras geométricas muy variadas tales como los polígonos regulares, estrellas y círculos que podemos modificar según nuestras necesidades.
 
 Los polígonos regulares son aquellos que creamos mediante `RegularPolygon` e indicamos sus lados utilizando `n=Xlados`. Por ejemplo:
 ```python
@@ -202,12 +202,32 @@ Antes de utilizar las clases mencionadas anteriormente, es importante entender c
 - Sistema de coordenadas
     - _Plano XY_: Si solo se especifica _X_ e _Y_ y dejas _Z_ en cero, trabajas en el plano _XY_.
     - _Mano de derecha_: Manim sigue una convención de mano derecha para las coordenadas tridimensionales.
+
 Para visualizar mejor el posicionamiento de los `Mobjects` podemos utilizar un plano de coordenadas. Es decir:
 ```python
 >>>Plano = Plane()
 >>>self.add(Plano)
 ```
+### Puntos
+Los puntos los representamos utilizando `Dot`, que representa un punto en el espacio y se puede colocar en una escena en una ubicación específica. 
+```python
+from manim import *
+class Puntos(Scene):
+  def construct(self):
+    Plano = NumberPlane() # establecemos el plano 
+    self.add(Plano)
 
+    # configuramos los puntos
+
+    Punto1 = Dot(color=BLUE)
+    Punto2 = Dot(color=PINK, point=[2,2,0])
+    Punto3 = Dot(color=RED, point=[4,3,2])
+
+    # añadimos los puntos
+
+    self.add(Punto1, Punto2, Punto3)
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20Plano.png)
 
 
 
