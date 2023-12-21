@@ -160,7 +160,14 @@ class Título(Scene):
 ```
 # VMobject (Vectorized Movable Object)
 En Manim, la clase `VMobject` sirve como base para la creación de diversas figuras y objetos visuales en animaciones matemáticas. Estos son unos de los aspectos claves de _VMobject_:
-1. "_Vectorized_": Se refiere a que los 
+1. "_Vectorized_": Se refiere a que las formas `VMobject` están definidas en términos de vectores, lo que permite una representación eficiente ya que los vectores pueden describir direcciones, magnitudes y formas en el espacio.
+2. "_Movable_": Los `VMobject` son móviles, es decir, se pueden trasladar por toda la pantalla y, de esta forma, crear animaciones dinámicas.
+3. "_Manipulación de propiedades_": Se pueden manipular diversas propiedades como la posición, la escala, el color, la opacidad, entre otras.
+
+A modo de ejemplo:
+```python
+
+
 
 
 
