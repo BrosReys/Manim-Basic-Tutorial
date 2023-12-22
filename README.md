@@ -1,11 +1,16 @@
-# **ManimCE**
-### Libreta de código para programar animaciones en [ManimCE](https://www.manim.community/), para python.
+# **Manim (Mathematical Animation Engine)**
+### Libreta de código para programar animaciones en [Manim](https://www.manim.community/), para python.
 
 ## ¿Qué es Manim?
 
-**Manim** es una biblioteca de animación matemática de código abierto desarrollada en Python. El nombre "Manim" proviene de "Mathematical Animation Engine". Fue creado por Grant Sanderson, el creador de la plataforma educativa en línea "3Blue1Brown". 
+**Manim** es una biblioteca de animación matemática de código abierto, concebida por Grant Sanderson, el creador de la plataforma educativa [3Blue1Brown](https://www.3blue1brown.com/). El nombre "Manim" proviene de "Mathematical Animation Engine". Lo que hace que Manim sea excepcional es su capacidad para permitir a los usuarios crear animaciones interactivas y visualizaciones matemáticas de alta calidad.
 
-Manim permite a los usuarios crear animaciones interactivas y visualizaciones matemáticas de alta calidad. Es particularmente útil para explicar conceptos matemáticos de manera intuitiva, ya que las animaciones pueden proporcionar una comprensión más clara y profunda de los temas.
+La librería destaca por su versatilidad y su capacidad para simplificar la explicación de conceptos matemáticos complejos. Las animaciones generadas por Manim no solo son estéticamente atractivas, sino que también ofrecen una comprensión más clara y profunda de los temas, pues facilita la enseñanza y el aprendizaje de conceptos matemáticos de manera intuitiva. La flexibilidad de Manim permite a los creadores personalizar y ajustar las animaciones según sus necesidades, convirtiéndolo en una herramienta valiosa para la educación y la divulgación matemática.
+
+### Python y Manim
+Manim utiliza [Python](https://www.python.org/) como lenguaje de programación principal. Python es un lenguaje de programación de alto nivel, fácil de aprender y de sintaxis clara, lo que lo hace adecuado para la creación rápida de prototipos y el desarrollo eficiente. Manim se beneficia de las características poderosas de Python y su amplio ecosistema de bibliotecas.
+
+El flujo de trabajo típico en Manim implica la creación de escenas y objetos gráficos mediante la definición de clases y métodos en Python. La biblioteca utiliza la sintaxis de Python para describir las animaciones y la disposición de los elementos en la escena.
 
 Por ejemplo:
 
@@ -123,9 +128,9 @@ class TextoGradiente(Scene):
 
 ## Texto utilizando LaTeX
  
-Por otro lado, también podemos insertar ecuaciones matemáticas utilizado LaTeX[^2] mediante el mobject `MathTex`. 
+Por otro lado, también podemos insertar ecuaciones matemáticas utilizando LaTeX[^2] mediante el mobject `MathTex`. 
 
-En el contexto de la librería de animación matemática Manim, `MathTex` es una clase que se utiliza para renderizar expresiones matemáticas escritas en el formato LaTeX. LaTeX es un sistema de composición de documentos que se utiliza ampliamente para la creación de documentos científicos y matemáticos debido a su capacidad para producir fórmulas matemáticas de alta calidad.
+En el contexto de la librería de animación matemática Manim, `MathTex` es una clase que se utiliza para renderizar expresiones matemáticas escritas en el formato LaTeX: un sistema de composición de documentos que se utiliza ampliamente para la creación de documentos científicos y matemáticos debido a su capacidad para producir fórmulas matemáticas de alta calidad.
 
 A modo de ejemplo, escribamos la fórmula general de la derivada de una función:
 ```python
@@ -182,21 +187,6 @@ En este caso, hemos creado un círculo utilizando `Circle` y un cuadrado `Square
 ```python
 self.play(Transform(círculo, cuadrado), run_time=3) # hacemos la transformación
 ```
-## Polígonos regulares de _n_ lados
-La librería de Manim contiene figuras geométricas muy variadas tales como los polígonos regulares, estrellas y círculos que podemos modificar según nuestras necesidades.
-
-Los polígonos regulares son aquellos que creamos mediante `RegularPolygon` e indicamos sus lados utilizando `n=Xlados`. Por ejemplo:
-```python
-from manim import *
-class Polígonos(Scene):
-  def construct(self):
-    polígono = RegularPolygon(n=9, color=RED, fill_opacity=0.5) # establecemos el polígono
-    self.play(Create(polígono), run_time=3) # creamos el polígono
-    self.wait()
-```
-En este caso hemos creado un polígono de nueve lados, de color rojo y opacidad 0.5.
-
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(77).png)
 ## Posicionamiento en Manim
 Antes de utilizar las clases mencionadas anteriormente, es importante entender como funciona el posicionamiento[^3] en Manim. Concretamente, se realiza mediante la especificación de puntos en un sistema de coordenadas tridimensional. Podemos utilizar las coordenadas `x, y, z` para definir la posición de los elementos en la escena. Estas son algunas de las pautas para entender cómo funciona el posicionamiento en Manim:
 - Coordenadas básicas
@@ -257,7 +247,21 @@ class Puntos(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(78).png)
 
+## Polígonos regulares de _n_ lados
+La librería de Manim contiene figuras geométricas muy variadas tales como los polígonos regulares, estrellas y círculos que podemos modificar según nuestras necesidades.
 
+Los polígonos regulares son aquellos que creamos mediante `RegularPolygon` e indicamos sus lados utilizando `n=Xlados`. Por ejemplo:
+```python
+from manim import *
+class Polígonos(Scene):
+  def construct(self):
+    polígono = RegularPolygon(n=9, color=RED, fill_opacity=0.5) # establecemos el polígono
+    self.play(Create(polígono), run_time=3) # creamos el polígono
+    self.wait()
+```
+En este caso hemos creado un polígono de nueve lados, de color rojo y opacidad 0.5.
+
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(77).png)
 
 
 
