@@ -106,7 +106,11 @@ class Texto(Scene):
 ## Utilizando gradient
 En Manim, el término "gradient" se refiere generalmente a la transición suave de un color a otro a lo largo de un objeto. Por ejemplo, podemos utilizar gradientes para darle un aspecto más atractivo a las animaciones, especialmente en situaciones donde deseamos resaltar la estructura o forma de un objeto mediante una variación gradual de colores.
 
-Para implementar los colores gradientes en el texto, utilizamos `gradient=COLOR1, COLOR2`. De esta forma establecemos un gradiente conformado por los colores que hemos nombrado.
+Para implementar los colores gradientes en el texto, utilizamos:
+- `gradient=COLOR1, COLOR2`
+- `Mobject.set_color_by_gradient(COLOR1, COLOR2)`
+  
+De esta forma establecemos un gradiente conformado por los colores que hemos nombrado.
 ```python
 from manim import *
 class TextoGradiente(Scene):
