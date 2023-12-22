@@ -223,7 +223,7 @@ class Puntos(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20Plano.png)
 
-### Figuraas geométricas 
+### Figuras geométricas 
 Los puntos son la forma mas fácil de entender las posiciones en Manim, sin embargo, también podemos utilizar las posiciones para otros tipos de `Mobjects` , tal es el caso de las figuras geométricas e incluso el texto. A modo de ejemplo:
 ```python
 from manim import *
