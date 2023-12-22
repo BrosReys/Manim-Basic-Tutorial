@@ -310,9 +310,35 @@ class Shift(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20posici%C3%B3n%202.png)
 
+### Animar los movimientos
 Hasta el momento hemos determinado las posiciones mediante los métodos `shift` , `move_to` y `next_to`, que logran el posicionamiento inicial de los Mobjects, pero no su desplazamiento. Por ello, con el objetivo de lograr el movimiento de las distintas figuras, utilizaremos el método `animate`, que luce de la siguiente forma:
 ```python
 self.play(figura1.animate.move_to([-2,-1,1]))
+```
+Por ejemplo, imaginemos la siguiente animación:
+```python
+from manim import *
+class AnimarMov(Scene):
+  def construct(self):
+
+    # establecemos los Mobjects principales
+
+    Mobject0 = Dot(color=GREEN,
+                   radius=0.2,
+                   fill_opacity=1,
+                   point=([0,0,0])
+                   )
+    Mobject1 = Circle(radius=1, color=GREEN)
+    Mobject1.set_fill(color=RED, opacity=0.5)
+
+    # fijamos los Mobjects y realizamos las animaciones
+
+    self.add(Mobject0)
+    self.add(Mobject1)
+    self.play(Mobject1.animate.move_to([-3,0,0]))
+    self.wait()
+    self.play(Mobject0.animate.move_to([3,0,0]))
+    self.wait()
 ```
 
 
