@@ -362,6 +362,9 @@ En este caso hemos creado un polígono de nueve lados, de color rojo y opacidad 
 
 
 
+## Ejes y funciones
+
+
 
 
 
