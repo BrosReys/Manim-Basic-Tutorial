@@ -223,6 +223,7 @@ class Puntos(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20Plano.png)
 
+### Figuraas geométricas 
 Los puntos son la forma mas fácil de entender las posiciones en Manim, sin embargo, también podemos utilizar las posiciones para otros tipos de `Mobjects` , tal es el caso de las figuras geométricas e incluso el texto. A modo de ejemplo:
 ```python
 from manim import *
@@ -246,6 +247,74 @@ class Puntos(Scene):
     self.wait()
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(78).png)
+
+Entonces, para establecer una posición concreta para un Mobject utilizamos `.move_to([x,y,z])`. No obstante, podemos utilizar otros tipos de métodos tales como:
+- Método `next_to(Mobject, POSITION)`, con el próposito de colocar los `Mobjects` cerca de otros, para ello usamos `UP` , `DOWN` , `RIGHT` , `LEFT` .
+- Método `shift([x,y,z)]` or `shift(Time*POSITION)`.
+
+De esta forma:
+```python
+from manim import *
+class Movimiento(Scene):
+  def construct(self):
+   
+   # fijamos un plano para visualizar las posiciones
+
+   Plano = NumberPlane()
+   self.add(Plano)
+
+   # creamos los Mobjects
+
+   texto1 = Text("Soy un triángulo", font_size=20)
+   texto2 = Text("Soy una estrella", font_size=20)
+   triángulo = Triangle(color=YELLOW_E)
+   triángulo.set_fill(opacity=0.5, color=RED_C)
+   estrella = Star(color=GREEN_D).scale(2)
+   estrella.set_fill(opacity=0.5, color=GREEN)
+
+   # determinamos las posiciones
+
+   triángulo.move_to([-4,0,0])
+   texto1.next_to(triángulo, UP)
+   estrella.move_to([4,0,0])
+   texto2.next_to(estrella, UP)
+
+   # añadimos las figuras
+
+   self.add(texto1, texto2, triángulo, estrella)
+ ```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20posici%C3%B3n.png)
+
+Por otro lado, si utilizamos el método `shift`, haremos lo siguiente:
+```python
+from manim import *
+class Shift(Scene):
+  def construct(self):
+
+    # determinamos las figuras
+
+    figura1 = RegularPolygon(n=5, color=PURPLE)
+    figura1.set_fill(opacity=0.5, color=GREEN)
+    figura2 = RegularPolygon(n=6, color=RED_C)
+    figura2.set_fill(opacity=0.5, color=BLUE_C)
+
+    # fijamos las posiciones 
+    
+    figura1.shift([-3,0,0])
+    figura2.shift(2*RIGHT + 1*UP)
+
+    # añadimos ambas figuras
+
+    self.add(figura1)
+    self.add(figura2)
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20posici%C3%B3n%202.png)
+
+Hasta el momento hemos determinado las posiciones mediante los métodos `shift` , `move_to` y `next_to`, que logran el posicionamiento inicial de los Mobjects, pero no su desplazamiento. Por ello, con el objetivo de lograr el movimiento de las distintas figuras, utilizaremos el método `animate`, que luce de la siguiente forma:
+```python
+self.play(figura1.animate.move_to([-2,-1,1]))
+```
+
 
 ## Polígonos regulares de _n_ lados
 La librería de Manim contiene figuras geométricas muy variadas tales como los polígonos regulares, estrellas y círculos que podemos modificar según nuestras necesidades.
