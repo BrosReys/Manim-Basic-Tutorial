@@ -5,7 +5,7 @@
 
 **Manim** es una biblioteca de animación matemática de código abierto, concebida por Grant Sanderson, el creador de la plataforma educativa [3Blue1Brown](https://www.3blue1brown.com/). El nombre "Manim" proviene de "Mathematical Animation Engine". Lo que hace que Manim sea excepcional es su capacidad para permitir a los usuarios crear animaciones interactivas y visualizaciones matemáticas de alta calidad.
 
-La librería destaca por su versatilidad y su capacidad para simplificar la explicación de conceptos matemáticos complejos. Las animaciones generadas por Manim no solo son estéticamente atractivas, sino que también ofrecen una comprensión más clara y profunda de los temas, pues facilita la enseñanza y el aprendizaje de conceptos matemáticos de manera intuitiva. La flexibilidad de Manim permite a los creadores personalizar y ajustar las animaciones según sus necesidades, convirtiéndolo en una herramienta valiosa para la educación y la divulgación matemática.
+La librería se destaca por su versatilidad y su capacidad para simplificar la explicación de conceptos matemáticos complejos. Las animaciones generadas por Manim no solo son estéticamente atractivas, sino que también ofrecen una comprensión más clara y profunda de los temas, pues facilita la enseñanza y el aprendizaje de conceptos matemáticos de manera intuitiva. La flexibilidad de Manim permite a los creadores personalizar y ajustar las animaciones según sus necesidades, convirtiéndolo en una herramienta valiosa para la educación y la divulgación matemática.
 
 ### Python y Manim
 Manim utiliza [Python](https://www.python.org/) como lenguaje de programación principal. Python es un lenguaje de programación de alto nivel, fácil de aprender y de sintaxis clara, lo que lo hace adecuado para la creación rápida de prototipos y el desarrollo eficiente. Manim se beneficia de las características poderosas de Python y su amplio ecosistema de bibliotecas.
@@ -108,6 +108,31 @@ class Texto(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(70).png)
 
+Por otro lado, _Pango_ también nos permite configurar el ancho del texto a través de `weight="TIPO DE WEIGHT"`. A modo de ejemplo, insertemos un texto escrito en la fuente Roboto, concretamente en BOLD.
+```python
+from manim import *
+import manimpango
+
+class WeightHEAVY(Scene):
+  def construct(self):
+
+    # establecemos el texto y sus configuraciones
+
+    Texto = Text("¡Hola Manim!",
+                 font="Roboto",
+                 font_size=50,
+                 weight="BOLD"
+                 )
+    
+    # animamos el texto
+
+    self.add(Texto)
+```
+>[!NOTE]
+>Los distintos tipos de `weight` lucen de la siguiente forma, asegúrate de utilizar el que mejor te convenga.
+
+![](https://github.com/BrosReys/ManimCE/blob/Images/DifferentWeights.png)
+
 ### ¿Cómo animamos el texto?
 La librería de Manim ofrece numerosas formas de introducir/quitar el texto que podemos utilizar mediante los siguientes métodos de animación:
 ```python
@@ -142,30 +167,6 @@ class AnimTexto(Scene):
     self.play(FadeIn(Ejemplot))
     self.play(FadeOut(Ejemplot))
 ```
-Por otro lado, _Pango_ también nos permite configurar el ancho del texto a través de `weight="TIPO DE WEIGHT"`. A modo de ejemplo, insertemos un texto escrito en la fuente Roboto, concretamente en BOLD.
-```python
-from manim import *
-import manimpango
-
-class WeightHEAVY(Scene):
-  def construct(self):
-
-    # establecemos el texto y sus configuraciones
-
-    Texto = Text("¡Hola Manim!",
-                 font="Roboto",
-                 font_size=50,
-                 weight="BOLD"
-                 )
-    
-    # animamos el texto
-
-    self.add(Texto)
-```
->[!NOTE]
->Los distintos tipos de `weight` lucen de la siguiente forma, asegúrate de utilizar el que mejor te convenga.
-
-![](https://github.com/BrosReys/ManimCE/blob/Images/DifferentWeights.png)
 
 ## Utilizando gradient
 En Manim, el término "gradient" se refiere generalmente a la transición suave de un color a otro a lo largo de un objeto. Por ejemplo, podemos utilizar gradientes para darle un aspecto más atractivo a las animaciones, especialmente en situaciones donde deseamos resaltar la estructura o forma de un objeto mediante una variación gradual de colores.
@@ -282,9 +283,9 @@ class Puntos(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20Plano.png)
 
-### Figuras geométricas 
+## Figuras geométricas 
 Los puntos son la forma mas fácil de entender las posiciones en Manim, sin embargo, también podemos utilizar las posiciones para otros tipos de `Mobjects` , tal es el caso de las figuras geométricas e incluso el texto.
-## Polígonos regulares de _n_ lados
+### Polígonos regulares de _n_ lados
 La librería de Manim contiene figuras geométricas muy variadas tales como los polígonos regulares, estrellas y círculos que podemos modificar según nuestras necesidades.
 
 Los polígonos regulares son aquellos que creamos mediante `RegularPolygon` e indicamos sus lados utilizando `n=Xlados`. Por ejemplo:
@@ -464,27 +465,6 @@ class Animate(Scene):
     self.wait()
     self.play(FadeOut(Punto))
 ```
-
-## Polígonos regulares de _n_ lados
-La librería de Manim contiene figuras geométricas muy variadas tales como los polígonos regulares, estrellas y círculos que podemos modificar según nuestras necesidades.
-
-Los polígonos regulares son aquellos que creamos mediante `RegularPolygon` e indicamos sus lados utilizando `n=Xlados`. Por ejemplo:
-```python
-from manim import *
-class Polígonos(Scene):
-  def construct(self):
-    polígono = RegularPolygon(n=9, color=RED, fill_opacity=0.5) # establecemos el polígono
-    self.play(Create(polígono), run_time=3) # creamos el polígono
-    self.wait()
-```
-En este caso hemos creado un polígono de nueve lados, de color rojo y opacidad 0.5.
-
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(77).png)
-
-
-
-
-
 ## Ejes y funciones
 
 
