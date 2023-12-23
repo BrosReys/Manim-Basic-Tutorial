@@ -142,6 +142,26 @@ class AnimTexto(Scene):
     self.play(FadeIn(Ejemplot))
     self.play(FadeOut(Ejemplot))
 ```
+Por otro lado, _Pango_ también nos permite configurar el ancho del texto a través de `weight="TIPO DE WEIGHT"`. A modo de ejemplo, insertemos un texto escrito en la fuente Roboto, concretamente en BOLD.
+```python
+from manim import *
+import manimpango
+
+class WeightHEAVY(Scene):
+  def construct(self):
+
+    # establecemos el texto y sus configuraciones
+
+    Texto = Text("¡Hola Manim!",
+                 font="Roboto",
+                 font_size=50,
+                 weight="BOLD"
+                 )
+    
+    # animamos el texto
+
+    self.add(Texto)
+```
 ## Utilizando gradient
 En Manim, el término "gradient" se refiere generalmente a la transición suave de un color a otro a lo largo de un objeto. Por ejemplo, podemos utilizar gradientes para darle un aspecto más atractivo a las animaciones, especialmente en situaciones donde deseamos resaltar la estructura o forma de un objeto mediante una variación gradual de colores.
 
