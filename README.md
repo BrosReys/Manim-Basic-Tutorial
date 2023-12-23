@@ -465,11 +465,15 @@ class Animate(Scene):
     self.wait()
     self.play(FadeOut(Punto))
 ```
-## Ejes y funciones
+# Gráficos y Funciones
+En Manim, para graficar funciones utilizamos la clase `GraphScene`, que es una subclase de `Scene` que proporciona funcionalidades específicas para trabajar con gráficos y funciones matemáticas. Está diseñada para simplificar la creación y animación de gráficos en las escenas.
 
-
-
-
+Concretamente, `GraphScene` incluye métodos y atributos útiles para configurar fácilmente el eje de coordenadas, agregar etiquetas, manejar animaciones específicas de gráficos, entre otros. Podemos heredar de `GraphScene` y personalizar sus métodos para crear nuestras propias escenas con gráficos de funciones. Para importar la clase `GraphScene`:
+```python
+>>>from manim import GraphScene
+>>>class GráficoEx(GraphScene):
+```
+Una vez hayamos importado de la librería de Manim `GraphScene`, 
 
 
 
