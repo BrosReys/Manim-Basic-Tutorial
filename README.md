@@ -364,7 +364,7 @@ class Shift(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20posici%C3%B3n%202.png)
 
-### Animar los movimientos
+### EL método `Animate`
 Hasta el momento hemos determinado las posiciones mediante los métodos `shift` , `move_to` y `next_to`, que logran el posicionamiento inicial de los Mobjects, pero no su desplazamiento. Por ello, con el objetivo de lograr el movimiento de las distintas figuras, utilizaremos el método `animate`, que luce de la siguiente forma:
 ```python
 self.play(figura1.animate.move_to([-2,-1,1]))
