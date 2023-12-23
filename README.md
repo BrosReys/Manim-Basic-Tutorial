@@ -162,6 +162,11 @@ class WeightHEAVY(Scene):
 
     self.add(Texto)
 ```
+>[!NOTE]
+>Los distintos tipos de `weight` lucen de la siguiente forma, asegúrate de utilizar el que mejor te convenga.
+
+![](https://github.com/BrosReys/ManimCE/blob/Images/DifferentWeights.png)
+
 ## Utilizando gradient
 En Manim, el término "gradient" se refiere generalmente a la transición suave de un color a otro a lo largo de un objeto. Por ejemplo, podemos utilizar gradientes para darle un aspecto más atractivo a las animaciones, especialmente en situaciones donde deseamos resaltar la estructura o forma de un objeto mediante una variación gradual de colores.
 
@@ -278,7 +283,24 @@ class Puntos(Scene):
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20Plano.png)
 
 ### Figuras geométricas 
-Los puntos son la forma mas fácil de entender las posiciones en Manim, sin embargo, también podemos utilizar las posiciones para otros tipos de `Mobjects` , tal es el caso de las figuras geométricas e incluso el texto. A modo de ejemplo:
+Los puntos son la forma mas fácil de entender las posiciones en Manim, sin embargo, también podemos utilizar las posiciones para otros tipos de `Mobjects` , tal es el caso de las figuras geométricas e incluso el texto.
+## Polígonos regulares de _n_ lados
+La librería de Manim contiene figuras geométricas muy variadas tales como los polígonos regulares, estrellas y círculos que podemos modificar según nuestras necesidades.
+
+Los polígonos regulares son aquellos que creamos mediante `RegularPolygon` e indicamos sus lados utilizando `n=Xlados`. Por ejemplo:
+```python
+from manim import *
+class Polígonos(Scene):
+  def construct(self):
+    polígono = RegularPolygon(n=9, color=RED, fill_opacity=0.5) # establecemos el polígono
+    self.play(Create(polígono), run_time=3) # creamos el polígono
+    self.wait()
+```
+En este caso hemos creado un polígono de nueve lados, de color rojo y opacidad 0.5.
+
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(77).png)
+
+A modo de ejemplo:
 ```python
 from manim import *
 class Puntos(Scene):
@@ -364,7 +386,7 @@ class Shift(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20posici%C3%B3n%202.png)
 
-### EL método `Animate`
+### ¿Cómo utilizamos el método "animate"?
 Hasta el momento hemos determinado las posiciones mediante los métodos `shift` , `move_to` y `next_to`, que logran el posicionamiento inicial de los Mobjects, pero no su desplazamiento. Por ello, con el objetivo de lograr el movimiento de las distintas figuras, utilizaremos el método `animate`, que luce de la siguiente forma:
 ```python
 self.play(figura1.animate.move_to([-2,-1,1]))
@@ -394,7 +416,54 @@ class AnimarMov(Scene):
     self.play(Mobject0.animate.move_to([3,0,0]))
     self.wait()
 ```
+En este caso hemos utilizado el método `animate` para cambiar la posición de los distintos Mobjects. No obstante, podemos usar el método `animar` para determinar, entre otros parámetros, la escala y la rotación.
+- La escala (`scale`): Para determinar la escala utilizamos números enteros sencillos. Generalmente entre 0.5 y 3.
+- La rotación (`rotate`): Para rotar los mobjects indicamos utilizando PI/RADIANES.
 
+```python
+from manim import *
+class Animate(Scene):
+  def construct(self):
+
+    Plano = NumberPlane()
+    self.add(Plano)
+
+    # Mobjects
+
+    Punto = Dot(radius=0.3).set_color_by_gradient(BLUE, RED)
+    Estrella = Star(color=GREEN).next_to(Punto, DOWN + RIGHT)
+    Estrella.set_fill(opacity=0.5, color=YELLOW_B)
+    Cuadrado = Square(color=BLUE, side_length=3).set_fill(opacity=0.5, color=GREEN)
+
+    self.add(Punto, Estrella)
+
+    # `animate` cambiando la posición
+
+    self.play(Punto.animate.move_to([-2,3,0]),
+              Estrella.animate.shift(2*UP)
+              )
+    self.wait()
+    
+    # `animate` cambiando la rotación
+    
+    self.play(Estrella.animate.rotate(PI/5))
+    self.wait()
+    self.play(Estrella.animate.move_to([0,0,0]),
+              Punto.animate.move_to([0,0,0]),
+              Transform(Punto, Cuadrado)
+              )
+
+
+    # `animate` cambiando la escala
+
+    self.play(Estrella.animate.scale(2), Punto.animate.scale(0.5))
+    self.play(Estrella.animate.rotate(PI/5))
+
+    self.play(Estrella.animate.move_to([0,0,0]), run_time=3)
+    self.play(Punto.animate.move_to([0,-0.25,0]), run_time=3)
+    self.wait()
+    self.play(FadeOut(Punto))
+```
 
 ## Polígonos regulares de _n_ lados
 La librería de Manim contiene figuras geométricas muy variadas tales como los polígonos regulares, estrellas y círculos que podemos modificar según nuestras necesidades.
