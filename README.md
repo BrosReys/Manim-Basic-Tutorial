@@ -96,7 +96,7 @@ class Texto(Scene): # establecer escena
 
 ### ¿Cómo ponemos color al texto?
 
-Podemos poner color a un texto utilizando `color`. También podemos utilizar `t2c`para especificar los caracteres que queremos pintar. Concretamente `t2c`[^1] acepta dos formas de escritura, aunque la siguiente es la recomendable:
+Podemos poner color a un texto utilizando `color`. También podemos utilizar `t2c`para especificar los caracteres que queremos pintar. Concretamente `t2c`acepta dos formas de escritura, aunque la siguiente es la recomendable:
 - Las _keys_ pueden contener índices como `[2:-1]` o `[4:8]`, que funcionan como el ["_string slicing_"](https://realpython.com/python-strings/#string-manipulation) en python. Los valores deben de estar determinados por el caracter específico y el color se indicará `color=COLOR`.
 ```python
 from manim import *
@@ -108,6 +108,40 @@ class Texto(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(70).png)
 
+### ¿Cómo animamos el texto?
+La librería de Manim ofrece numerosas formas de introducir/quitar el texto que podemos utilizar mediante los siguientes métodos de animación:
+```python
+from manim import *
+class AnimTexto(Scene):
+  def construct(self):
+
+    Ejemplot = Text("¡Hola Manim!")
+
+    # para añadir/quitar el texto instantáneamente
+
+    self.add(Ejemplot)
+    self.remove(Ejemplot)
+
+    # para escribir/anular escribir el texto
+
+    self.play(Write(Ejemplot))
+    self.play(Unwrite(Ejemplot))
+
+    # para añadir/quitar letra por letra el texto
+
+    self.play(AddTextLetterByLetter(Ejemplot))
+    self.play(RemoveTextLetterByLetter(Ejemplot))
+
+    # para añadir primero los bordes y después rellenar
+
+    self.play(DrawBorderThenFill(Ejemplot))
+    self.remove(Ejemplot)
+
+    # para aparecer/desaparecer el texto
+
+    self.play(FadeIn(Ejemplot))
+    self.play(FadeOut(Ejemplot))
+```
 ## Utilizando gradient
 En Manim, el término "gradient" se refiere generalmente a la transición suave de un color a otro a lo largo de un objeto. Por ejemplo, podemos utilizar gradientes para darle un aspecto más atractivo a las animaciones, especialmente en situaciones donde deseamos resaltar la estructura o forma de un objeto mediante una variación gradual de colores.
 
