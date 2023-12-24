@@ -554,6 +554,36 @@ Específicamente, el Mobject `NumberLine` admite los siguientes parámetros:
 - exclude_origin_tick (bool) – Si se deben excluir las marcas en la posición cero de la línea numérica.
 
 ### \`VGroups\`
+En Manim,` VGroup` es una clase que representa un "grupo vectorial" o "grupo de vectores". Es una estructura fundamental utilizada para organizar y manipular conjuntos de objetos gráficos bidimensionales o tridimensionales. Algunas de las características fundamentales de los `VGroup` son:
+- **Organización de Objetos**: VGroup organiza los objetos gráficos que contiene. Puedes agregar varios objetos al grupo, y estos se consideran miembros del conjunto.
+- **Manipulación Conjunta**: Permite aplicar transformaciones (traslación, rotación, escala, etc.) a todos los objetos dentro del grupo simultáneamente. Esto facilita la manipulación de conjuntos de objetos en una animación.
+- **Sintaxis Simple**: La sintaxis para trabajar con VGroup es simple y directa. Puedes crear un grupo y agregar objetos con facilidad.
+- **Versatilidad Dimensional**: Aunque el nombre sugiere "vectorial," en Manim VGroup puede contener objetos tanto en dos como en tres dimensiones. Es una estructura versátil que se adapta a las necesidades de la escena.
+- **Facilita Animaciones Complejas**: Al agrupar objetos en un VGroup, puedes aplicar animaciones complejas a conjuntos de objetos de manera coherente, simplificando el código y mejorando la claridad.
+
+A modo de ejemplo:
+```python
+from manim import *
+class Vgroups(Scene):
+  def construct(self):
+
+    # determinamos los mobjects
+
+    Círculo = Circle(radius=0.5, color=BLUE).set_fill(opacity=0.5, color=GREEN)
+    Triángulo = Triangle(color=YELLOW_E).set_fill(opacity=0.5, color=YELLOW)
+    Triángulo.next_to(Círculo, LEFT)
+
+    # establecemos el VGroup
+
+    Grupo = VGroup(Círculo, Triángulo)
+    self.add(Grupo)
+    self.wait()
+
+    # movemos el Grupo
+
+    self.play(Grupo.animate.move_to([3,2,0]), run_time=3)
+```
+
 
 
 
