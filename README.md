@@ -503,7 +503,7 @@ Esta es la forma más sencilla de importar unos ejes usando la clase `Scene`. Si
 
 Dicho esto, es importante entender, en primer lugar, qué son los `NumberLine` y los `VGroup` para, posteriormente, modificar los parámetros según nuestras necesidades específicas.
 ### \`NumberLine\`
-Un "NumberLine", en el contexto de librería de Manim, como su nombre indica, es un objeto gráfico que representa una línea numérica, generalmente utilizada para ilustrar un rango de valores numéricos en una animación. Este objeto es útil para representar escalas numéricas, marcar puntos específicos en la línea y realizar animaciones relacionadas con la posición de los números.
+Un `NumberLine`, en el contexto de librería de Manim, como su nombre indica, es un objeto gráfico que representa una línea numérica, generalmente utilizada para ilustrar un rango de valores numéricos en una animación. Este objeto es útil para representar escalas numéricas, marcar puntos específicos en la línea y realizar animaciones relacionadas con la posición de los números.
 
 Por ejemplo, insertemos una lista númerica que vaya desde el número -10 hasta el número 10, pero que solo incluya los números -5, 0 y 5. 
 ```python
@@ -552,6 +552,9 @@ Específicamente, el Mobject `NumberLine` admite los siguientes parámetros:
 - numbers_to_include (Iterable[float] | None) – Un conjunto explícito de números que se añadirán a la línea numérica.
 - kwargs – Argumentos adicionales que se pasarán a `Line` (la clase que representa la línea en sí).
 - exclude_origin_tick (bool) – Si se deben excluir las marcas en la posición cero de la línea numérica.
+
+### \`VGroups\`
+
 
 
 
