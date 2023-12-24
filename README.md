@@ -466,7 +466,41 @@ class Animate(Scene):
     self.play(FadeOut(Punto))
 ```
 # Gráficos y Funciones
-En Manim, para graficar funciones utilizamos la clase `GraphScene`, que es una subclase de `Scene` que proporciona funcionalidades específicas para trabajar con gráficos y funciones matemáticas. Está diseñada para simplificar la creación y animación de gráficos en las escenas.
+La librería de **Manim** nos ofrece distintas formas de implementar gráficos y funciones en nuestras animaciones. Hasta ahora hemos trabajado con la clase `Scene`, no obstante, existen diversas clases tales como `GraphScene`, `ThreeDScene`, entre otras que pueden facilitarnos la tarea de graficar. Concretamente, para representar gráficos utilizamos fundamentalmente `Scene` y `GraphScene`.
+## \`Scene\`
+Cuando utilizamos la clase `Scene` para realizar gráficos, trabajamos en un nivel más general y flexible, pues tenemos el control total sobre la creación y animación de elementos en la escena, pero también necesitamos definir manualmente los ejes y configurar los gráficos.
+Por otro lado, es posible que necesitemos importar bibliotecas específicas para funciones matemáticas y gráficos, como NumPy, y definir funciones que describan nuestros gráficos.
+>[!IMPORTANT]
+> En general, este enfoque ofrece más flexibilidad, pero también requiere más código y configuración manual para crear gráficos matemáticos.
+
+### ¿Cómo creamos los ejes utilizando \`Scene\`?
+```python
+from manim import *
+class EjesXY(Scene):
+  def construct(self):
+
+    # definimos los ejesXY
+
+    Ejes = Axes(x_range=([-5,5]),
+                y_range=([-5,5]),
+                x_length=5,
+                y_length=5,
+    )
+    self.add(Ejes)
+```
+
+
+
+
+
+
+
+
+
+
+
+## \`GraphScene\`
+Por otro parte, para graficar funciones también utilizamos la clase `GraphScene`, que es una subclase de `Scene` que proporciona funcionalidades específicas para trabajar con gráficos y funciones matemáticas. Está diseñada para simplificar la creación y animación de gráficos en las escenas.
 
 Concretamente, `GraphScene` incluye métodos y atributos útiles para configurar fácilmente el eje de coordenadas, agregar etiquetas, manejar animaciones específicas de gráficos, entre otros. Podemos heredar de `GraphScene` y personalizar sus métodos para crear nuestras propias escenas con gráficos de funciones. Para importar la clase `GraphScene`:
 ```python
