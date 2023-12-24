@@ -488,6 +488,73 @@ class EjesXY(Scene):
     )
     self.add(Ejes)
 ```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Ejes.png)
+
+Esta es la forma más sencilla de importar unos ejes usando la clase `Scene`. Sin embargo, los ejes presentan una configuración muy variada que podemos determinar según nuestras preferencias. Específicamente, distinguimos los siguientes parámetros:
+- x_range (Sequence[float] | None) – Los (x_min, x_max, x_step) valores de `x-axis`.
+- y_range (Sequence[float] | None) – Los (y_min, y_max, y_step) valores de  `y-axis`.
+- x_length (float | None) – La longitud de `x-axis`.
+- y_length (float | None) – La longitud de `y-axis`.
+- axis_config (dict | None) – Los argumuentos `NumberLine` que determinan ambos ejes.
+- x_axis_config (dict | None) – Los argumentos `NumberLine` que determinan el `x-axis`.
+- y_axis_config (dict | None) – Los argumentos `NumberLine` que determinan el `y-axis`.
+- tips (bool) – Si incluir o no las puntas de los ejes.
+- kwargs (Any) – Argumentos adicionales que se pasarán a `CoordinateSystem` y `VGroup`.
+
+Dicho esto, es importante entender, en primer lugar, qué son los `NumberLine` y los `VGroup` para, posteriormente, modificar los parámetros según nuestras necesidades específicas.
+### \`NumberLine\`
+Un "NumberLine", en el contexto de librería de Manim, como su nombre indica, es un objeto gráfico que representa una línea numérica, generalmente utilizada para ilustrar un rango de valores numéricos en una animación. Este objeto es útil para representar escalas numéricas, marcar puntos específicos en la línea y realizar animaciones relacionadas con la posición de los números.
+
+Por ejemplo, insertemos una lista númerica que vaya desde el número -10 hasta el número 10, pero que solo incluya los números -5, 0 y 5. 
+```python
+from manim import *
+class LíneaNum(Scene):
+  def construct(self):
+
+    # establecer la línea numérica
+
+    Línea = NumberLine(x_range=([-10,10]),
+                       length=10,
+                       color=RED,
+                       include_numbers=True,
+                       include_tip=True,
+                       numbers_to_include=([-5,0,5])
+    )
+
+    # añadimos la línea numérica
+
+    self.add(Línea)
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/L%C3%ADneaNum.png)
+
+Específicamente, el Mobject `NumberLine` admite los siguientes parámetros:
+- x_range (Sequence[float] | None) – Los \[x_min, x_max, x_step\] valores para crear la línea.
+- length (float | None) – La longitud de la línea numérica.
+- unit_size (float) – La distancia entre cada marca de la línea. Sobrescrito por longitud, si se especifica.
+- include_ticks (bool) – Si se deben incluir marcas en la recta numérica.
+- tick_size (float) – La longitud de cada marca de graduación.
+- numbers_with_elongated_ticks (Iterable[float] | None) – Un iterable de valores específicos con ticks alargados.
+- longer_tick_multiple (int) – Influye en cuántas veces más grandes son las marcas alargadas que las marcas normales (2 = 2x).
+- rotation (float) – El ángulo (en radianes) en el que se gira la línea
+- stroke_width (float) – El grosor de la línea.
+- include_tip (bool) – Si se debe agregar una punta al final de la línea.
+- tip_width (float) – El ancho de la punta.
+- tip_height (float) – La altura de la punta.
+- tip_shape (type[ArrowTip] | None) – La clase de Mobject utilizado para construir la punta, o ninguno (the default) para la punta de línea por defecto. Las clases tiene que heredar de ArrowTip.
+- include_numbers (bool) – Si se deben agregar números a las marcas. El número de decimales está determinado por el tamaño del step, este valor se determina mediante decimal_number_config.
+- scaling (_ScaleBase) – La forma en que se escala el valor de `x_range`, es decir, LogBase para una línea numérica logarítmica. Por defecto, es LinearBase.
+- font_size (float) – El tamaño de las etiquetas de los objetos gráficos de texto (labels). Por defecto, es 36.
+- label_direction (Sequence[float]) –  La posición específica a la cual se añaden los objetos gráficos de texto (labels) en la línea.
+- label_constructor (VMobject) – Determina la clase de objeto gráfico que se utilizará para construir las etiquetas de la línea numérica.
+- line_to_number_buff (float) – La distancia entre la línea y los objetos gráficos de texto (labels).
+- decimal_number_config (dict | None) – Argumentos que se pueden pasar a `DecimalNumber` para influir en los objetos gráficos de números.
+- numbers_to_exclude (Iterable[float] | None) – Un conjunto explícito de números que no se añadirán a la línea numérica.
+- numbers_to_include (Iterable[float] | None) – Un conjunto explícito de números que se añadirán a la línea numérica.
+- kwargs – Argumentos adicionales que se pasarán a `Line` (la clase que representa la línea en sí).
+- exclude_origin_tick (bool) – Si se deben excluir las marcas en la posición cero de la línea numérica.
+
+
+
 
 
 
