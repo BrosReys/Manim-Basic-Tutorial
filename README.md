@@ -188,7 +188,7 @@ class TextoGradiente(Scene):
 
 ## Texto utilizando LaTeX
  
-Por otro lado, también podemos insertar ecuaciones matemáticas utilizando LaTeX[^2] mediante el mobject `MathTex`. 
+Por otro lado, también podemos insertar ecuaciones matemáticas utilizando LaTeX[^1] mediante el mobject `MathTex`. 
 
 En el contexto de la librería de animación matemática Manim, `MathTex` es una clase que se utiliza para renderizar expresiones matemáticas escritas en el formato LaTeX: un sistema de composición de documentos que se utiliza ampliamente para la creación de documentos científicos y matemáticos debido a su capacidad para producir fórmulas matemáticas de alta calidad.
 
@@ -248,7 +248,7 @@ En este caso, hemos creado un círculo utilizando `Circle` y un cuadrado `Square
 self.play(Transform(círculo, cuadrado), run_time=3) # hacemos la transformación
 ```
 ## Posicionamiento en Manim
-Antes de utilizar las clases mencionadas anteriormente, es importante entender como funciona el posicionamiento[^3] en Manim. Concretamente, se realiza mediante la especificación de puntos en un sistema de coordenadas tridimensional. Podemos utilizar las coordenadas `x, y, z` para definir la posición de los elementos en la escena. Estas son algunas de las pautas para entender cómo funciona el posicionamiento en Manim:
+Antes de utilizar las clases mencionadas anteriormente, es importante entender como funciona el posicionamiento[^2] en Manim. Concretamente, se realiza mediante la especificación de puntos en un sistema de coordenadas tridimensional. Podemos utilizar las coordenadas `x, y, z` para definir la posición de los elementos en la escena. Estas son algunas de las pautas para entender cómo funciona el posicionamiento en Manim:
 - Coordenadas básicas
     - _X_: Posición horizontal (derecha/izquierda).
     - _Y_: Posición vertical (arriba/abajo).
@@ -257,9 +257,9 @@ Antes de utilizar las clases mencionadas anteriormente, es importante entender c
     - _Plano XY_: Si solo se especifica _X_ e _Y_ y dejas _Z_ en cero, trabajas en el plano _XY_.
     - _Mano de derecha_: Manim sigue una convención de mano derecha para las coordenadas tridimensionales.
 
-Para visualizar mejor el posicionamiento de los `Mobjects` podemos utilizar un plano de coordenadas. Es decir:
+Para visualizar mejor el posicionamiento de los `Mobjects` podemos utilizar un plano de coordenadas[^3]. Es decir:
 ```python
->>>Plano = Plane()
+>>>Plano = NumberPlane()
 >>>self.add(Plano)
 ```
 ### Puntos
@@ -503,6 +503,35 @@ class Planopolar(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Plano%20Polar.png)
 
+Podemos utilizar el `NumberPlano` para representar un gráfico sencillo llamado `LineGraph`:
+```python
+from manim import *
+class GráficoLineal(Scene):
+  def construct(self):
+
+    # establecemos el plano
+
+    Gráfico = NumberPlane(x_range=([0,5]),
+                          y_range=([0,5]),
+                          x_length=5,
+                          axis_config = {"include_numbers":True, "color":YELLOW}                            
+    )
+
+    Gráfico.center()
+
+    # determinamos el gráfico lineal
+
+    GráficoLineal = Gráfico.plot_line_graph(
+        x_values = [1,2,3,4,5],
+        y_values = [1,3,1,4,2],
+        line_color=RED,
+    )
+
+    # añadimos el plano y el gráfico lineal
+
+    self.add(Gráfico, GráficoLineal)
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Gr%C3%A1ficoLineal.png)
 
 Esta es la forma más sencilla de importar unos ejes usando la clase `Scene`. Sin embargo, los ejes presentan una configuración muy variada que podemos determinar según nuestras preferencias. Específicamente, distinguimos los siguientes parámetros:
 - x_range (Sequence[float] | None) – Los (x_min, x_max, x_step) valores de `x-axis`.
@@ -693,5 +722,7 @@ Una vez hayamos importado de la librería de Manim `GraphScene`,
 
 
 
-[^2]: Como usar LaTeX: https://manualdelatex.com/
-[^3]: Vídeo tutorial de posicionamiento: https://www.youtube.com/watch?v=1Fv0Nu-Tb7Q&t=676s
+[^1]: Como usar LaTeX: https://manualdelatex.com/
+[^2]: Vídeo tutorial de posicionamiento: https://www.youtube.com/watch?v=1Fv0Nu-Tb7Q&t=676s
+[^3]: Gráfico lineal con `NumberPlane`en la sección '¿Cómo creamos los ejes utilizando \`Scene\`?' 
+
