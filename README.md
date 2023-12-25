@@ -490,6 +490,20 @@ class EjesXY(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Ejes.png)
 
+También podemos importar el plano polar mediante `PolarPlane`, es decir:
+```python
+from manim import *
+class Planopolar(Scene):
+  def construct(self):
+
+    plano = PolarPlane(azimuth_units="PI radians",
+                       size=6,
+                       azimuth_label_font_size=33).add_coordinates()
+    self.add(plano)
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Plano%20Polar.png)
+
+
 Esta es la forma más sencilla de importar unos ejes usando la clase `Scene`. Sin embargo, los ejes presentan una configuración muy variada que podemos determinar según nuestras preferencias. Específicamente, distinguimos los siguientes parámetros:
 - x_range (Sequence[float] | None) – Los (x_min, x_max, x_step) valores de `x-axis`.
 - y_range (Sequence[float] | None) – Los (y_min, y_max, y_step) valores de  `y-axis`.
@@ -612,6 +626,7 @@ class Graficando(Scene):
     self.play(Create(Gráfica), run_time=3)
     self.wait()
 ```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(83).png)
 Utilizamos `lambda` para definir funciones anónimas o funciones sin nombre, que son funciones pequeñas y que contienen una sola expresión. Lambda es muy útil cuando tenemos una función temporal y no queremos definir una función completa utilizando `def`. 
 
 La función `Ejes.plot` toma una función como argumento. Aquí, `lambda x: x**2` se utiliza para crear una función cuadrática de x. Podemos entender la función lambda `x: x**2` como una forma más concisa de escribir:
@@ -651,7 +666,7 @@ class FunciónLineal(Scene):
     self.play(DrawBorderThenFill(Gráfica), run_time=3)
     self.wait()
 ```
-
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(82).png)
 
 
 
