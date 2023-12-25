@@ -583,9 +583,74 @@ class Vgroups(Scene):
 
     self.play(Grupo.animate.move_to([3,2,0]), run_time=3)
 ```
+### Gráficos
+Para graficar en Manim utilizando `Scene`, en primer lugar, determinamos los `Axes` para, posteriormente, animar la gráfica mediante `Axes.plot`. En este caso, hemos configurado la función x^2:
+```python
+from manim import *
+class Graficando(Scene):
+  def construct(self):
 
+    # establecemos los ejes y los configuramos
 
+    Ecuación = MathTex(r"f(x)=x^2").move_to([-4,3,0])
 
+    Ejes = Axes(x_range=([-5,5]), y_range=([-5,5]),
+                x_length=10, y_length=5,
+                axis_config= {"include_numbers":True, "color":RED
+                    
+                }
+                )
+    Etiquetas = Ejes.get_axis_labels(x_label="x", y_label="f(x)")
+    Gráfica = Ejes.plot(lambda x: x**2)
+
+    # determinamos las animaciones 
+    
+    self.play(Write(Ecuación))
+    self.play(DrawBorderThenFill(Ejes), time_run=3)
+    self.wait()
+    self.play(Write(Etiquetas))
+    self.play(Create(Gráfica), run_time=3)
+    self.wait()
+```
+Utilizamos `lambda` para definir funciones anónimas o funciones sin nombre, que son funciones pequeñas y que contienen una sola expresión. Lambda es muy útil cuando tenemos una función temporal y no queremos definir una función completa utilizando `def`. 
+
+La función `Ejes.plot` toma una función como argumento. Aquí, `lambda x: x**2` se utiliza para crear una función cuadrática de x. Podemos entender la función lambda `x: x**2` como una forma más concisa de escribir:
+```python
+def cuadratica(x):
+    return x**2
+```
+La función lambda toma una variable x y devuelve x**2. En el contexto de `Ejes.plot`, la función se evalúa para cada valor de x en el rango especificado y crea los puntos que forman la gráfica.
+Este es un ejemplo simple de cómo podríamos utilizar `lambda` en Manim para definir y graficar una función lineal:
+```python
+from manim import *
+class FunciónLineal(Scene):
+  def construct(self):
+
+    # determinamos los ejesXY
+
+    Ecuación = MathTex(r"e=2^t+3")
+    Ejes = Axes(x_range=([-10,10]), y_range=([-10,10]),
+                x_length=10, y_length=7,
+                axis_config= {"include_numbers":True, "color":GREEN_B, "numbers_to_exclude":[-10,0,-9,8,9]},
+                y_axis_config={"include_numbers":False}
+                )
+    Etiquetas = Ejes.get_axis_labels(x_label="t", y_label="e")
+    
+    # fijamos la gráfica 2*x+3
+
+    Gráfica = Ejes.plot(lambda x: 2*x+3, color=YELLOW_C )
+   
+    # establecemos las animaciones
+    
+    self.play(Write(Ecuación), run_time=3)
+    self.play(Ecuación.animate.move_to([-4,3,0]))
+    self.wait()
+
+    self.play(Write(Ejes), run_time=2)
+    self.play(Write(Etiquetas))
+    self.play(DrawBorderThenFill(Gráfica), run_time=3)
+    self.wait()
+```
 
 
 
