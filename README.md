@@ -417,7 +417,7 @@ class AnimarMov(Scene):
     self.play(Mobject0.animate.move_to([3,0,0]))
     self.wait()
 ```
-En este caso hemos utilizado el método `animate` para cambiar la posición de los distintos Mobjects. No obstante, podemos usar el método `animar` para determinar, entre otros parámetros, la escala y la rotación.
+En este caso hemos utilizado el método `animate` para cambiar la posición de los distintos Mobjects. No obstante, podemos usar el método `animate` para determinar, entre otros parámetros, la escala y la rotación.
 - La escala (`scale`): Para determinar la escala utilizamos números enteros sencillos. Generalmente entre 0.5 y 3.
 - La rotación (`rotate`): Para rotar los mobjects indicamos utilizando PI/RADIANES.
 
