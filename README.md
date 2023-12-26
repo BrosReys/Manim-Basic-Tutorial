@@ -757,6 +757,36 @@ Para utilizar las funciones y objetos de NumPy es importante importar la librer�
 from manim import *
 import numpy
 ```
+La funciones paramétricas nos permiten representar curvas complejas, tal es el caso de la siguiente función:
+```python
+from manim import *
+import numpy as np
+class Corazón(Scene):
+  def construct(self):
+
+    # configuración de ejesXY
+
+    Ejes = Axes(x_range=([-20, 20]),
+                y_range=([-20, 15]),
+                x_length=10,
+                y_length=5,
+                axis_config= {"include_numbers":False,
+                              "color":GOLD,
+                              "include_ticks":False
+                              }
+
+                )
+    
+    # determinar función
+
+    Gráfica = Ejes.plot_parametric_curve(lambda t: [16 * np.sin(t)**3, 13 * np.cos(t) - 5 * np.cos(2*t) - 2 * np.cos(3*t) - np.cos(4*t), 0], t_range=[-np.pi, np.pi], color=BLUE)
+    self.add(Ejes, Gráfica)
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Coraz%C3%B3n.png)
+
+### Trabajar con dos funciones
+
+
 
 
 
