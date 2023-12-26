@@ -766,12 +766,12 @@ class Corazón(Scene):
 
     # configuración de ejesXY
 
-    Ejes = Axes(x_range=([-20, 20]),
+    Ejes = Axes(x_range=([-24, 24]),
                 y_range=([-20, 15]),
                 x_length=10,
                 y_length=5,
                 axis_config= {"include_numbers":False,
-                              "color":GOLD,
+                              "color":BLACK,
                               "include_ticks":False
                               }
 
@@ -779,18 +779,55 @@ class Corazón(Scene):
     
     # determinar función
 
-    Gráfica = Ejes.plot_parametric_curve(lambda t: [16 * np.sin(t)**3, 13 * np.cos(t) - 5 * np.cos(2*t) - 2 * np.cos(3*t) - np.cos(4*t), 0], t_range=[-np.pi, np.pi], color=BLUE)
-    self.add(Ejes, Gráfica)
+    Gráfica = Ejes.plot_parametric_curve(lambda t: [16 * np.sin(t)**3, 13 * np.cos(t) - 5 * np.cos(2*t) - 2 * np.cos(3*t) - np.cos(4*t), 0], t_range=[-np.pi, np.pi], color=RED).set_fill(color=RED, opacity=0.5)
+    self.play(Create(Gráfica, run_time=5))
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Coraz%C3%B3n.png)
+![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(85).png)
 
 ### Trabajar con dos funciones
+En Manim, gracias a las ventajas de la librería, podemos trabajar con múltiples funciones en la pantalla al agregar varias instancias de gráficos o animaciones en la misma escena. A modo de ejemplo:
+```python
+from manim import *
+import numpy as np
+class DosFunciones(Scene):
+  def construct(self):
 
+    # configuración de las ecuaciones
 
+    Ecuación1 = MathTex(r"y=\sin(x)", color=TEAL).move_to([-3.5,0,0])
+    Ecuación2 = MathTex(r"f(x)=x^{2}", color=YELLOW).move_to([4,0,0])
+  
+    # configuración de los EjesXY
 
+    Ejes1 = Axes(x_range=([0,5]), y_range=([0,5]),
+                 x_length=4, y_length=4,
+                 axis_config = {"color": YELLOW, "include_numbers":True}
+                     )
+    Etiquetas1 = Ejes1.get_axis_labels(x_label="x", y_label="f(x)")
 
+    Ejes2 = Axes(x_range=([0,5]), y_range=([0,5]),
+                 x_length=4, y_length=4,
+                 axis_config = {"color": TEAL_C},
+                 x_axis_config = {"numbers_to_include":[np.pi]}
 
+                 )
+    Etiquetas2 = Ejes2.get_axis_labels(x_label="X", y_label="Y")
 
+    # determinamos las funciones para cada eje
+
+    Gráfica1 = Ejes1.plot(lambda x: x**2, x_range=[0,10], color=GREEN)
+    Gráfica2 = Ejes2.plot_parametric_curve(lambda t: [t, np.cos(t), 0], t_range=[0,4], color=PURPLE_C)
+
+    # creamos los VGroups correspondientes
+
+    VGroup1 = VGroup(Ejes1, Etiquetas1, Gráfica1).shift(3.5*RIGHT)
+   
+    VGroup2 = VGroup(Ejes2, Etiquetas2, Gráfica2).shift(3*LEFT)
+
+    self.add(VGroup1, VGroup2, Ecuación1, Ecuación2)
+
+```
+>![](https://github.com/BrosReys/ManimCE/blob/Images/DosFunciones.png)
 
 
 
