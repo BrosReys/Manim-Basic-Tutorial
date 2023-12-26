@@ -45,7 +45,7 @@ Las próximas dos líneas crean un círculo y establecen, en este caso, su opaci
 circulo = Circle(radius=3)  # crear el círculo
 circulo.set_fill(PINK, opacity=0.5)  # establecer el color y la opacidad
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(72).png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(72).png)
 
 # Manim Objects
 
@@ -69,7 +69,7 @@ class Ejemplo(Scene):
     self.wait(1) # esperar un segundo
     self.play(FadeOut(Texto)) # desaparecer el texto
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(71).png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(71).png)
 
 Usamos `stant` para especificar el estilo de texto, que puede ser el por defecto `NORMAL`, o bien `ITALIC` y `OBLIQUE`. Por lo general, el estilo `ITALIC` y el `OBLIQUE` lucen igual, sin embargo, el `ITALIC` usa el _**Roman Style**_, mientras que el `OBLIQUE` utiliza el _**Italic Style**_.
 
@@ -92,7 +92,7 @@ class Texto(Scene): # establecer escena
     self.play(Write(Textoejemplo)) # añadimos el texto
     self.wait(3) #esperar tres segundos
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(73).png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(73).png)
 
 ### ¿Cómo ponemos color al texto?
 
@@ -106,7 +106,7 @@ class Texto(Scene):
     self.play(Write(Textocolor)) # animar el texto
     self.wait(3) # esperar durante tres segundos
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(70).png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(70).png)
 
 Por otro lado, _Pango_ también nos permite configurar el ancho del texto a través de `weight="TIPO DE WEIGHT"`. A modo de ejemplo, insertemos un texto escrito en la fuente Roboto, concretamente en BOLD.
 ```python
@@ -131,7 +131,7 @@ class WeightHEAVY(Scene):
 >[!NOTE]
 >Los distintos tipos de `weight` lucen de la siguiente forma, asegúrate de utilizar el que mejor te convenga.
 
-![](https://github.com/BrosReys/ManimCE/blob/Images/DifferentWeights.png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/DifferentWeights.png)
 
 ### ¿Cómo animamos el texto?
 La librería de Manim ofrece numerosas formas de introducir/quitar el texto que podemos utilizar mediante los siguientes métodos de animación:
@@ -184,7 +184,7 @@ class TextoGradiente(Scene):
     self.play(Write(gradiente)) # escribir el texto
     self.wait(3) # esperar tres segundos
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(74).png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(74).png)
 
 ## Texto utilizando LaTeX
  
@@ -201,7 +201,7 @@ class Latex(Scene):
     self.play(Write(Ecuación)) # escribir la ecuación
     self.wait(4) # esperar cuatro segundos
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(75).png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(75).png)
 
 ## Lista con viñetas
 En Manim podemos crear una lista de viñetas utilizando `BulletedList`:
@@ -215,7 +215,7 @@ class ListadeViñetas(Scene):
     lista.set_color_by_tex("Fresas", color=PINK) # color
     self.play(Create(lista), run_time=3) # animar la lista
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(76).png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(76).png)
 
 ## Títulos
 Podemos poner títulos utilizando `Title`, es decir:
@@ -281,7 +281,7 @@ class Puntos(Scene):
 
     self.add(Punto1, Punto2, Punto3)
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20Plano.png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20Plano.png)
 
 ## Figuras geométricas 
 Los puntos son la forma mas fácil de entender las posiciones en Manim, sin embargo, también podemos utilizar las posiciones para otros tipos de `Mobjects` , tal es el caso de las figuras geométricas e incluso el texto.
@@ -299,7 +299,7 @@ class Polígonos(Scene):
 ```
 En este caso hemos creado un polígono de nueve lados, de color rojo y opacidad 0.5.
 
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(77).png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(77).png)
 
 A modo de ejemplo:
 ```python
@@ -323,7 +323,7 @@ class Puntos(Scene):
     self.play(Create(rectángulo))
     self.wait()
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(78).png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(78).png)
 
 Entonces, para establecer una posición concreta para un Mobject utilizamos `.move_to([x,y,z])`. No obstante, podemos utilizar otros tipos de métodos tales como:
 - Método `next_to(Mobject, POSITION)`, con el próposito de colocar los `Mobjects` cerca de otros, para ello usamos `UP` , `DOWN` , `RIGHT` , `LEFT` .
@@ -360,7 +360,7 @@ class Movimiento(Scene):
 
    self.add(texto1, texto2, triángulo, estrella)
  ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20posici%C3%B3n.png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20posici%C3%B3n.png)
 
 Por otro lado, si utilizamos el método `shift`, haremos lo siguiente:
 ```python
@@ -385,7 +385,7 @@ class Shift(Scene):
     self.add(figura1)
     self.add(figura2)
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20posici%C3%B3n%202.png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Imagen%20posici%C3%B3n%202.png)
 
 ### ¿Cómo utilizamos el método "animate"?
 Hasta el momento hemos determinado las posiciones mediante los métodos `shift` , `move_to` y `next_to`, que logran el posicionamiento inicial de los Mobjects, pero no su desplazamiento. Por ello, con el objetivo de lograr el movimiento de las distintas figuras, utilizaremos el método `animate`, que luce de la siguiente forma:
@@ -488,7 +488,7 @@ class EjesXY(Scene):
     )
     self.add(Ejes)
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Ejes.png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Ejes.png)
 
 También podemos importar el plano polar mediante `PolarPlane`, es decir:
 ```python
@@ -501,7 +501,7 @@ class Planopolar(Scene):
                        azimuth_label_font_size=33).add_coordinates()
     self.add(plano)
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Plano%20Polar.png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Plano%20Polar.png)
 
 Podemos utilizar el `NumberPlano` para representar un gráfico sencillo llamado `LineGraph`:
 ```python
@@ -531,7 +531,7 @@ class GráficoLineal(Scene):
 
     self.add(Gráfico, GráficoLineal)
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Gr%C3%A1ficoLineal.png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Gr%C3%A1ficoLineal.png)
 
 Esta es la forma más sencilla de importar unos ejes usando la clase `Scene`. Sin embargo, los ejes presentan una configuración muy variada que podemos determinar según nuestras preferencias. Específicamente, distinguimos los siguientes parámetros:
 - x_range (Sequence[float] | None) – Los (x_min, x_max, x_step) valores de `x-axis`.
@@ -568,7 +568,7 @@ class LíneaNum(Scene):
 
     self.add(Línea)
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/L%C3%ADneaNum.png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/L%C3%ADneaNum.png)
 
 Específicamente, el Mobject `NumberLine` admite los siguientes parámetros:
 - x_range (Sequence[float] | None) – Los \[x_min, x_max, x_step\] valores para crear la línea.
@@ -655,7 +655,7 @@ class Graficando(Scene):
     self.play(Create(Gráfica), run_time=3)
     self.wait()
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(83).png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(83).png)
 Utilizamos `lambda` para definir funciones anónimas o funciones sin nombre, que son funciones pequeñas y que contienen una sola expresión. Lambda es muy útil cuando tenemos una función temporal y no queremos definir una función completa utilizando `def`. 
 
 La función `Ejes.plot` toma una función como argumento. Aquí, `lambda x: x**2` se utiliza para crear una función cuadrática de x. Podemos entender la función lambda `x: x**2` como una forma más concisa de escribir:
@@ -697,9 +697,61 @@ class FunciónLineal(Scene):
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(82).png)
 
+### Funciones Paramétricas utilizando \`Scene\`
+Una función paramétrica es una expresión matemática que describe las coordenadas de un punto en función de uno o más parámetros. En lugar de expresar directamente las coordenadas en términos de una variable independiente, como en las funciones cartesianas tradicionales, las funciones paramétricas utilizan parámetros para definir las posiciones de los puntos en un espacio. Un ejemplo simple podría ser una curva paramétrica en el plano xy, donde las coordenadas x e y se expresan como funciones de un parámetro t.
+
+En Manim, las funciones paramétricas representan visualmente cómo los objetos geométricos evolucionan con respecto a un parámetro dado. Podemos utilizar funciones paramétricas para, por ejemplo:
+- **Curvas y Trayectorias**: Las funciones paramétricas son ideales para describir curvas y trayectorias en el espacio. Podemos animar la evolución de estas curvas, mostrando cómo cambian con el tiempo o con algún otro parámetro relevante. Esto es útil para visualizar conceptos matemáticos como el movimiento de un punto a lo largo de una curva.
+- **Superficies Paramétricas**: Además de curvas, Manim permite la representación y animación de superficies paramétricas en el espacio tridimensional. Esto es útil para visualizar formas complejas y entender cómo cambian en respuesta a cambios en los parámetros.
+
+A modo de ejemplo, animemos la función seno mediante una función paramétrica que represente la evolución de la curva a través de un parámetro t, es decir:
+```python
+from manim import *
+import numpy
+class FunciónParat(Scene):
+  def construct(self):
 
 
+    # función sin(x)
 
+    Ecuación = MathTex(r"f(x)=\sin(x)")
+    Ecuación.set_color_by_gradient(TEAL_C, PURPLE_A)
+
+
+    # determinamos los ejes de coordenadas
+
+    Ejes = Axes(x_range=([-5,5]),
+                y_range=([-5,5]),
+                x_length=10,
+                y_length=7,
+                axis_config={"color": TEAL_A, "include_numbers":True 
+                    
+                },
+                y_axis_config={"include_numbers":False}
+                
+                
+                )
+    Etiquetas = Ejes.get_axis_labels(x_label="x", y_label="f(x)").set_color_by_gradient(TEAL_C, PURPLE_A)
+
+    # definimos la función sin utilizando lambda
+
+    Gráfica = Ejes.plot_parametric_curve(lambda t:[t, np.sin(t),0], t_range=[-5,5], color=PURPLE)
+
+    #animamos
+
+    self.play(Write(Ecuación), run_time=3)
+    self.play(Ecuación.animate.shift(4*LEFT, 2*UP))
+    self.wait()
+
+    self.play(Create(Ejes), run_time=2)
+    self.play(Write(Etiquetas), run_time=2)
+   
+    self.play(Create(Gráfica), run_time=6)
+    self.wait()
+  ```
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(84).png)
+>[!Important]
+>Para utilizar las funciones y objetos de NumPy es importante importar la librería mediante `import numpy`.
 
 
 
