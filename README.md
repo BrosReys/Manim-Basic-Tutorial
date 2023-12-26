@@ -829,6 +829,24 @@ class DosFunciones(Scene):
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/DosFunciones.png)
 
+### Funciones Implícitas
+Una función implícita es aquella en la que la variable dependiente no aparece despejada en la expresión de la ecuación. En Manim, para representar este tipo de funciones utilizamos `ImplicitFunction`, a modo de ejemplo:
+```python
+from manim import *
+import numpy as np
+class FunciónImpl(Scene):
+  def construct(self):
+
+    Plano = NumberPlane(x_range=([-20,20]))
+    self.add(Plano)
+
+    Gráfica = ImplicitFunction(lambda x,y: x * y ** 2 - x ** 2 * y - 2, x_range=([-15,15]), color=YELLOW).set_fill(opacity=0.5, color=ORANGE)
+
+
+    self.add(Gráfica)
+```
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Funci%C3%B3n%20impl%C3%ADcita.png)
+
 
 
 
