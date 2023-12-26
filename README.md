@@ -844,7 +844,8 @@ class FunciónImpl(Scene):
 
 
     self.add(Gráfica)
-# gracias por la ayuda Erick! :)
+
+    # gracias por la ayuda Erick! :)
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Funci%C3%B3n%20impl%C3%ADcita.png)
 
