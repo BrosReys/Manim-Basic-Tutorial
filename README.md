@@ -751,8 +751,13 @@ class FunciónParat(Scene):
     self.wait()
   ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(84).png)
->[!Important]
->Para utilizar las funciones y objetos de NumPy es importante importar la librería mediante `import numpy`.
+
+Para utilizar las funciones y objetos de NumPy es importante importar la librería mediante `import numpy`.
+```python
+from manim import *
+import numpy
+```
+
 
 
 
