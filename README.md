@@ -656,6 +656,7 @@ class Graficando(Scene):
     self.wait()
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(83).png)
+
 Utilizamos `lambda` para definir funciones anónimas o funciones sin nombre, que son funciones pequeñas y que contienen una sola expresión. Lambda es muy útil cuando tenemos una función temporal y no queremos definir una función completa utilizando `def`. 
 
 La función `Ejes.plot` toma una función como argumento. Aquí, `lambda x: x**2` se utiliza para crear una función cuadrática de x. Podemos entender la función lambda `x: x**2` como una forma más concisa de escribir:
