@@ -546,6 +546,33 @@ class Líneas(Scene):
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/l%C3%ADneas.png)
 
+### Flechas
+Las flechas son representaciones gráficas que incluyen una punta de flecha en un extremo, y se pueden crear y personalizar utilizando la clase `Arrow`.
+```python
+from manim import *
+class Flechas(Scene):
+  def construct(self):
+
+    Plano = NumberPlane()
+    self.add(Plano)
+
+    # determinamos las flechas
+
+    flecha1 = Arrow(start=ORIGIN, end=[-3,2,0],
+                    color=TEAL_C, stroke_width=3, tip_length=0.6
+                    )
+    flecha2  = Arrow(start=[-3,2,0], end=[-3,0,0],
+                     )
+    flecha2.set_color_by_gradient(TEAL, RED)
+
+    flecha3 = Arrow(start=[-3,0,0], end=[5,-2,0],
+                    stroke_width=10)
+    flecha3.set_color_by_gradient(RED, ORANGE)
+    
+    
+    self.add(flecha1, flecha2, flecha3)
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Flechas.png)
 
 
 
