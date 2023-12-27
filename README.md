@@ -522,6 +522,39 @@ class Animate(Scene):
     self.wait()
     self.play(FadeOut(Punto))
 ```
+## Líneas, Flechas y Vectores
+En Manim, las líneas, flechas y vectores son elementos gráficos fundamentales pues, entre otras cosas, nos ayudan a representar de forma clara y concisa las direcciones.
+### Líneas
+Las líneas son instancias de la clase `Line`. Podemos crear líneas especificando los puntos de inicio y fin con las coordenadas (x, y, z). Además, podemos establecer propiedades como el color, el grosor de línea y el estilo.
+
+A modo de ejemplo:
+```python
+from manim import *
+import numpy as np
+class Líneas(Scene):
+  def construct(self):
+
+    # determinamos las líneas
+
+    línea1 = Line(start=np.array([0,0,0]),end=np.array([2,3,0]),
+                  color=GOLD                 
+                  )
+    línea2 = Line(start=ORIGIN, end=2*RIGHT, 
+                  color=GREEN)
+
+    self.add(línea1, línea2) # añadimos las líneas
+```
+>![](https://github.com/BrosReys/ManimCE/blob/Images/l%C3%ADneas.png)
+
+
+
+
+
+
+
+
+
+
 # Gráficos y Funciones
 La librería de **Manim** nos ofrece distintas formas de implementar gráficos y funciones en nuestras animaciones. Hasta ahora hemos trabajado con la clase `Scene`, no obstante, existen diversas clases tales como `GraphScene`, `ThreeDScene`, entre otras que pueden facilitarnos la tarea de graficar. Concretamente, para representar gráficos utilizamos fundamentalmente `Scene`, `ThreeDScene` y `GraphScene`.
 ## \`Scene\`
