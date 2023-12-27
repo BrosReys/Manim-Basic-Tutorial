@@ -203,7 +203,7 @@ class Latex(Scene):
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(75).png)
 
-## Lista con viñetas
+### Lista con viñetas
 En Manim podemos crear una lista de viñetas utilizando `BulletedList`:
 ```python
 from manim import *
@@ -217,7 +217,7 @@ class ListadeViñetas(Scene):
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(76).png)
 
-## Títulos
+### Títulos
 Podemos poner títulos utilizando `Title`, es decir:
 ```python
 from manim import *
@@ -226,6 +226,63 @@ class Título(Scene):
     título = Title("Soy un título") # establecemos un título
     self.add(título) # añadimos el título
 ```
+## Variables y \`ValueTracker\`
+En Manim, las variables y ValueTracker son herramientas poderosas que permiten realizar animaciones dinámicas y seguir el cambio de valores a lo largo del tiempo.
+
+1. **Variables**
+    - Utilizamos las variables en Manim para almacenar valores que pueden cambiar durante una animación.
+    - Pueden ser variables simples como números o incluso objetos más complejos como vectores.
+    - Manim ofrece la clase `ValueTracker` que es comúnmente utilizada para seguir y animar el cambio de valores a lo largo del tiempo.
+2. **ValueTracker**
+    - `ValueTracker` es una clase en Manim que realiza un seguimiento de un valor numérico a lo largo de una animación.
+    - Permite vincular ese valor a propiedades de objetos gráficos, de modo que, cuando el valor cambia, los objetos gráficos se actualizan automáticamente.
+    - Facilita la creación de animaciones que responden a cambios en variables específicas.
+    - Se utiliza junto con la clase `DecimalNumber` para mostrar el valor actualizado en la pantalla.
+
+A modo de ejemplo, analicemos las siguientes líneas de código:
+```python
+from manim import *
+class Variables(Scene):
+  def construct(self):
+   
+    var = 1.5
+
+    # creamos una variable llamada `var` con un valor inicial de 1.5
+
+    variable = Variable(var, MathTex(r" \alpha "), num_decimal_places=3).move_to([0,0,0])
+   
+    # la clase `Variable` se utiliz para mostrar el valor inicial
+
+    variable.label.set_color(BLUE) # determinamos el color de la etiqueta
+    tracker = variable.tracker # establecemos un `ValueTracker`
+    var = 10 # `var` muestra el valor final
+
+    # establecemos las animaciones
+
+    self.play(Write(variable))
+    self.wait()
+    self.play(tracker.animate.set_value(var), run_time=3)
+    self.wait(2)
+```
+1. **Crear una variable**
+```python
+    var = 1.5
+    variable = Variable(var, MathTex(r" \alpha "), num_decimal_places=3)
+```
+- Se crea una variable llamada `var` con un valor inicial de 1.5.
+- La clase `Variable` se utiliza para mostrar el valor de la variable en la pantalla. MathTex(r" \alpha ") es un objeto LaTeX que representa el símbolo alfa.
+- `num_decimal_places=3` indica que se mostrarán tres lugares decimales en la pantalla.
+
+2. **Obtener el tracker para la variable**
+  ```python
+  tracker = variable.tracker
+```
+El tracker es un `ValueTracker` asociado a la variable. Podemos utilizarlo para animar el cambio del valor de la variable.
+3. **Cambiar el valor de la variable
+```python
+    var = 10
+```
+Aquí se cambiamos el valor de la variable original `var`. Sin embargo, esto no afecta directamente a lo que se muestra en la pantalla.
 # VMobject (Vectorized Movable Object)
 En Manim, la clase `VMobject` sirve como base para la creación de diversas figuras y objetos visuales en animaciones matemáticas. Estos son algunos de los aspectos claves de _VMobject_:
 1. "_Vectorized_": Se refiere a que las formas `VMobject` están definidas en términos de vectores, lo que permite una representación eficiente ya que los vectores pueden describir direcciones, magnitudes y formas en el espacio.
