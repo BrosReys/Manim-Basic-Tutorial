@@ -194,7 +194,7 @@ class TextoGradiente(Scene):
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(74).png)
 
 ## Texto utilizando LaTeX
-### Distintos tipos de \`Mobject_tex\`
+### Distintos tipos de \`tex_mobject\`
 | Clase                | Descripción                                                  |
 |----------------------|--------------------------------------------------------------|
 | BulletedList         | A bulleted list.                                             |
@@ -299,6 +299,20 @@ El tracker es un `ValueTracker` asociado a la variable. Podemos utilizarlo para 
     var = 10
 ```
 Aquí se cambiamos el valor de la variable original `var`. Sin embargo, esto no afecta directamente a lo que se muestra en la pantalla.
+**Atributos**
+| Método                | Descripción                                            |
+|-----------------------|--------------------------------------------------------|
+| animate               | Utilizado para animar la aplicación de cualquier método propio. |
+| animation_overrides   | Anulaciones para parámetros de animación.                    |
+| color                 | La propiedad de color.                                    |
+| depth                 | La profundidad del objeto.                              |
+| fill_color            | Si hay múltiples colores (para gradientes), esto devuelve el primero. |
+| height                | La altura del objeto.                             |
+| n_points_per_curve    | Número de puntos por curva.                            |
+| sheen_factor          | Propiedad de factor de brillo.                                 |
+| stroke_color          | La propiedad de color del trazo.                             |
+| width                 | El ancho del objeto.                              |
+
 # VMobject (Vectorized Movable Object)
 En Manim, la clase `VMobject` sirve como base para la creación de diversas figuras y objetos visuales en animaciones matemáticas. Estos son algunos de los aspectos claves de _VMobject_:
 1. "_Vectorized_": Se refiere a que las formas `VMobject` están definidas en términos de vectores, lo que permite una representación eficiente ya que los vectores pueden describir direcciones, magnitudes y formas en el espacio.
