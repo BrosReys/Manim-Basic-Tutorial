@@ -572,7 +572,32 @@ class Flechas(Scene):
     
     self.add(flecha1, flecha2, flecha3)
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Flechas.png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Flechas.png)
+
+**Métodos**
+
+| Método                      | Descripción                                                  |
+|-----------------------------|--------------------------------------------------------------|
+| `get_default_tip_length`    | Devuelve la longitud predeterminada de la punta de la flecha |
+| `get_normal_vector`         | Devuelve el vector normal de un vector                       |
+| `reset_normal_vector`       | Restablece el vector normal de un vector                      |
+| `scale`                     | Escala una flecha, pero mantiene el grosor de línea y el tamaño de la punta de la flecha fijos |
+
+**Atributos**
+
+| Atributo                  | Descripción                                            |
+|---------------------------|--------------------------------------------------------|
+| `animate`                 | Se utiliza para animar la aplicación de cualquier método de `self` |
+| `animation_overrides`     |                                                        |
+| `color`                   |                                                        |
+| `depth`                   | La profundidad del objeto                               |
+| `fill_color`              | Si hay múltiples colores (para degradado), devuelve el primero |
+| `height`                  | La altura del objeto                                    |
+| `n_points_per_curve`      |                                                        |
+| `sheen_factor`            |                                                        |
+| `stroke_color`            |                                                        |
+| `width`                   | El ancho del objeto                                     |
+
 
 
 
