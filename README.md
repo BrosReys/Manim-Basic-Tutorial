@@ -825,9 +825,86 @@ class DosFunciones(Scene):
     VGroup2 = VGroup(Ejes2, Etiquetas2, Gráfica2).shift(3*LEFT)
 
     self.add(VGroup1, VGroup2, Ecuación1, Ecuación2)
-
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/DosFunciones.png)
+
+De igual fornma, podemos trabajar hasta con cuatro funciones en un misma escena. A modo de ejemplo:
+```python
+from manim import *
+import numpy as np
+class LOVE(Scene):
+  def construct(self):
+
+    # configuración de los textos `Text` y `Tex`
+
+    Texto = Text("All you need is...", t2c={'[8:12]': RED}).shift(3*UP)
+    Texto1 = Text("L-O-V-E", t2c={'[1:2]':WHITE, '[3:4]':WHITE, '[5:6]':WHITE}, color=RED, font_size=55).shift(3*DOWN)
+
+    Ecuación1 = MathTex(r"y=\frac{1}{2}")
+    Ecuación2 = MathTex(r"x^{2}+y^{2}-9=0")
+    Ecuación3 = MathTex(r"y=\mid -2x \mid")
+    Ecuación4 = MathTex(r"y=-3\mid siny \mid")
+
+    # fijamos los ejes y sus respectivas funciones
+
+    Ejes1 = Axes(x_range=([-5,3]), y_range=(-3,3),
+                 x_length=3, y_length=3,
+                 axis_config= {"tip_width":0.2, "tip_height":0.2}
+              
+                 ).move_to([-5.2,0,0])
+
+    Gráfica1 = Ejes1.plot(lambda x: np.clip(1/x, -3, 3), x_range=[0.1, 3], color=RED)  # Limita los valores de y a un rango de -5 a 5
+  
+    Ejes2 = Axes(x_range=([-5,5]), y_range=(-5,5),
+                 x_length=3, y_length=3,
+                 axis_config= {"tip_width":0.2, "tip_height":0.2}
+              
+                 ).move_to([-1.85,0,0])
+    Gráfica2 = Ejes2.plot_implicit_curve(lambda x,y: x**2 + y**2 - 9, color=RED)
+
+    Ejes3 = Axes(x_range=([-5,5]), y_range=(-5,5),
+                 x_length=3, y_length=3,
+                 axis_config= {"tip_width":0.2, "tip_height":0.2}
+              
+                 ).move_to([1.65,0,0])
+    Gráfico3 = Ejes3.plot(lambda x: np.abs(-2*x), x_range=[-2.5,2.5], color=RED)
+
+    Ejes4 = Axes(x_range=([-5,5]), y_range=(-5,5),
+                 x_length=3, y_length=3,
+                 axis_config= {"tip_width":0.2, "tip_height":0.2}
+              
+                 ).move_to([5,0,0])
+    Gráfico4 = Ejes4.plot_parametric_curve(lambda t: [t, -3*np.abs(np.sin(t)), 0], t_range=[-6,0], color=RED).rotate(-5/PI)         
+
+
+    # determinamos las posiciones para los Mobjects
+ 
+    Ecuación1.next_to(Ejes1, UP)
+    Ecuación2.next_to(Ejes2, UP)
+    Ecuación3.next_to(Ejes3, UP)
+    Ecuación4.next_to(Ejes4, UP)
+
+    # creamos los VGroups necesarios 
+
+    VGrupo1 = VGroup(Ecuación1, Ejes1, Gráfica1)
+    VGrupo2 = VGroup(Ecuación2, Ejes2, Gráfica2)
+    VGrupo3 = VGroup(Ecuación3, Ejes3, Gráfico3)
+    VGrupo4 = VGroup(Ecuación4, Ejes4, Gráfico4)
+ 
+    # establecemos las animaciones
+
+    self.play(DrawBorderThenFill(VGrupo1), run_time=4)
+    self.wait()
+    self.play(DrawBorderThenFill(VGrupo2), run_time=4)
+    self.wait()
+    self.play(DrawBorderThenFill(VGrupo3), run_time=4)
+    self.wait()
+    self.play(DrawBorderThenFill(VGrupo4), run_time=4)
+    self.wait()
+    self.play(Write(Texto), run_time=3)
+    self.play(FadeIn(Texto1), run_time=3)
+```
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(86).png)
 
 ### Funciones Implícitas
 Una función implícita es aquella en la que la variable dependiente no aparece despejada en la expresión de la ecuación. En Manim, para representar este tipo de funciones utilizamos `ImplicitFunction`, a modo de ejemplo:
