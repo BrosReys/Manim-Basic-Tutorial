@@ -56,6 +56,13 @@ En Manim (Mathematical Animation Engine), los "Manim Objects" (`Mobjects`) son l
 En Manim podemos renderizar el texto principalmente de dos formas:
 1. Usando **Pango**, que es una biblioteca utilizada para el diseño y dibujo de texto internacional `Text_mobject`.
 2. Usando **LaTeX**, que es un sistema de composición de textos especializado para escribrir lenguaje matemático `Tex_mobject`.
+### Distintos tipo de \`Text\` 
+| Clases       | Definición                                    |
+|--------------|-----------------------------------------------|
+| MarkupText   | Display (non-LaTeX) text rendered using Pango. |
+| Paragraph    | Display a paragraph of text.                   |
+| Text         | Display (non-LaTeX) text rendered using Pango. |
+
 
 ## Texto utilizando **_Pango_**
 
@@ -187,6 +194,15 @@ class TextoGradiente(Scene):
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(74).png)
 
 ## Texto utilizando LaTeX
+### Distintos tipos de \`Mobject_tex\`
+| Clase                | Descripción                                                  |
+|----------------------|--------------------------------------------------------------|
+| BulletedList         | A bulleted list.                                             |
+| MathTex              | A string compiled with LaTeX in math mode.                   |
+| SingleStringMathTex  | Elementary building block for rendering text with LaTeX.    |
+| Tex                  | A string compiled with LaTeX in normal mode.                 |
+| Title                | A mobject representing an underlined title.                 |
+
  
 Por otro lado, también podemos insertar ecuaciones matemáticas utilizando LaTeX[^1] mediante el mobject `MathTex`. 
 
