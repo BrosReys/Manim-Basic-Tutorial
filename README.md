@@ -59,9 +59,10 @@ En Manim podemos renderizar el texto principalmente de dos formas:
 ### Distintos tipo de \`Text\` 
 | Clases       | Definición                                    |
 |--------------|-----------------------------------------------|
-| MarkupText   | Display (non-LaTeX) text rendered using Pango. |
-| Paragraph    | Display a paragraph of text.                   |
-| Text         | Display (non-LaTeX) text rendered using Pango. |
+| MarkupText   | Muestra texto renderizado (no-LaTeX) utilizando Pango. |
+| Paragraph    | Muestra un párrafo de texto.                   |
+| Text         | Muestra texto renderizado (no-LaTeX) utilizando Pango. |
+
 
 
 ## Texto utilizando **_Pango_**
@@ -197,11 +198,12 @@ class TextoGradiente(Scene):
 ### Distintos tipos de \`tex_mobject\`
 | Clase                | Descripción                                                  |
 |----------------------|--------------------------------------------------------------|
-| BulletedList         | A bulleted list.                                             |
-| MathTex              | A string compiled with LaTeX in math mode.                   |
-| SingleStringMathTex  | Elementary building block for rendering text with LaTeX.    |
-| Tex                  | A string compiled with LaTeX in normal mode.                 |
-| Title                | A mobject representing an underlined title.                 |
+| BulletedList         | Una lista con viñetas.                                       |
+| MathTex              | Una cadena compilada con LaTeX en modo matemático.           |
+| SingleStringMathTex  | Bloque de construcción fundamental para renderizar texto con LaTeX. |
+| Tex                  | Una cadena compilada con LaTeX en modo normal.               |
+| Title                | Un objeto representando un título subrayado.                |
+
 
  
 Por otro lado, también podemos insertar ecuaciones matemáticas utilizando LaTeX[^1] mediante el mobject `MathTex`. 
