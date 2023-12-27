@@ -301,7 +301,8 @@ El tracker es un `ValueTracker` asociado a la variable. Podemos utilizarlo para 
     var = 10
 ```
 Aquí se cambiamos el valor de la variable original `var`. Sin embargo, esto no afecta directamente a lo que se muestra en la pantalla.
-**Atributos**
+
+**Métodos**
 | Método                | Descripción                                            |
 |-----------------------|--------------------------------------------------------|
 | animate               | Utilizado para animar la aplicación de cualquier método propio. |
