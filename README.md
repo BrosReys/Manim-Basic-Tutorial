@@ -659,6 +659,8 @@ class Vectores(Scene):
 
     self.add(vector1, vector2, vector3, etiqueta1, etiqueta2, etiqueta3)
 ```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Vectores.png)
+
 **Métodos**
 | Método                 | Descripción                                               |
 |------------------------|-----------------------------------------------------------|
@@ -678,7 +680,6 @@ class Vectores(Scene):
 | `stroke_color`         |                                                        |
 | `width`                | El ancho del objeto                                     |
 
-![](https://github.com/BrosReys/ManimCE/blob/Images/Vectores.png)
 # Gráficos y Funciones
 La librería de **Manim** nos ofrece distintas formas de implementar gráficos y funciones en nuestras animaciones. Hasta ahora hemos trabajado con la clase `Scene`, no obstante, existen diversas clases tales como `GraphScene`, `ThreeDScene`, entre otras que pueden facilitarnos la tarea de graficar. Concretamente, para representar gráficos utilizamos fundamentalmente `Scene`, `ThreeDScene` y `GraphScene`.
 ## \`Scene\`
