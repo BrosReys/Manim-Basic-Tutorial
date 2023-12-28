@@ -56,7 +56,7 @@ En Manim (Mathematical Animation Engine), los "Manim Objects" (`Mobjects`) son l
 En Manim podemos renderizar el texto principalmente de dos formas:
 1. Usando **Pango**, que es una biblioteca utilizada para el diseño y dibujo de texto internacional `Text_mobject`.
 2. Usando **LaTeX**, que es un sistema de composición de textos especializado para escribrir lenguaje matemático `Tex_mobject`.
-### Distintos tipo de \`Text\` 
+### Distintos tipo de \`text_mobject\` 
 | Clases       | Definición                                    |
 |--------------|-----------------------------------------------|
 | MarkupText   | Muestra texto renderizado (no-LaTeX) utilizando Pango. |
@@ -682,8 +682,9 @@ class Vectores(Scene):
 # Gráficos y Funciones
 La librería de **Manim** nos ofrece distintas formas de implementar gráficos y funciones en nuestras animaciones. Hasta ahora hemos trabajado con la clase `Scene`, no obstante, existen diversas clases tales como `GraphScene`, `ThreeDScene`, entre otras que pueden facilitarnos la tarea de graficar. Concretamente, para representar gráficos utilizamos fundamentalmente `Scene`, `ThreeDScene` y `GraphScene`.
 ## \`Scene\` y \`Axes\`
-Cuando utilizamos la clase `Scene` para realizar gráficos, trabajamos en un nivel más general y flexible, pues tenemos el control total sobre la creación y animación de elementos en la escena, pero también necesitamos definir manualmente los ejes y configurar los gráficos.
-Por otro lado, es posible que necesitemos importar bibliotecas específicas para funciones matemáticas y gráficos, como NumPy, y definir funciones que describan nuestros gráficos.
+Cuando utilizamos la clase `Scene` para realizar gráficos, trabajamos en un nivel más general y flexible, pues tenemos el control total sobre la creación y animación de elementos en la escena, pero también necesitamos definir manualmente los ejes y configurar los gráficos. Por otro lado, es posible que necesitemos importar bibliotecas específicas para funciones matemáticas y gráficos, como NumPy, y definir funciones que describan nuestros gráficos.
+
+De la misma forma, trabajar con `Axes`, que es una subclase de `CoordinateSystem`, proporciona funcionalidades específicas para la creación de ejes cartesianos. Es especialmente útil para crear gráficos de funciones matemáticas, dado que incluye métodos convenientes para agregar etiquetas a los ejes, dibujar gráficos de funciones, trazar puntos y realizar otras operaciones comunes asociadas con sistemas de coordenadas cartesianas.
 >[!IMPORTANT]
 > En general, este enfoque ofrece más flexibilidad, pero también requiere más código y configuración manual para crear gráficos matemáticos.
 
@@ -703,49 +704,6 @@ class EjesXY(Scene):
     self.add(Ejes)
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Ejes.png)
-
-También podemos importar el plano polar mediante `PolarPlane`, es decir:
-```python
-from manim import *
-class Planopolar(Scene):
-  def construct(self):
-
-    plano = PolarPlane(azimuth_units="PI radians",
-                       size=6,
-                       azimuth_label_font_size=33).add_coordinates()
-    self.add(plano)
-```
->![](https://github.com/BrosReys/ManimCE/blob/Images/Plano%20Polar.png)
-
-Además, podemos utilizar el `NumberPlane` para representar un gráfico sencillo llamado `LineGraph`:
-```python
-from manim import *
-class GráficoLineal(Scene):
-  def construct(self):
-
-    # establecemos el plano
-
-    Gráfico = NumberPlane(x_range=([0,5]),
-                          y_range=([0,5]),
-                          x_length=5,
-                          axis_config = {"include_numbers":True, "color":YELLOW}                            
-    )
-
-    Gráfico.center()
-
-    # determinamos el gráfico lineal
-
-    GráficoLineal = Gráfico.plot_line_graph(
-        x_values = [1,2,3,4,5],
-        y_values = [1,3,1,4,2],
-        line_color=RED,
-    )
-
-    # añadimos el plano y el gráfico lineal
-
-    self.add(Gráfico, GráficoLineal)
-```
->![](https://github.com/BrosReys/ManimCE/blob/Images/Gr%C3%A1ficoLineal.png)
 
 Esta es la forma más sencilla de importar unos ejes usando la clase `Scene`. Sin embargo, la clase `Axes` presenta una configuración muy variada que podemos determinar según nuestras preferencias. Específicamente, distinguimos los siguientes parámetros:
 - x_range (Sequence[float] | None) – Los (x_min, x_max, x_step) valores de `x-axis`.
@@ -865,6 +823,60 @@ class Vgroups(Scene):
 
     self.play(Grupo.animate.move_to([3,2,0]), run_time=3)
 ```
+IMPORTANTE
+También podemos importar el plano polar mediante `PolarPlane`, es decir:
+```python
+from manim import *
+class Planopolar(Scene):
+  def construct(self):
+
+    plano = PolarPlane(azimuth_units="PI radians",
+                       size=6,
+                       azimuth_label_font_size=33).add_coordinates()
+    self.add(plano)
+```
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Plano%20Polar.png)
+
+Además, podemos utilizar el `NumberPlane` para representar un gráfico sencillo llamado `LineGraph`:
+```python
+from manim import *
+class GráficoLineal(Scene):
+  def construct(self):
+
+    # establecemos el plano
+
+    Gráfico = NumberPlane(x_range=([0,5]),
+                          y_range=([0,5]),
+                          x_length=5,
+                          axis_config = {"include_numbers":True, "color":YELLOW}                            
+    )
+
+    Gráfico.center()
+
+    # determinamos el gráfico lineal
+
+    GráficoLineal = Gráfico.plot_line_graph(
+        x_values = [1,2,3,4,5],
+        y_values = [1,3,1,4,2],
+        line_color=RED,
+    )
+
+    # añadimos el plano y el gráfico lineal
+
+    self.add(Gráfico, GráficoLineal)
+```
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Gr%C3%A1ficoLineal.png)
+
+
+
+
+
+
+
+
+
+
+
 ### Gráficos
 Para graficar en Manim utilizando `Scene`, en primer lugar, determinamos los `Axes` para, posteriormente, animar la gráfica mediante `Axes.plot`. En este caso, hemos configurado la función x^2:
 ```python
