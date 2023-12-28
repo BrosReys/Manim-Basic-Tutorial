@@ -631,8 +631,52 @@ class Flechas(Scene):
 | `stroke_color`            |                                                        |
 | `width`                   | El ancho del objeto                                     |
 
+### Vectores 
+Vectores, cuando nos referimos a un objeto gráfico, hablamos de un `Mobject` específico utilizado para representar flechas en la pantalla. Estos vectores gráficos son instancias de la clase `Arrow` y se utilizan comúnmente para visualizar direcciones y orientaciones en animaciones matemáticas y físicas.
 
+A modo de ejemplo, en las siguientes líneas insertaremos tres vectores distintos mediante la clase `Vector`:
+```python
+from manim import *
+class Vectores(Scene):
+  def construct(self):
 
+    Plano = NumberPlane()
+    self.add(Plano)
+
+    # determinamos los vectores
+
+    vector1 = Vector([2,-3], color=RED) 
+    vector2 = Vector([3,2], color=GREEN)
+    vector3 = Vector([-2,1], color=YELLOW)
+
+    # fijamos las etiquetas
+
+    etiqueta1 = vector1.coordinate_label(color=GREEN)
+    etiqueta2 = vector2.coordinate_label(color=YELLOW)
+    etiqueta3 = vector3.coordinate_label(color=RED)
+
+    # añadimos los vectores y etiquetas
+
+    self.add(vector1, vector2, vector3, etiqueta1, etiqueta2, etiqueta3)
+```
+**Métodos**
+| Método                 | Descripción                                               |
+|------------------------|-----------------------------------------------------------|
+| `coordinate_label`     | Crea una etiqueta basada en las coordenadas del vector    |
+
+**Atributos**
+| Atributo               | Descripción                                            |
+|------------------------|--------------------------------------------------------|
+| `animate`              | Se utiliza para animar la aplicación de cualquier método de `self` |
+| `animation_overrides`  |                                                        |
+| `color`                |                                                        |
+| `depth`                | La profundidad del objeto                               |
+| `fill_color`           | Si hay múltiples colores (para degradado), devuelve el primero |
+| `height`               | La altura del objeto                                    |
+| `n_points_per_curve`   |                                                        |
+| `sheen_factor`         |                                                        |
+| `stroke_color`         |                                                        |
+| `width`                | El ancho del objeto                                     |
 
 
 
