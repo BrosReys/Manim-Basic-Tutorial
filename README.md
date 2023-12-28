@@ -716,6 +716,8 @@ Esta es la forma más sencilla de importar unos ejes usando la clase `Scene`. Si
 - tips (bool) – Si incluir o no las puntas de los ejes.
 - kwargs (Any) – Argumentos adicionales que se pasarán a `CoordinateSystem` y `VGroup`.
 
+Asímismo, lo siguientes métodos y atributos:
+
 **Métodos**
 | Método            | Descripción                                                  |
 |-------------------|--------------------------------------------------------------|
@@ -739,7 +741,54 @@ Esta es la forma más sencilla de importar unos ejes usando la clase `Scene`. Si
 | `stroke_color`          |                                                        |
 | `width`                 | El ancho del objeto.                                     |
 
+Por otro lado, `CoordinateSystem` , es más general y nos permite definir sistemas de coordenadas personalizados, pero a expensas de la simplicidad y las funciones integradas que `Axes` ofrece para tareas comunes. La elección entre ellas dependerá de tus necesidades y de cuánta flexibilidad estés buscando en tu animación. Distinguimos los siguientes métodos:
 
+**Métodos**
+| Método                        | Descripción                                                  |
+|-------------------------------|--------------------------------------------------------------|
+| `add_coordinates`             | Agrega etiquetas a los ejes                                   |
+| `angle_of_tangent`            | Devuelve el ángulo con respecto al eje x de la tangente a la curva trazada en un valor particular de x |
+| `c2p`                         | Abreviatura de `coords_to_point()`                            |
+| `coords_to_point`             | Convierte coordenadas en puntos con respecto a la escena      |
+| `get_T_label`                 | Crea un marcador de triángulo etiquetado con una línea vertical desde el eje x hasta una curva en un valor de x dado |
+| `get_area`                    | Devuelve un polígono que representa el área bajo el gráfico pasado |
+| `get_axes`                    | Obtiene los ejes                                             |
+| `get_axis`                    | Obtiene un eje específico                                    |
+| `get_axis_labels`             | Define etiquetas para el eje x y el eje y del gráfico         |
+| `get_graph_label`             | Crea una etiqueta correctamente posicionada para el gráfico pasado, con un punto opcional |
+| `get_horizontal_line`         | Una línea horizontal desde el eje y hasta un punto dado en la escena |
+| `get_line_from_axis_to_point` | Devuelve una línea recta desde un eje dado hasta un punto en la escena |
+| `get_lines_to_point`          | Genera líneas horizontales y verticales desde el eje hasta un punto |
+| `get_origin`                  | Obtiene el origen de los ejes                                |
+| `get_riemann_rectangles`      | Genera un VGroup de los rectángulos de Riemann para una curva dada |
+| `get_secant_slope_group`      | Crea dos líneas que representan dx y df, las etiquetas para dx y df, y |
+| `get_vertical_line`           | Una línea vertical desde el eje x hasta un punto dado en la escena |
+| `get_vertical_lines_to_graph` | Obtiene múltiples líneas desde el eje x hasta la curva         |
+| `get_x_axis`                  | Obtiene el eje x                                             |
+| `get_x_axis_label`            | Genera una etiqueta para el eje x                             |
+| `get_x_unit_size`             | Obtiene el tamaño de la unidad en el eje x                    |
+| `get_y_axis`                  | Obtiene el eje y                                             |
+| `get_y_axis_label`            | Genera una etiqueta para el eje y                             |
+| `get_y_unit_size`             | Obtiene el tamaño de la unidad en el eje y                    |
+| `get_z_axis`                  | Obtiene el eje z                                             |
+| `i2gc`                        | Alias para `input_to_graph_coords()`                          |
+| `i2gp`                        | Alias para `input_to_graph_point()`                           |
+| `input_to_graph_coords`       | Devuelve una tupla de las coordenadas relativas al eje del punto en el gráfico basado en el valor de x dado |
+| `input_to_graph_point`        | Devuelve las coordenadas del punto en un gráfico correspondientes a un valor de x |
+| `p2c`                         | Abreviatura de `point_to_coords()`                            |
+| `plot`                        | Genera una curva basada en una función                        |
+| `plot_antiderivative_graph`   | Trama el gráfico de una antiderivada                         |
+| `plot_derivative_graph`       | Devuelve la curva de la derivada del gráfico pasado          |
+| `plot_implicit_curve`         | Crea las curvas de una función implícita                      |
+| `plot_parametric_curve`       | Una curva paramétrica                                        |
+| `plot_polar_graph`            | Un gráfico polar                                            |
+| `plot_surface`                | Genera una superficie basada en una función                   |
+| `point_to_coords`             | Convierte un punto en coordenadas                             |
+| `point_to_polar`              | Obtiene coordenadas polares a partir de un punto              |
+| `polar_to_point`              | Obtiene un punto a partir de coordenadas polares              |
+| `pr2pt`                       | Abreviatura de `polar_to_point()`                            |
+| `pt2pr`                       | Abreviatura de `point_to_polar()`                            |
+| `slope_of_tangent`            | Devuelve la pendiente de la tangente a la curva trazada en un valor particular de x |
 
 Dicho esto, es importante entender, en primer lugar, qué son los `NumberLine` y los `VGroup` para, posteriormente, modificar los parámetros según nuestras necesidades específicas.
 ### \`NumberLine\`
