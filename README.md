@@ -717,7 +717,7 @@ class Planopolar(Scene):
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Plano%20Polar.png)
 
-Podemos utilizar el `NumberPlano` para representar un gráfico sencillo llamado `LineGraph`:
+Además, podemos utilizar el `NumberPlane` para representar un gráfico sencillo llamado `LineGraph`:
 ```python
 from manim import *
 class GráficoLineal(Scene):
