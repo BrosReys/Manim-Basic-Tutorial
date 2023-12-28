@@ -611,25 +611,25 @@ class Flechas(Scene):
 
 | Método                      | Descripción                                                  |
 |-----------------------------|--------------------------------------------------------------|
-| `get_default_tip_length`    | Devuelve la longitud predeterminada de la punta de la flecha |
-| `get_normal_vector`         | Devuelve el vector normal de un vector                       |
-| `reset_normal_vector`       | Restablece el vector normal de un vector                      |
-| `scale`                     | Escala una flecha, pero mantiene el grosor de línea y el tamaño de la punta de la flecha fijos |
+| `get_default_tip_length`    | Devuelve la longitud predeterminada de la punta de la flecha.|
+| `get_normal_vector`         | Devuelve el vector normal de un vector.                       |
+| `reset_normal_vector`       | Restablece el vector normal de un vector.                      |
+| `scale`                     | Escala una flecha, pero mantiene el grosor de línea y el tamaño de la punta de la flecha fijos. |
 
 **Atributos**
 
 | Atributo                  | Descripción                                            |
 |---------------------------|--------------------------------------------------------|
-| `animate`                 | Se utiliza para animar la aplicación de cualquier método de `self` |
+| `animate`                 | Se utiliza para animar la aplicación de cualquier método de `self`. |
 | `animation_overrides`     |                                                        |
 | `color`                   |                                                        |
-| `depth`                   | La profundidad del objeto                               |
-| `fill_color`              | Si hay múltiples colores (para degradado), devuelve el primero |
-| `height`                  | La altura del objeto                                    |
+| `depth`                   | La profundidad del objeto.                               |
+| `fill_color`              | Si hay múltiples colores (para degradado), devuelve el primero.|
+| `height`                  | La altura del objeto.                                    |
 | `n_points_per_curve`      |                                                        |
 | `sheen_factor`            |                                                        |
 | `stroke_color`            |                                                        |
-| `width`                   | El ancho del objeto                                     |
+| `width`                   | El ancho del objeto.                                    |
 
 ### Vectores 
 Vectores, cuando nos referimos a un objeto gráfico, hablamos de un `Mobject` específico utilizado para representar flechas en la pantalla. Estos vectores gráficos son instancias de la clase `Arrow` y se utilizan comúnmente para visualizar direcciones y orientaciones en animaciones matemáticas y físicas.
@@ -664,21 +664,21 @@ class Vectores(Scene):
 **Métodos**
 | Método                 | Descripción                                               |
 |------------------------|-----------------------------------------------------------|
-| `coordinate_label`     | Crea una etiqueta basada en las coordenadas del vector    |
+| `coordinate_label`     | Crea una etiqueta basada en las coordenadas del vector.    |
 
 **Atributos**
 | Atributo               | Descripción                                            |
 |------------------------|--------------------------------------------------------|
-| `animate`              | Se utiliza para animar la aplicación de cualquier método de `self` |
+| `animate`              | Se utiliza para animar la aplicación de cualquier método de `self`. |
 | `animation_overrides`  |                                                        |
 | `color`                |                                                        |
-| `depth`                | La profundidad del objeto                               |
-| `fill_color`           | Si hay múltiples colores (para degradado), devuelve el primero |
-| `height`               | La altura del objeto                                    |
+| `depth`                | La profundidad del objeto.                               |
+| `fill_color`           | Si hay múltiples colores (para degradado), devuelve el primero.|
+| `height`               | La altura del objeto.                                    |
 | `n_points_per_curve`   |                                                        |
 | `sheen_factor`         |                                                        |
 | `stroke_color`         |                                                        |
-| `width`                | El ancho del objeto                                     |
+| `width`                | El ancho del objeto.                                    |
 
 # Gráficos y Funciones
 La librería de **Manim** nos ofrece distintas formas de implementar gráficos y funciones en nuestras animaciones. Hasta ahora hemos trabajado con la clase `Scene`, no obstante, existen diversas clases tales como `GraphScene`, `ThreeDScene`, entre otras que pueden facilitarnos la tarea de graficar. Concretamente, para representar gráficos utilizamos fundamentalmente `Scene`, `ThreeDScene` y `GraphScene`.
