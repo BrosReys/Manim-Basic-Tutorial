@@ -747,7 +747,7 @@ class GráficoLineal(Scene):
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Gr%C3%A1ficoLineal.png)
 
-Esta es la forma más sencilla de importar unos ejes usando la clase `Scene`. Sin embargo, los ejes presentan una configuración muy variada que podemos determinar según nuestras preferencias. Específicamente, distinguimos los siguientes parámetros:
+Esta es la forma más sencilla de importar unos ejes usando la clase `Scene`. Sin embargo, la clase `Axes` presenta una configuración muy variada que podemos determinar según nuestras preferencias. Específicamente, distinguimos los siguientes parámetros:
 - x_range (Sequence[float] | None) – Los (x_min, x_max, x_step) valores de `x-axis`.
 - y_range (Sequence[float] | None) – Los (y_min, y_max, y_step) valores de  `y-axis`.
 - x_length (float | None) – La longitud de `x-axis`.
