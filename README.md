@@ -1123,8 +1123,6 @@ class LOVE(Scene):
     self.play(Write(Texto), run_time=3)
     self.play(FadeIn(Texto1), run_time=3)
 ```
->![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(86).png)
-
 ### Funciones Implícitas
 Una función implícita es aquella en la que la variable dependiente no aparece despejada en la expresión de la ecuación. En Manim, para representar este tipo de funciones utilizamos `ImplicitFunction`, a modo de ejemplo:
 ```python
