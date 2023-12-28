@@ -681,7 +681,7 @@ class Vectores(Scene):
 
 # Gráficos y Funciones
 La librería de **Manim** nos ofrece distintas formas de implementar gráficos y funciones en nuestras animaciones. Hasta ahora hemos trabajado con la clase `Scene`, no obstante, existen diversas clases tales como `GraphScene`, `ThreeDScene`, entre otras que pueden facilitarnos la tarea de graficar. Concretamente, para representar gráficos utilizamos fundamentalmente `Scene`, `ThreeDScene` y `GraphScene`.
-## \`Scene\`
+## \`Scene\` y \`Axes\`
 Cuando utilizamos la clase `Scene` para realizar gráficos, trabajamos en un nivel más general y flexible, pues tenemos el control total sobre la creación y animación de elementos en la escena, pero también necesitamos definir manualmente los ejes y configurar los gráficos.
 Por otro lado, es posible que necesitemos importar bibliotecas específicas para funciones matemáticas y gráficos, como NumPy, y definir funciones que describan nuestros gráficos.
 >[!IMPORTANT]
