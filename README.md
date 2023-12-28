@@ -578,7 +578,6 @@ class Líneas(Scene):
     self.add(línea1, línea2) # añadimos las líneas
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/l%C3%ADneas.png)
-
 ### Flechas
 Las flechas son representaciones gráficas que incluyen una punta de flecha en un extremo, y se pueden crear y personalizar utilizando la clase `Arrow`.
 ```python
@@ -659,7 +658,7 @@ class Vectores(Scene):
 
     self.add(vector1, vector2, vector3, etiqueta1, etiqueta2, etiqueta3)
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Vectores.png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Vectores.png)
 
 **Métodos**
 | Método                 | Descripción                                               |
@@ -758,6 +757,31 @@ Esta es la forma más sencilla de importar unos ejes usando la clase `Scene`. Si
 - y_axis_config (dict | None) – Los argumentos `NumberLine` que determinan el `y-axis`.
 - tips (bool) – Si incluir o no las puntas de los ejes.
 - kwargs (Any) – Argumentos adicionales que se pasarán a `CoordinateSystem` y `VGroup`.
+
+**Métodos**
+| Método            | Descripción                                                  |
+|-------------------|--------------------------------------------------------------|
+| `coords_to_point`  | Acepta coordenadas de los ejes y devuelve un punto con respecto a la escena. |
+| `get_axes`        | Obtiene los ejes.                                             |
+| `get_axis_labels`  | Define etiquetas para el eje x y el eje y del gráfico.         |
+| `plot_line_graph`  | Dibuja un gráfico de líneas.                                  |
+| `point_to_coords`  | Acepta un punto de la escena y devuelve sus coordenadas con respecto a los ejes. |
+
+**Atributos**
+| Atributo                | Descripción                                            |
+|-------------------------|--------------------------------------------------------|
+| `animate`               | Se utiliza para animar la aplicación de cualquier método de `self`. |
+| `animation_overrides`   |                                                        |
+| `color`                 |                                                        |
+| `depth`                 | La profundidad del objeto.                               |
+| `fill_color`            | Si hay múltiples colores (para degradado), devuelve el primero. |
+| `height`                | La altura del objeto.                                   |
+| `n_points_per_curve`    |                                                        |
+| `sheen_factor`          |                                                        |
+| `stroke_color`          |                                                        |
+| `width`                 | El ancho del objeto.                                     |
+
+
 
 Dicho esto, es importante entender, en primer lugar, qué son los `NumberLine` y los `VGroup` para, posteriormente, modificar los parámetros según nuestras necesidades específicas.
 ### \`NumberLine\`
