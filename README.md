@@ -533,6 +533,7 @@ Concretamente, distinguimos dos variantes del método `add_updater`:
 
 **DtUpdater**
 ```python
+from manim import *
 class Updaters(Scene):
     def construct(self):
        
@@ -564,7 +565,8 @@ self.wait(2)
 - Añadimos el Mobject a la escena y la animación espera durante 2 segundos.
 
 **NextToUpdater**
-```from manim import *
+```python
+from manim import *
 class Updater(Scene):
     def construct(self):
 
