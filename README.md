@@ -871,7 +871,7 @@ class Vgroups(Scene):
 
     self.play(Grupo.animate.move_to([3,2,0]), run_time=3)
 ```
-### Gráficos
+## Gráficos
 Para graficar en Manim utilizando `Scene`, en primer lugar, determinamos los `Axes` para, posteriormente, animar la gráfica mediante `Axes.plot`. En este caso, hemos configurado la función x^2:
 ```python
 from manim import *
