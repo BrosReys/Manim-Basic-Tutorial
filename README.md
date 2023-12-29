@@ -415,7 +415,7 @@ class Título(Scene):
 # Actualizadores, Variables y \`ValueTracker\`
 En Manim, las variables, actualizadores y `ValueTracker` son herramientas poderosas que permiten realizar animaciones dinámicas y seguir el cambio de valores a lo largo del tiempo.
 ## Variables
-Usamos la clase \`Variable\` en Manim, perteneciente al módulo `manim.mobject.text.numbers`, para mostrar un texto que representa una variable con su respectivo valor. La clase está diseñada para mostrar "label = value", donde el valor se actualiza continuamente desde un `ValueTracker`.
+Usamos la clase `Variable` en Manim, perteneciente al módulo `manim.mobject.text.numbers`, para mostrar un texto que representa una variable con su respectivo valor. La clase está diseñada para mostrar "label = value", donde el valor se actualiza continuamente desde un `ValueTracker`.
 ### Usos de la clase \`Variable\`
 - Utilizamos las variables en Manim para almacenar valores que pueden cambiar durante una animación.
 - Pueden ser variables simples como números o incluso objetos más complejos como vectores.
@@ -480,12 +480,48 @@ class Variables(Scene):
 | width                 | El ancho del objeto.                              |
 
 ## Actualizadores
+En Manim, los "actualizadores" (updaters en inglés) son funciones que se aplican a un objeto Mobject en cada cuadro (frame) cuando se renderiza una animación. Estas funciones permiten modificar dinámicamente las propiedades de un objeto a lo largo del tiempo, lo que es fundamental para crear animaciones fluidas y complejas.
+>[!Important]
+> Los actualizadores son funciones especiales que se utilizan para actualizar dinámicamente ciertos objetos en la escena en función de un valor rastreado por un `ValueTracker`.
+
+Por ejemplo, El actualizador `always_redraw` se utiliza para indicar que el objeto debe volver a dibujarse en cada fotograma, incluso si no ha cambiado explícitamente. Esto es útil para objetos que dependen de valores rastreados y deben      
+actualizarse constantemente, es decir:
+```python
+from manim import * 
+class Test(Scene):
+    def construct(self):
+
+        lado = ValueTracker(4) # determinamos un `ValueTracker` con un valor inicial de 4
+
+        # creamos un cuadrado utilizando `always_redraw`
+        #establecemos el `color` y `side_length` del cuadrado
+
+        cuadrado = always_redraw(lambda: Square(color=RED, side_length=lado.get_value()).set_fill(opacity=0.5, color=PINK))
+
+        # añadimos el cuadrado a la escena
+        # cambiamos el valor de `lado` a 2
+
+        self.add(cuadrado)
+        self.play(lado.animate.set_value(2), run_time=2)
+```
+Las líneas de código mencionadas previamente establecen un `ValueTracker` denominado "lado" que determina el `side_length` del cuadrado y que se actualizará progresivamente. Esto es:
+1. Creamos el `ValueTracker`
+```python
+lado = ValueTracker(4) # determinamos un `ValueTracker` con un valor inicial de 4
+```
+2. Determinamos `Square` y la longitud de sus lados mediante `side_length`
+```python
+cuadrado = always_redraw(lambda: Square(color=RED, side_length=lado.get_value()).set_fill(opacity=0.5, color=PINK))
+```
+3. Cambiamos el valor de `lado` a 2
+```python
+self.add(cuadrado)
+        self.play(lado.animate.set_value(2), run_time=2)
+   ```   
 
 
-- Los actualizadores son funciones especiales que se utilizan para actualizar dinámicamente ciertos objetos en la escena en función de un valor rastreado por un ValueTracker.
-- El actualizador `always_redraw` se utiliza para indicar que el objeto debe volver a dibujarse en cada fotograma, incluso si no ha cambiado explícitamente. Esto es útil para objetos que dependen de valores rastreados y deben         
-actualizarse constantemente.
-2. **ValueTracker**
+
+5. **ValueTracker**
     - `ValueTracker` es una clase en Manim que realiza un seguimiento de un valor numérico a lo largo de una animación.
     - Permite vincular ese valor a propiedades de objetos gráficos, de modo que, cuando el valor cambia, los objetos gráficos se actualizan automáticamente.
     - Facilita la creación de animaciones que responden a cambios en variables específicas.
