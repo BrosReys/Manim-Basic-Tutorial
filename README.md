@@ -47,9 +47,178 @@ circulo.set_fill(PINK, opacity=0.5)  # establecer el color y la opacidad
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(72).png)
 
-# Manim basic Objects
-
+# Manim Objects (Mobjects)
 En Manim (Mathematical Animation Engine), los "Manim Objects" (`Mobjects`) son las entidades fundamentales que representan diferentes elementos que pueden aparecer y animarse en la pantalla durante una animación matemática. Estos objetos abarcan desde formas geométricas simples hasta objetos más complejos como ecuaciones, gráficos, texto, cámaras, luces, etc.
+### Métodos de Mobject
+| Método | Descripción |
+| ------ | ----------- |
+| `add` | Agrega mobjects como submobjects. |
+| `add_animation_override` | Agrega una anulación de animación. |
+| `add_background_rectangle` | Agrega un BackgroundRectangle como submobject. |
+| `add_background_rectangle_to_family_members_with_points` | Agrega un BackgroundRectangle a los miembros de la familia con puntos. |
+| `add_background_rectangle_to_submobjects` | Agrega un BackgroundRectangle a los submobjects. |
+| `add_n_more_submobjects` | Agrega n submobjects adicionales. |
+| `add_to_back` | Agrega todos los mobjects proporcionados al fondo de los submobjects. |
+| `add_updater` | Agrega una función de actualización a este mobject. |
+| `align_data` | Alinea los datos de este mobject con otro mobject. |
+| `align_on_border` | La dirección solo necesita ser un vector que apunte hacia un lado o una esquina en el plano 2D. |
+| `align_points` | ... |
+| `align_points_with_larger` | ... |
+| `align_submobjects` | ... |
+| `align_to` | Alinea el mobject con otro Mobject en una dirección específica. |
+| `animation_override_for` | Devuelve la función que define una anulación de animación específica para esta clase. |
+| `apply_complex_function` | Aplica una función compleja a un Mobject. |
+| `apply_function` | ... |
+| `apply_function_to_position` | ... |
+| `apply_function_to_submobject_positions` | ... |
+| `apply_matrix` | ... |
+| `apply_over_attr_arrays` | ... |
+| `apply_points_function_about_point` | ... |
+| `apply_to_family` | Aplica una función a este Mobject y a cada submobject con puntos de manera recursiva. |
+| `arrange` | Ordena los Mobjects uno al lado del otro en la pantalla. |
+| `arrange_in_grid` | Organiza los submobjects en una cuadrícula. |
+| `arrange_submobjects` | Organiza la posición de los submobjects con un pequeño margen. |
+| `become` | Edita puntos, colores y submobjects para ser idénticos a otro Mobject. |
+| `center` | Mueve el centro del mobject al centro de la escena. |
+| `clear_updaters` | Elimina todos los actualizadores. |
+| `copy` | Crea y devuelve una copia idéntica del Mobject, incluyendo todos los submobjects. |
+| `fade` | ... |
+| `fade_to` | ... |
+| `family_members_with_points` | ... |
+| `flip` | Voltea / Refleja un mobject sobre su centro. |
+| `generate_points` | Inicializa los puntos y, por lo tanto, la forma. |
+| `generate_target` | ... |
+| `get_all_points` | Devuelve todos los puntos de este mobject y de todos los submobjects. |
+| `get_array_attrs` | ... |
+| `get_bottom` | ... |
+| `get_boundary_point` | ... |
+| `get_center` | ... |
+| `get_center_of_mass` | ... |
+| `get_color` | Devuelve el color del Mobject. |
+| `get_coord` | Destinado a generalizar get_x, get_y y get_z. |
+| `get_corner` | ... |
+| `get_critical_point` | Imagina una caja que limita el Mobject. |
+| `get_edge_center` | ... |
+| `get_end` | Devuelve el punto donde el trazo que rodea el Mobject termina. |
+| `get_extremum_along_dim` | ... |
+| `get_family` | ... |
+| `get_family_updaters` | ... |
+| `get_group_class` | ... |
+| `get_image` | ... |
+| `get_left` | ... |
+| `get_merged_array` | Devuelve todos los valores de un atributo dado de este mobject y de todos los submobjects. |
+| `get_midpoint` | ... |
+| `get_mobject_type_class` | Devuelve la clase base de este tipo de mobject. |
+| `get_nadir` | ... |
+| `get_num_points` | ... |
+| `get_pieces` | ... |
+| `get_point_mobject` | El mobject más simple para ser transformado hacia o desde este mobject. |
+| `get_points_defining_boundary` | ... |
+| `get_right` | ... |
+| `get_start` | Devuelve el punto donde el trazo que rodea el Mobject comienza. |
+| `get_start_and_end` | Devuelve el punto de inicio y el punto final de un trazo como una tupla. |
+| `get_time_based_updaters` | Devuelve todos los actualizadores que utilizan el parámetro dt. |
+| `get_top` | ... |
+| `get_updaters` | Devuelve todos los actualizadores. |
+| `get_x` | Devuelve la coordenada x del centro del Mobject como un número decimal. |
+| `get_y` | Devuelve la coordenada y del centro del Mobject como un número decimal. |
+| `get_z` | Devuelve la coordenada z del centro del Mobject como un número decimal. |
+| `get_z_index_reference_point` | ... |
+| `get_zenith` | ... |
+| `has_no_points` | Verifica si el Mobject no contiene puntos. |
+| `has_points` | Verifica si el Mobject contiene puntos. |
+| `has_time_based_updater` | Prueba si self tiene un actualizador basado en el tiempo. |
+| `init_colors` | Inicializa los colores. |
+| `insert` | Inserta un mobject en una posición específica dentro de self.submobjects. |
+| `interpolate` | Convierte este Mobject en una interpolación entre mobject1 y mobject2. |
+| `interpolate_color` | ... |
+| `invert` | Invierte la lista de submobjects. |
+| `is_off_screen` | ... |
+| `length_over_dim` | Mide la longitud de un Mobject en una dirección específica. |
+| `match_color` | Combina el color con el color de otro Mobject. |
+| `match_coord` | Combina los Point3Ds con los Point3Ds de otro Mobject. |
+| `match_depth` | Combina la profundidad con la profundidad de otro Mobject. |
+| `match_dim_size` | Combina la dimensión especificada con la dimensión de otro Mobject. |
+| `match_height` | Combina la altura con la altura de otro Mobject. |
+| `match_points` | Edita puntos, posiciones y submobjects para ser idénticos a otro Mobject, manteniendo el estilo inalterado. |
+| `match_updaters` | Combina los actualizadores del mobject dado. |
+| `match_width` | Combina el ancho con el ancho de otro Mobject. |
+| `match_x` | Combina la coordenada x. |
+| `match_y` | Combina la coordenada y. |
+| `match_z` | Combina la coordenada z. |
+| `move_to` | Mueve el centro del Mobject a un punto específico. |
+| `next_to` | Mueve este Mobject junto a otro Mobject o Point3D. |
+| `nonempty_submobjects` | ... |
+| `null_point_align` | Si un Mobject con puntos se está alineando con otro sin puntos, trátalos a ambos como grupos y coloca el que tiene puntos en su propia lista de submobjects. |
+| `point_from_proportion` | ... |
+| `pose_at_angle` | ... |
+| `proportion_from_point` | ... |
+| `push_self_into_submobjects` | ... |
+| `put_start_and_end_on` | ... |
+| `reduce_across_dimension` | Encuentra el valor mínimo o máximo de una dimensión entre todos los puntos en este y los submobjects. |
+| `remove` | Elimina submobjects. |
+| `remove_updater` | Elimina un actualizador. |
+| `repeat` | Esto puede hacer que las animaciones de transición sean más agradables. |
+| `repeat_submobject` | ... |
+| `replace` | ... |
+| `rescale_to_fit` | ... |
+| `reset_points` | Establece los puntos como un array vacío. |
+| `restore` | Restaura el estado que se guardó previamente con save_state(). |
+| `resume_updating` | Habilita la actualización desde actualizadores y animaciones. |
+| `reverse_points` | ... |
+| `rotate` | Rota el Mobject alrededor de un punto específico. |
+| `rotate_about_origin` | Rota el Mobject alrededor del ORIGEN, que está en [0,0,0]. |
+| `save_image` | Guarda una imagen de solo este Mobject en su posición en un archivo png. |
+| `save_state` | Guarda el estado actual (posición, color y tamaño). |
+| `scale` | Escala el tamaño por un factor. |
+| `scale_to_fit_depth` | Escala el Mobject para que se ajuste a una profundidad manteniendo proporciones de ancho/alto. |
+| `scale_to_fit_height` | Escala el Mobject para que se ajuste a una altura manteniendo proporciones de ancho/profundidad. |
+| `scale_to_fit_width` | Escala el Mobject para que se ajuste a un ancho manteniendo proporciones de altura/profundidad. |
+| `set` | Establece atributos. |
+| `set_color` | La condición es una función que toma un argumento (x, y, z). |
+| `set_color_by_gradient` | PARÁMETROS COLORS: Los colores a utilizar para el degradado. Úsalo como set_color_by_gradient(RED, BLUE, GREEN). |
+| `set_colors_by_radial_gradient` | ... |
+| `set_coord` | ... |
+| `set_default` | Establece los valores predeterminados de los argumentos de palabras clave. |
+| `set_submobject_colors_by_gradient` | ... |
+| `set_submobject_colors_by_radial_gradient` | ... |
+| `set_x` | Establece el valor x del centro del Mobject (entero o decimal). |
+| `set_y` | Establece el valor y del centro del Mobject (entero o decimal). |
+| `set_z` | Establece el valor z del centro del Mobject (entero o decimal). |
+| `set_z_index` | Establece el z_index del Mobject en el valor especificado en z_index_value. |
+| `set_z_index_by_z_Point3D` | Establece el z Point3D del Mobject en el valor de z_index. |
+| `shift` | Desplaza según los vectores proporcionados. |
+| `shift_onto_screen` | ... |
+| `show` | ... |
+| `shuffle` | Baraja la lista de submobjects. |
+| `shuffle_submobjects` | Baraja el orden de los submobjects. |
+| `sort` | Ordena la lista de submobjects mediante una función definida por submob_func. |
+| `sort_submobjects` | Ordena los submobjects. |
+| `space_out_submobjects` | ... |
+| `split` | ... |
+| `stretch` | ... |
+| `stretch_about_point` | ... |
+| `stretch_to_fit_depth` | Estira el Mobject para que se ajuste a una profundidad sin mantener proporciones de ancho/alto. |
+| `stretch_to_fit_height` | Estira el Mobject para que se ajuste a una altura sin mantener proporciones de ancho/profundidad. |
+| `stretch_to_fit_width` | Estira el Mobject para que se ajuste a un ancho sin mantener proporciones de altura/profundidad. |
+| `surround` | ... |
+| `suspend_updating` | Deshabilita la actualización desde actualizadores y animaciones. |
+| `throw_error_if_no_points` | ... |
+| `to_corner` | ... |
+| `to_edge` | ... |
+| `to_original_color` | ... |
+| `update` | Aplica todos los actualizadores. |
+| `wag` | ... |
+
+### Atributos de Mobject
+
+| Atributo | Descripción |
+| -------- | ----------- |
+| `animate` | Se utiliza para animar la aplicación de cualquier método de self. |
+| `animation_overrides` | ... |
+| `depth` | La profundidad del mobject. |
+| `height` | La altura del mobject. |
+| `width` | El ancho del mobject.|
 
 ## Text and Tex mobjects
 
@@ -288,16 +457,16 @@ class Variables(Scene):
   ```python
   tracker = variable.tracker
 ```
-El tracker es un `ValueTracker` asociado a la variable. Podemos utilizarlo para animar el cambio del valor de la variable.
+- El tracker es un `ValueTracker` asociado a la variable. Podemos utilizarlo para animar el cambio del valor de la variable.
 
 3. **Cambiar el valor de la variable**
 ```python
     var = 10
 ```
-Aquí se cambiamos el valor de la variable original `var`. Sin embargo, esto no afecta directamente a lo que se muestra en la pantalla.
+- Aquí se cambiamos el valor de la variable original `var`. Sin embargo, esto no afecta directamente a lo que se muestra en la pantalla.
 
-**Métodos para la clase \`Variable\`**
-| Método                | Descripción                                            |
+**Atributos para la clase \`Variable\`**
+| Atributo                | Descripción                                            |
 |-----------------------|--------------------------------------------------------|
 | animate               | Utilizado para animar la aplicación de cualquier método propio. |
 | animation_overrides   | Anulaciones para parámetros de animación.                    |
@@ -310,21 +479,11 @@ Aquí se cambiamos el valor de la variable original `var`. Sin embargo, esto no 
 | stroke_color          | La propiedad de color del trazo.                             |
 | width                 | El ancho del objeto.                              |
 
+## Actualizadores
 
 
-
-
-
-
-
-
-
-
-
-
-2. **Actualizadores**
-    - Los actualizadores son funciones especiales que se utilizan para actualizar dinámicamente ciertos objetos en la escena en función de un valor rastreado por un ValueTracker.
-    - El actualizador `always_redraw` se utiliza para indicar que el objeto debe volver a dibujarse en cada fotograma, incluso si no ha cambiado explícitamente. Esto es útil para objetos que dependen de valores rastreados y deben         
+- Los actualizadores son funciones especiales que se utilizan para actualizar dinámicamente ciertos objetos en la escena en función de un valor rastreado por un ValueTracker.
+- El actualizador `always_redraw` se utiliza para indicar que el objeto debe volver a dibujarse en cada fotograma, incluso si no ha cambiado explícitamente. Esto es útil para objetos que dependen de valores rastreados y deben         
 actualizarse constantemente.
 2. **ValueTracker**
     - `ValueTracker` es una clase en Manim que realiza un seguimiento de un valor numérico a lo largo de una animación.
