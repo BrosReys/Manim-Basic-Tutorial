@@ -244,35 +244,29 @@ class Título(Scene):
     self.add(título) # añadimos el título
 ```
 # Actualizadores, Variables y \`ValueTracker\`
-En Manim, las variables y ValueTracker son herramientas poderosas que permiten realizar animaciones dinámicas y seguir el cambio de valores a lo largo del tiempo.
-
-1. **Variables**
-    - Utilizamos las variables en Manim para almacenar valores que pueden cambiar durante una animación.
-    - Pueden ser variables simples como números o incluso objetos más complejos como vectores.
-    - Manim ofrece la clase `ValueTracker` que es comúnmente utilizada para seguir y animar el cambio de valores a lo largo del tiempo.
-2. **ValueTracker**
-    - `ValueTracker` es una clase en Manim que realiza un seguimiento de un valor numérico a lo largo de una animación.
-    - Permite vincular ese valor a propiedades de objetos gráficos, de modo que, cuando el valor cambia, los objetos gráficos se actualizan automáticamente.
-    - Facilita la creación de animaciones que responden a cambios en variables específicas.
-    - Se utiliza junto con la clase `DecimalNumber` para mostrar el valor actualizado en la pantalla.
+En Manim, las variables, actualizadores y `ValueTracker` son herramientas poderosas que permiten realizar animaciones dinámicas y seguir el cambio de valores a lo largo del tiempo.
+## Variables
+Usamos la clase \`Variable\` en Manim, perteneciente al módulo `manim.mobject.text.numbers`, para mostrar un texto que representa una variable con su respectivo valor. La clase está diseñada para mostrar "label = value", donde el valor se actualiza continuamente desde un `ValueTracker`.
+### Usos de la clase \`Variable\`
+- Utilizamos las variables en Manim para almacenar valores que pueden cambiar durante una animación.
+- Pueden ser variables simples como números o incluso objetos más complejos como vectores.
+- Manim ofrece la clase `ValueTracker` que es comúnmente utilizada para seguir y animar el cambio de valores a lo largo del tiempo.
 
 A modo de ejemplo, analicemos las siguientes líneas de código:
 ```python
 from manim import *
 class Variables(Scene):
   def construct(self):
-   
+    # creamos una variable llamada `var` con un valor inicial de 1.5
     var = 1.5
 
-    # creamos una variable llamada `var` con un valor inicial de 1.5
-
     variable = Variable(var, MathTex(r" \alpha "), num_decimal_places=3).move_to([0,0,0])
-   
-    # la clase `Variable` se utiliz para mostrar el valor inicial
+    # la clase `Variable` se utiliza para mostrar el valor inicial
 
     variable.label.set_color(BLUE) # determinamos el color de la etiqueta
     tracker = variable.tracker # establecemos un `ValueTracker`
-    var = 10 # `var` muestra el valor final
+    var = 10
+    # `var` muestra el valor final
 
     # establecemos las animaciones
 
@@ -295,13 +289,14 @@ class Variables(Scene):
   tracker = variable.tracker
 ```
 El tracker es un `ValueTracker` asociado a la variable. Podemos utilizarlo para animar el cambio del valor de la variable.
-3. **Cambiar el valor de la variable
+
+3. **Cambiar el valor de la variable**
 ```python
     var = 10
 ```
 Aquí se cambiamos el valor de la variable original `var`. Sin embargo, esto no afecta directamente a lo que se muestra en la pantalla.
 
-**Métodos**
+**Métodos para la clase \`Variable\`**
 | Método                | Descripción                                            |
 |-----------------------|--------------------------------------------------------|
 | animate               | Utilizado para animar la aplicación de cualquier método propio. |
@@ -314,6 +309,29 @@ Aquí se cambiamos el valor de la variable original `var`. Sin embargo, esto no 
 | sheen_factor          | Propiedad de factor de brillo.                                 |
 | stroke_color          | La propiedad de color del trazo.                             |
 | width                 | El ancho del objeto.                              |
+
+
+
+
+
+
+
+
+
+
+
+
+
+2. **Actualizadores**
+    - Los actualizadores son funciones especiales que se utilizan para actualizar dinámicamente ciertos objetos en la escena en función de un valor rastreado por un ValueTracker.
+    - El actualizador `always_redraw` se utiliza para indicar que el objeto debe volver a dibujarse en cada fotograma, incluso si no ha cambiado explícitamente. Esto es útil para objetos que dependen de valores rastreados y deben         
+actualizarse constantemente.
+2. **ValueTracker**
+    - `ValueTracker` es una clase en Manim que realiza un seguimiento de un valor numérico a lo largo de una animación.
+    - Permite vincular ese valor a propiedades de objetos gráficos, de modo que, cuando el valor cambia, los objetos gráficos se actualizan automáticamente.
+    - Facilita la creación de animaciones que responden a cambios en variables específicas.
+    - Se utiliza junto con la clase `DecimalNumber` para mostrar el valor actualizado en la pantalla.
+
 
 # VMobject (Vectorized Movable Object)
 En Manim, la clase `VMobject` sirve como base para la creación de diversas figuras y objetos visuales en animaciones matemáticas. Estos son algunos de los aspectos claves de _VMobject_:
