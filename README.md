@@ -601,17 +601,43 @@ class Updater(Scene):
 
 En el código mencionado anteriormente `angle=TAU` en la función `Rotating` significa que estamos rotando el objeto (en este caso, el punto `dot`) alrededor del origen en un ángulo igual a 
 2π radianes, que es equivalente a una vuelta completa alrededor del círculo.
-
-
-
-   
+ 
 ## \`ValueTracker\`
+En Manim, ValueTracker es una clase que se utiliza para realizar un seguimiento de parámetros en tiempo real, especialmente para animar cambios en esos parámetros. No está destinado a ser visualizado directamente; en cambio, su posición o valor se utiliza para representar un número que puede ser utilizado por otras animaciones o actualizaciones continuas.
+
+La principal utilidad de ValueTracker es permitir animar su valor con la sintaxis de animación de Manim, y luego utilizar ese valor para controlar otras animaciones o actualizaciones en la escena. Puedes pensar en ValueTracker como un objeto que "rastrea" o "sigue" un valor particular a medida que cambia con el tiempo.
+
+**Puntos importantes**:
 - `ValueTracker` es una clase en Manim que realiza un seguimiento de un valor numérico a lo largo de una animación.
 - Permite vincular ese valor a propiedades de objetos gráficos, de modo que, cuando el valor cambia, los objetos gráficos se actualizan automáticamente.
 - Facilita la creación de animaciones que responden a cambios en variables específicas.
 - Se utiliza junto con la clase `DecimalNumber` para mostrar el valor actualizado en la pantalla.
 
+A modo de ejemplo:
+```python
+from manim import *
+class Rastreadores(Scene):
+  def construct(self):
 
+    rastreador = ValueTracker(4)
+    # establecemos un `ValueTracker`
+
+    cuadrado = always_redraw(lambda: Square(side_length=rastreador.get_value(), color=RED).set_fill(opacity=0.5, color=PINK))
+    # creamos un cuadrado utilizando `always_redraw`
+
+    # añadimos el cuadrado
+    # cambiando el valor de `rastreador` a 2
+    
+    self.add(cuadrado)
+    self.play(rastreador.animate.set_value(2), run_time=3)
+    self.wait()
+```
+**Análisis del código**
+1. Se crea un `ValueTracker` llamado rastreador con un valor inicial de 4.
+2. Se utiliza `always_redraw` para crear un cuadrado que tiene su lado vinculado al valor del `ValueTracker`. La función lambda dentro de `always_redraw` garantiza que el cuadrado se vuelva a dibujar en cada cuadro de la animación, actualizando así su tamaño a medida que el valor del `ValueTracker` cambia. El cuadrado también se colorea con RED y se rellena con un 50% de opacidad y color PINK.
+3. El cuadrado se añade a la escena usando `self.add(cuadrado)`.
+4. Se anima el `ValueTracker` para cambiar su valor a 2 en un lapso de 3 segundos utilizando `self.play(rastreador.animate.set_value(2), run_time=3)`.
+5. La función `self.wait()` se utiliza para esperar hasta que la animación termine.
 # VMobject (Vectorized Movable Object)
 En Manim, la clase `VMobject` sirve como base para la creación de diversas figuras y objetos visuales en animaciones matemáticas. Estos son algunos de los aspectos claves de _VMobject_:
 1. "_Vectorized_": Se refiere a que las formas `VMobject` están definidas en términos de vectores, lo que permite una representación eficiente ya que los vectores pueden describir direcciones, magnitudes y formas en el espacio.
