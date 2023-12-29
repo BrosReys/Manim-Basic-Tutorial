@@ -871,60 +871,6 @@ class Vgroups(Scene):
 
     self.play(Grupo.animate.move_to([3,2,0]), run_time=3)
 ```
-IMPORTANTE
-También podemos importar el plano polar mediante `PolarPlane`, es decir:
-```python
-from manim import *
-class Planopolar(Scene):
-  def construct(self):
-
-    plano = PolarPlane(azimuth_units="PI radians",
-                       size=6,
-                       azimuth_label_font_size=33).add_coordinates()
-    self.add(plano)
-```
->![](https://github.com/BrosReys/ManimCE/blob/Images/Plano%20Polar.png)
-
-Además, podemos utilizar el `NumberPlane` para representar un gráfico sencillo llamado `LineGraph`:
-```python
-from manim import *
-class GráficoLineal(Scene):
-  def construct(self):
-
-    # establecemos el plano
-
-    Gráfico = NumberPlane(x_range=([0,5]),
-                          y_range=([0,5]),
-                          x_length=5,
-                          axis_config = {"include_numbers":True, "color":YELLOW}                            
-    )
-
-    Gráfico.center()
-
-    # determinamos el gráfico lineal
-
-    GráficoLineal = Gráfico.plot_line_graph(
-        x_values = [1,2,3,4,5],
-        y_values = [1,3,1,4,2],
-        line_color=RED,
-    )
-
-    # añadimos el plano y el gráfico lineal
-
-    self.add(Gráfico, GráficoLineal)
-```
->![](https://github.com/BrosReys/ManimCE/blob/Images/Gr%C3%A1ficoLineal.png)
-
-
-
-
-
-
-
-
-
-
-
 ### Gráficos
 Para graficar en Manim utilizando `Scene`, en primer lugar, determinamos los `Axes` para, posteriormente, animar la gráfica mediante `Axes.plot`. En este caso, hemos configurado la función x^2:
 ```python
@@ -996,6 +942,51 @@ class FunciónLineal(Scene):
     self.wait()
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(82).png)
+
+### \`PolarPlane\`
+También podemos importar el plano polar mediante `PolarPlane`, es decir:
+```python
+from manim import *
+class Planopolar(Scene):
+  def construct(self):
+
+    plano = PolarPlane(azimuth_units="PI radians",
+                       size=6,
+                       azimuth_label_font_size=33).add_coordinates()
+    self.add(plano)
+```
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Plano%20Polar.png)
+
+### \`LineGraph\`
+Además, podemos utilizar el `NumberPlane` para representar un gráfico sencillo llamado `LineGraph`:
+```python
+from manim import *
+class GráficoLineal(Scene):
+  def construct(self):
+
+    # establecemos el plano
+
+    Gráfico = NumberPlane(x_range=([0,5]),
+                          y_range=([0,5]),
+                          x_length=5,
+                          axis_config = {"include_numbers":True, "color":YELLOW}                            
+    )
+
+    Gráfico.center()
+
+    # determinamos el gráfico lineal
+
+    GráficoLineal = Gráfico.plot_line_graph(
+        x_values = [1,2,3,4,5],
+        y_values = [1,3,1,4,2],
+        line_color=RED,
+    )
+
+    # añadimos el plano y el gráfico lineal
+
+    self.add(Gráfico, GráficoLineal)
+```
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Gr%C3%A1ficoLineal.png)
 
 ### Funciones Paramétricas utilizando \`Scene\`
 Una función paramétrica es una expresión matemática que describe las coordenadas de un punto en función de uno o más parámetros. En lugar de expresar directamente las coordenadas en términos de una variable independiente, como en las funciones cartesianas tradicionales, las funciones paramétricas utilizan parámetros para definir las posiciones de los puntos en un espacio. Un ejemplo simple podría ser una curva paramétrica en el plano xy, donde las coordenadas x e y se expresan como funciones de un parámetro t.
