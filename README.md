@@ -204,8 +204,7 @@ class TextoGradiente(Scene):
 | Tex                  | Una cadena compilada con LaTeX en modo normal.               |
 | Title                | Un objeto representando un título subrayado.                |
 
-
- 
+### \`MathTex\`
 Consecuentemente, podemos insertar ecuaciones matemáticas utilizando LaTeX[^1] mediante el mobject `MathTex`. 
 
 En el contexto de la librería de animación matemática Manim, `MathTex` es una clase que se utiliza para renderizar expresiones matemáticas escritas en el formato LaTeX: un sistema de composición de documentos que se utiliza ampliamente para la creación de documentos científicos y matemáticos debido a su capacidad para producir fórmulas matemáticas de alta calidad.
