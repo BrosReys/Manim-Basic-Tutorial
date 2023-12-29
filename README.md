@@ -484,8 +484,9 @@ En Manim, los "actualizadores" (updaters en inglés) son funciones que se aplica
 >[!Important]
 > Los actualizadores son funciones especiales que se utilizan para actualizar dinámicamente ciertos objetos en la escena en función de un valor rastreado por un `ValueTracker`.
 
-Por ejemplo, El actualizador `always_redraw` se utiliza para indicar que el objeto debe volver a dibujarse en cada fotograma, incluso si no ha cambiado explícitamente. Esto es útil para objetos que dependen de valores rastreados y deben      
-actualizarse constantemente, es decir:
+Por ejemplo, el actualizador `always_redraw` se utiliza para indicar que el objeto debe volver a dibujarse en cada fotograma, incluso si no ha cambiado explícitamente. 
+
+Esto es útil para objetos que dependen de valores rastreados y deben actualizarse constantemente, es decir:
 ```python
 from manim import * 
 class Test(Scene):
@@ -504,12 +505,12 @@ class Test(Scene):
         self.add(cuadrado)
         self.play(lado.animate.set_value(2), run_time=2)
 ```
-Las líneas de código mencionadas previamente establecen un `ValueTracker` denominado "lado" que determina el `side_length` del cuadrado y que se actualizará progresivamente. Esto es:
+Las líneas de código mencionadas previamente establecen un `ValueTracker` denominado "lado" que determina el `side_length` del cuadrado y que se actualizará progresivamente gracias al actualizador `always_redraw`. Esto es:
 1. Creamos el `ValueTracker`
 ```python
 lado = ValueTracker(4) # determinamos un `ValueTracker` con un valor inicial de 4
 ```
-2. Determinamos `Square` y la longitud de sus lados mediante `side_length`
+2. Determinamos el actualizador `always_redraw`
 ```python
 cuadrado = always_redraw(lambda: Square(color=RED, side_length=lado.get_value()).set_fill(opacity=0.5, color=PINK))
 ```
@@ -517,15 +518,56 @@ cuadrado = always_redraw(lambda: Square(color=RED, side_length=lado.get_value())
 ```python
 self.add(cuadrado)
         self.play(lado.animate.set_value(2), run_time=2)
-   ```   
+   ```
+Aparte de `alwways_redraw`, existen otros actualizadores importantes como el método `add_updater` que pertenece a la clase `Mobject` y se utiliza para agregar funciones de actualización a un objeto.
+
+La sintaxis para utilizar `add_updater` es la siguiente:
+```python
+Mobject.add_updater(update_function)
+```
+- **Mobject**: El objeto al que se le desea agregar la función de actualización.
+- **update_function**: La función de actualización que se aplicará al objeto en cada cuadro.
+
+Concretamente, distinguimos dos variantes del método `add_updater`:
+**DtUpdater**
+```python
+class Updaters(Scene):
+    def construct(self):
+       
+       triangulo = Triangle(color=GREEN).set_fill(opacity=0.5, color=YELLOW)
+       # creamos un Mobject
+
+       triangulo.add_updater(lambda mobject, dt: mobject.rotate(np.pi / 2))
+       # establecemos el actualizador
+
+       self.add(triangulo) # añadimos el triangulo a la escena
+       self.wait(2) # esperamos 2 segundos
+```
+Para entender como funciona `DtUpdater`, analicemos las líneas de código:
+1. **Creación del triángulo**
+```python
+triangulo = Triangle(color=GREEN).set_fill(opacity=0.5, color=YELLOW)
+```
+- Aquí creamos un triángulo con color verde (GREEN) y relleno amarillo (YELLOW) con una opacidad del 50%.
+2. **Añadir actualizador**
+```python
+triangulo.add_updater(lambda mobject, dt: mobject.rotate(np.pi / 2))
+```
+- Añadimos un actualizador al triángulo utilizando una función `lambda`. La función de actualización toma el triángulo y el tiempo transcurrido (dt) como parámetros y rota el triángulo en sentido antihorario en un ángulo de π/2 en cada cuadro.
+3. **Añadir el triángulo a la escena y esperar**
+```python
+self.add(triangulo)
+self.wait(2)
+```
+- Añadimos el Mobject a la escena y la animación espera durante 2 segundos.
 
 
-
-5. **ValueTracker**
-    - `ValueTracker` es una clase en Manim que realiza un seguimiento de un valor numérico a lo largo de una animación.
-    - Permite vincular ese valor a propiedades de objetos gráficos, de modo que, cuando el valor cambia, los objetos gráficos se actualizan automáticamente.
-    - Facilita la creación de animaciones que responden a cambios en variables específicas.
-    - Se utiliza junto con la clase `DecimalNumber` para mostrar el valor actualizado en la pantalla.
+   
+## \`ValueTracker\`
+- `ValueTracker` es una clase en Manim que realiza un seguimiento de un valor numérico a lo largo de una animación.
+- Permite vincular ese valor a propiedades de objetos gráficos, de modo que, cuando el valor cambia, los objetos gráficos se actualizan automáticamente.
+- Facilita la creación de animaciones que responden a cambios en variables específicas.
+- Se utiliza junto con la clase `DecimalNumber` para mostrar el valor actualizado en la pantalla.
 
 
 # VMobject (Vectorized Movable Object)
