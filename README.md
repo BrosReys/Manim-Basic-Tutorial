@@ -988,6 +988,7 @@ class GráficoLineal(Scene):
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Gr%C3%A1ficoLineal.png)
 
+## Funciones
 ### Funciones Paramétricas utilizando \`Scene\`
 Una función paramétrica es una expresión matemática que describe las coordenadas de un punto en función de uno o más parámetros. En lugar de expresar directamente las coordenadas en términos de una variable independiente, como en las funciones cartesianas tradicionales, las funciones paramétricas utilizan parámetros para definir las posiciones de los puntos en un espacio. Un ejemplo simple podría ser una curva paramétrica en el plano xy, donde las coordenadas x e y se expresan como funciones de un parámetro t.
 
