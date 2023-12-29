@@ -244,7 +244,7 @@ class Título(Scene):
     título = Title("Soy un título") # establecemos un título
     self.add(título) # añadimos el título
 ```
-## Variables y \`ValueTracker\`
+# Actualizadores, Variables y \`ValueTracker\`
 En Manim, las variables y ValueTracker son herramientas poderosas que permiten realizar animaciones dinámicas y seguir el cambio de valores a lo largo del tiempo.
 
 1. **Variables**
