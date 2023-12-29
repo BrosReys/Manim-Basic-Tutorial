@@ -519,6 +519,7 @@ cuadrado = always_redraw(lambda: Square(color=RED, side_length=lado.get_value())
 self.add(cuadrado)
         self.play(lado.animate.set_value(2), run_time=2)
    ```
+### \`add_updater\`
 Aparte de `alwways_redraw`, existen otros actualizadores importantes como el método `add_updater` que pertenece a la clase `Mobject` y se utiliza para agregar funciones de actualización a un objeto.
 
 La sintaxis para utilizar `add_updater` es la siguiente:
@@ -529,6 +530,7 @@ Mobject.add_updater(update_function)
 - **update_function**: La función de actualización que se aplicará al objeto en cada cuadro.
 
 Concretamente, distinguimos dos variantes del método `add_updater`:
+
 **DtUpdater**
 ```python
 class Updaters(Scene):
@@ -560,6 +562,44 @@ self.add(triangulo)
 self.wait(2)
 ```
 - Añadimos el Mobject a la escena y la animación espera durante 2 segundos.
+
+**NextToUpdater**
+```from manim import *
+class Updater(Scene):
+    def construct(self):
+
+        # determinamos el punto (Mobject) y la etiqueta (DecimalNumber)
+
+        Punto = Dot(3*RIGHT, color=GREEN)
+        etiqueta = DecimalNumber(color=GREEN)
+
+        # fijamos a la etiqueta la función updater
+
+        etiqueta.add_updater(lambda m: m.set_value(Punto.get_center()[0]).next_to(Punto))
+
+        self.add(etiqueta, Punto) 
+        # añadimos el punto y la etiqueta
+
+        # establecemos una rotación completa
+
+        self.play(Rotating(Punto, about_point=ORIGIN, angle=TAU, run_time=TAU, rate_func=linear))
+        self.wait(2)
+```
+**Análisis del código**
+1. Creamos un punto (Punto) usando la clase `Dot`. El punto se coloca en la posición 3 unidades a la derecha del origen `(3*RIGHT)` y se le asigna el color verde `(color=GREEN)`.
+2. Creamos una etiqueta (etiqueta) usando la clase `DecimalNumber` y se le asigna el color verde.
+3. Añadimos una función updater a la etiqueta utilizando `add_updater`. La función lambda dentro de `add_updater` actualiza la etiqueta para que su valor sea igual a la coordenada x del centro del punto (Punto) y se coloca junto al punto.
+4. Añadimos el punto y la etiqueta a la escena usando `self.add(etiqueta, Punto)`.
+5. Ejecutamos una animación de rotación completa `(angle=TAU)` alrededor del origen `(about_point=ORIGIN)` para el punto `(Punto)`. La animación se realiza en un tiempo igual a 2π segundos `(run_time=TAU)`, y la función de tasa `(rate_func)` se establece como lineal.
+6. Esperamos 2 segundos después de la animación utilizando `self.wait(2)`.
+
+>[!Important]
+>`TAU` es una constante matemática que representa la relación entre la circunferencia de un círculo y su radio, de manera similar a la constante π (pi). La constante TAU se define como 
+2π, lo que significa que es aproximadamente igual a 6.28318.
+
+En el código mencionado anteriormente `angle=TAU` en la función `Rotating` significa que estamos rotando el objeto (en este caso, el punto `dot`) alrededor del origen en un ángulo igual a 
+2π radianes, que es equivalente a una vuelta completa alrededor del círculo.
+
 
 
    
