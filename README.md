@@ -1656,5 +1656,5 @@ class FuncPolar(Scene):
 
 [^1]: Como usar LaTeX: https://manualdelatex.com/
 [^2]: Vídeo tutorial de posicionamiento: https://www.youtube.com/watch?v=1Fv0Nu-Tb7Q&t=676s
-[^3]: Gráfico lineal con `NumberPlane`en la sección '¿Cómo creamos los ejes utilizando \`Scene\`?' 
+[^3]: Gráfico lineal con `NumberPlane`en la sección 'Gráficos' 
 
