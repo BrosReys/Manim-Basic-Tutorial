@@ -1651,8 +1651,18 @@ class FuncPolar(Scene):
 >![](https://github.com/BrosReys/ManimCE/blob/Images/FuncPolar_ManimCE_v0.18.0.png)
 
 
-
-
+## Webgrafía y fuentes consultadas
+**Páginas WEB**
+- [Manim Community Edition](https://docs.manim.community/en/stable/index.html)
+- [LaTeX Tutorial](https://latex-tutorial.com/tutorials/)
+- [Python Tutorial](https://www.jetbrains.com/pages/academy/study-python/?msclkid=917494f76c5210f33c69f166cccc1daf&utm_source=bing&utm_medium=cpc&utm_campaign=EMEA_en_ES_JBAcademy_Python_Search&utm_term=python%20tutorial&utm_content=python%20tutorial)
+**Vídeos de YouTube**
+- [Tutorial de Manim en español | Introducción: ¿Qué es Manim? -El teorema de Beethoven](https://www.youtube.com/watch?v=pQ0aPD1OKJQ&list=PLcjmqHFN9VeMC9znnNiRMv3nqZv-bU9Fo)
+- [Tutorial de Manim | 1.1 - Elementos básicos -El teorema de Beethoven](https://www.youtube.com/watch?v=lF49gHBZBpI&list=PLcjmqHFN9VeMC9znnNiRMv3nqZv-bU9Fo&index=4)
+- [Tutorial de Manim | 1.3 Posiciones, rotaciones y fuentes -El teorema de Beethoven](https://www.youtube.com/watch?v=-k91hwUm0Cc&list=PLcjmqHFN9VeMC9znnNiRMv3nqZv-bU9Fo&index=6)
+**Otras fuentes**
+- [Github Tutorial](https://github.com/malhotra5/Manim-Tutorial)
+- [ManimCE GitHub](https://github.com/ManimCommunity/manim)
 
 [^1]: Como usar LaTeX: https://manualdelatex.com/
 [^2]: Vídeo tutorial de posicionamiento: https://www.youtube.com/watch?v=1Fv0Nu-Tb7Q&t=676s
