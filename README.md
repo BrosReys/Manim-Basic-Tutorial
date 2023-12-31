@@ -1002,7 +1002,7 @@ class Vectores(Scene):
 | `width`                | El ancho del objeto.                                    |
 
 ## \`Braces\`
-En Manim, `Brace` es la clase que se utiliza para referirse a los corchetes curvados ("laves") que se utilizan para señalar o resaltar partes específicas de una escena o gráfico. Estos corchetes pueden ser utilizados para indicar ecuaciones, intervalos, o cualquier otra información relevante en una animación matemática.
+En Manim, `Brace` es la clase que se utiliza para referirse a los corchetes curvados ("llaves") que se utilizan para señalar o resaltar partes específicas de una escena o gráfico. Estos corchetes pueden ser utilizados para indicar ecuaciones, intervalos, o cualquier otra información relevante en una animación matemática.
 
 Podemos crear braces utilizando la clase `Brace`. Este es un ejemplo simple de cómo podríamos utilizar los braces:
 ```python
@@ -1043,6 +1043,30 @@ class Llaves(Scene):
         self.add(Grupo) # añadimos los mobjects a la escena
 ```
 ![](https://github.com/BrosReys/ManimCE/blob/Images/Llaves_ManimCE_v0.18.0.png)
+
+**Métodos**
+| Método           | Descripción                                                                                   |
+|------------------|-----------------------------------------------------------------------------------------------|
+| `get_direction`  | Utiliza `shoelace_direction()` para calcular la dirección.                                   |
+| `get_tex`        | Obtiene un objeto `Tex` (objeto de texto LaTeX) asociado al `ArcBrace`.                      |
+| `get_text`       | Similar a `get_tex`, obtiene un objeto `Text` asociado al `ArcBrace`.                         |
+| `get_tip`        | Obtiene un objeto `ArrowTip` asociado al extremo de la llave (`ArcBrace`).                  |
+| `put_at_tip`     | Coloca el objeto pasado como argumento en el extremo de la llave (`ArcBrace`).               |
+
+**Atributos**
+| Atributo              | Descripción                                                                                   |
+|-----------------------|-----------------------------------------------------------------------------------------------|
+| `animate`             | Se utiliza para animar la aplicación de cualquier método de sí mismo.                          |
+| `animation_overrides` | Overrides de animación.                                                                       |
+| `color`               | Color de la mobject.                                                                          |
+| `depth`               | La profundidad de la mobject.                                                                 |
+| `fill_color`          | Si hay varios colores (para degradado), esto devuelve el primero.                               |
+| `height`              | La altura de la mobject.                                                                      |
+| `n_points_per_curve`  | Número de puntos por curva.                                                                   |
+| `sheen_factor`        | Factor de brillo.                                                                             |
+| `stroke_color`        | Color del trazo de la mobject.                                                                |
+| `width`               | El ancho de la mobject.                                                                      |
+
 # Gráficos y Funciones
 La librería de **Manim** nos ofrece distintas formas de implementar gráficos y funciones en nuestras animaciones. Hasta ahora hemos trabajado con la clase `Scene`, no obstante, existen diversas clases tales como `GraphScene`, `ThreeDScene`, entre otras que pueden facilitarnos la tarea de graficar. Concretamente, para representar gráficos utilizamos fundamentalmente `Scene`, `ThreeDScene` y `GraphScene`.
 ## \`Scene\` y \`Axes\`
@@ -1549,14 +1573,9 @@ class LOVE(Scene):
  
     # establecemos las animaciones
 
-    self.play(DrawBorderThenFill(VGrupo1), run_time=4)
-    self.wait()
-    self.play(DrawBorderThenFill(VGrupo2), run_time=4)
-    self.wait()
-    self.play(DrawBorderThenFill(VGrupo3), run_time=4)
-    self.wait()
-    self.play(DrawBorderThenFill(VGrupo4), run_time=4)
-    self.wait()
+    self.play(DrawBorderThenFill(VGrupo1, VGrupo2, VGrupo3, VGrupo4), run_time=8)
+    self.wait(3)
+
     self.play(Write(Texto), run_time=3)
     self.play(FadeIn(Texto1), run_time=3)
 ```
@@ -1579,24 +1598,6 @@ class FunciónImpl(Scene):
     # gracias por la ayuda Erick! :)
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Funci%C3%B3n%20impl%C3%ADcita.png)
-
-
-
-
-
-## \`GraphScene\`
-Por otro parte, para graficar funciones también utilizamos la clase `GraphScene`, que es una subclase de `Scene` que proporciona funcionalidades específicas para trabajar con gráficos y funciones matemáticas. Está diseñada para simplificar la creación y animación de gráficos en las escenas.
-
-Concretamente, `GraphScene` incluye métodos y atributos útiles para configurar fácilmente el eje de coordenadas, agregar etiquetas, manejar animaciones específicas de gráficos, entre otros. Podemos heredar de `GraphScene` y personalizar sus métodos para crear nuestras propias escenas con gráficos de funciones. Para importar la clase `GraphScene`:
-```python
->>>from manim import GraphScene
->>>class GráficoEx(GraphScene):
-```
-Una vez hayamos importado de la librería de Manim `GraphScene`, 
-
-
-
-
 
 [^1]: Como usar LaTeX: https://manualdelatex.com/
 [^2]: Vídeo tutorial de posicionamiento: https://www.youtube.com/watch?v=1Fv0Nu-Tb7Q&t=676s
