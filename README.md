@@ -1,3 +1,13 @@
+![Captura de pantalla (3)](https://github.com/BrosReys/ManimCE-Basic-Tutorial/assets/150629896/18a662a6-daed-4cb5-a1d6-d7cb792a6b41)
+
+![GitHub repo language](https://img.shields.io/badge/Library-Manim-informational)
+![GitHub repo language](https://img.shields.io/badge/Language-python-ff0000)
+![GitHub repo language](https://img.shields.io/badge/BrosReys-ManimCE-00ff00)
+![GitHub repo language](https://img.shields.io/badge/Tutorial-ffff00)
+
+
+
+
 # **Manim (Mathematical Animation Engine)**
 ### Libreta de código para programar animaciones en [Manim](https://www.manim.community/), para python.
 ## ¿Qué es Manim?
