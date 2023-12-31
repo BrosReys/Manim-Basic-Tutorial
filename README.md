@@ -49,6 +49,41 @@ circulo.set_fill(PINK, opacity=0.5)  # establecer el color y la opacidad
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(72).png)
 
+## ¿Cómo instalamos Manim para [Google Colaboratory](https://colab.research.google.com/)?
+Es posible instalar Manim en un entorno de Google Colaboratory. Sin embargo, a diferencia de Binder, donde podemos personalizar y preparar el entorno de antemano (de modo que Manim ya esté instalado y listo para usarse), tendremoss que ocuparnos de eso cada vez que iniciemos un nuevo cuaderno en Google Colab. Afortunadamente, esto no es particularmente difícil.
+
+Después de crear un nuevo cuaderno en Google Colaboratory, pega el siguiente bloque de código en una celda y luego ejecútalo.
+
+```python
+!sudo apt update
+!sudo apt install libcairo2-dev ffmpeg \
+    texlive texlive-latex-extra texlive-fonts-extra \
+    texlive-latex-recommended texlive-science \
+    tipa libpango1.0-dev
+!pip install manim
+!pip install IPython --upgrade
+```
+Deberías ver que Colab está instalando todas las dependencias especificadas en estos comandos. Después de que la ejecución haya completado, se te pedirá que reinicies el entorno de ejecución. Haz clic en el botón "restart runtime" en la parte inferior de la salida de la celda. ¡Ahora estás listo para usar Manim en Colab!
+
+Para verificar que todo funciona como se espera, primero importa Manim ejecutando:
+```python
+from manim import *
+```
+Luego crea otra celda que contenga en el siguiente código:
+```python
+%%manim -qm -v WARNING SquareToCircle
+
+class SquareToCircle(Scene):
+   def construct(self):
+      square = Square()
+      circle = Circle()
+      circle.set_fill(PINK, opacity=0.5)
+      self.play(Create(square))
+      self.play(Transform(square, circle))
+      self.wait()
+```
+Al ejecutar esta celda, debería renderizarse y mostrarse una breve animación que transforma un cuadrado en un círculo.
+
 # Manim Objects (Mobjects)
 En Manim (Mathematical Animation Engine), los "Manim Objects" (`Mobjects`) son las entidades fundamentales que representan diferentes elementos que pueden aparecer y animarse en la pantalla durante una animación matemática. Estos objetos abarcan desde formas geométricas simples hasta objetos más complejos como ecuaciones, gráficos, texto, cámaras, luces, etc.
 ### Métodos de Mobject
