@@ -1113,7 +1113,7 @@ De la misma forma, trabajar con `Axes`, que es una subclase de `CoordinateSystem
 >[!IMPORTANT]
 > En general, este enfoque ofrece más flexibilidad, pero también requiere más código y configuración manual para crear gráficos matemáticos.
 
-### ¿Cómo creamos los ejes utilizando \`Scene\`?
+### ¿Cómo creamos los ejes cartesianos utilizando \`Scene\`?
 ```python
 from manim import *
 class EjesXY(Scene):
