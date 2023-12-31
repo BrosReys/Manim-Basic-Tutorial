@@ -1001,6 +1001,48 @@ class Vectores(Scene):
 | `stroke_color`         |                                                        |
 | `width`                | El ancho del objeto.                                    |
 
+## \`Braces\`
+En Manim, `Brace` es la clase que se utiliza para referirse a los corchetes curvados ("laves") que se utilizan para señalar o resaltar partes específicas de una escena o gráfico. Estos corchetes pueden ser utilizados para indicar ecuaciones, intervalos, o cualquier otra información relevante en una animación matemática.
+
+Podemos crear braces utilizando la clase `Brace`. Este es un ejemplo simple de cómo podríamos utilizar los braces:
+```python
+from manim import *
+class Llaves(Scene):
+    def construct(self):
+        
+        # determinamos los mobjects 
+        cuadrado = Square(color=BLUE, side_length=3).set_fill(opacity=0.5, color=BLUE)
+        llave = Brace(cuadrado, RIGHT)
+        texto = llave.get_tex("3cm").set_color(BLUE)
+        # texto para la llave
+        
+        Grupo = VGroup(cuadrado, llave) # creamos un VGroup
+        self.add(cuadrado, llave, texto) # añadimos los mobjects a la escena
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Llaves_ManimCE_v0.18.0.png)
+
+Dentro de los distintos tipos de "braces" distinguimos además, algunas variaciones, tal es el caso de `ArcBrace`: una clase que representa una llave formada por un arco, es decir:
+```python
+from manim import *
+import numpy as np
+class Llaves(Scene):
+    def construct(self):
+        
+
+        # determinamos los mobjects 
+        círculo = Circle(color=ORANGE, radius=2).set_fill(opacity=0.5, color=ORANGE)
+        linea = Line(start=[2,0,0], end=[-2,0,0], color=PURPLE)
+
+        # establecemos un arco
+        arco = Arc(radius=np.pi/2, start_angle=0, angle=PI) # creamos el `Arc`
+        
+        llavearco = ArcBrace(arc=arco, color=PURPLE) # creamos el `ArcBrace`
+        texto = llavearco.get_tex("\pi/Rad") # añadimos un texto
+        
+        Grupo = VGroup(círculo, llavearco, texto, linea) # creamos un VGroup
+        self.add(Grupo) # añadimos los mobjects a la escena
+```
+![](https://github.com/BrosReys/ManimCE/blob/Images/Llaves_ManimCE_v0.18.0.png)
 # Gráficos y Funciones
 La librería de **Manim** nos ofrece distintas formas de implementar gráficos y funciones en nuestras animaciones. Hasta ahora hemos trabajado con la clase `Scene`, no obstante, existen diversas clases tales como `GraphScene`, `ThreeDScene`, entre otras que pueden facilitarnos la tarea de graficar. Concretamente, para representar gráficos utilizamos fundamentalmente `Scene`, `ThreeDScene` y `GraphScene`.
 ## \`Scene\` y \`Axes\`
