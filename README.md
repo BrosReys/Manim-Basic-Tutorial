@@ -1,5 +1,5 @@
 # **Manim (Mathematical Animation Engine)**
-### Libreta de código para programar animaciones en [Manim](https://www.manim.community/), para python.
+### Libreta de código para programar animaciones en [Manim](https://www.manim.community/), para python, Enmanuel Damas Reyes
 
 ## ¿Qué es Manim?
 
