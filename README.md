@@ -9,6 +9,9 @@ La librería se destaca por su versatilidad y su capacidad para simplificar la e
 ### Python y Manim
 Manim utiliza [Python](https://www.python.org/) como lenguaje de programación principal. Python es un lenguaje de programación de alto nivel, fácil de aprender y de sintaxis clara, lo que lo hace adecuado para la creación rápida de prototipos y el desarrollo eficiente. Manim se beneficia de las características poderosas de Python y su amplio ecosistema de bibliotecas.
 
+|[Documentación oficial de python](https://docs.python.org/3/)|
+|-------------------------------|
+
 El flujo de trabajo típico en Manim implica la creación de escenas y objetos gráficos mediante la definición de clases y métodos en Python. La biblioteca utiliza la sintaxis de Python para describir las animaciones y la disposición de los elementos en la escena.
 
 Por ejemplo:
@@ -219,8 +222,43 @@ En Manim (Mathematical Animation Engine), los "Manim Objects" (`Mobjects`) son l
 | `height` | La altura del mobject. |
 | `width` | El ancho del mobject.|
 
-## Text and Tex mobjects
+### ¿Qué son los métodos, los parámetros y los atributos?
+**Parámetro**
+- **Definición**: Un parámetro es una variable que se utiliza en la declaración de una función o método para recibir valores durante su llamada. Los parámetros son utilizados para permitir la flexibilidad y personalización de una función.
+- **Ejemplo**:
+```python
+def suma(a, b):
+    return a + b
+```
+En este caso, `a y b` son parámetros de la función `suma`.
 
+**Métodos**
+- **Definición**: Un método es una función asociada a un objeto o clase. Los métodos definen el comportamiento de un objeto y pueden realizar acciones específicas o devolver información sobre el objeto.
+- **Ejemplo**:
+```python
+class Persona:
+    def saludar(self):
+        print("Hola, soy una persona.")
+```
+En este ejemplo, `saludar` es un método de la clase `Persona`.
+
+**Atributos**
+- **Definición**: Un atributo es una propiedad o característica de un objeto. Los atributos almacenan información sobre el estado de un objeto y pueden ser accedidos o modificados.
+- **Ejemplo**:
+```python
+class Coche:
+    def __init__(self, marca):
+        self.marca = marca
+```
+Aquí, `marca` es un atributo de la clase `Coche`.
+
+**¿Qué relación existe entre ellos?**
+1. **Parámetros y Métodos**: Los parámetros se utilizan para pasar información a un método durante su llamada. Los métodos son funciones que pueden usar estos parámetros para realizar tareas específicas.
+2. **Atributos y Métodos**: Los métodos pueden acceder y manipular los atributos de un objeto. Los atributos representan las características del objeto y son utilizados por los métodos para realizar acciones.
+
+En resumen, los parámetros permiten la personalización de funciones, los métodos definen el comportamiento de un objeto y los atributos representan propiedades del objeto. Estos conceptos son fundamentales en la programación orientada a objetos y se utilizan para modelar y organizar el código de manera eficiente.
+
+## Text and Tex mobjects
 En Manim podemos renderizar el texto principalmente de dos formas:
 1. Usando **Pango**, que es una biblioteca utilizada para el diseño y dibujo de texto internacional `Text_mobject`.
 2. Usando **LaTeX**, que es un sistema de composición de textos especializado para escribrir lenguaje matemático `Tex_mobject`.
@@ -1329,21 +1367,7 @@ class FunciónLineal(Scene):
     self.play(DrawBorderThenFill(Gráfica), run_time=3)
     self.wait()
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(82).png)
-
-### \`PolarPlane\`
-También podemos importar el plano polar mediante `PolarPlane`, es decir:
-```python
-from manim import *
-class Planopolar(Scene):
-  def construct(self):
-
-    plano = PolarPlane(azimuth_units="PI radians",
-                       size=6,
-                       azimuth_label_font_size=33).add_coordinates()
-    self.add(plano)
-```
->![](https://github.com/BrosReys/ManimCE/blob/Images/Plano%20Polar.png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(82).png)
 
 ### \`LineGraph\`
 Además, podemos utilizar el `NumberPlane` para representar un gráfico sencillo llamado `LineGraph`:
@@ -1461,7 +1485,7 @@ class Corazón(Scene):
     Gráfica = Ejes.plot_parametric_curve(lambda t: [16 * np.sin(t)**3, 13 * np.cos(t) - 5 * np.cos(2*t) - 2 * np.cos(3*t) - np.cos(4*t), 0], t_range=[-np.pi, np.pi], color=RED).set_fill(color=RED, opacity=0.5)
     self.play(Create(Gráfica, run_time=5))
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(85).png)
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Captura%20de%20pantalla%20(85).png)
 
 ### Trabajar con dos funciones
 En Manim, gracias a las ventajas de la librería, podemos trabajar con múltiples funciones en la pantalla al agregar varias instancias de gráficos o animaciones en la misma escena. A modo de ejemplo:
@@ -1507,77 +1531,6 @@ class DosFunciones(Scene):
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/DosFunciones.png)
 
-De igual fornma, podemos trabajar hasta con cuatro funciones en un misma escena. A modo de ejemplo:
-```python
-from manim import *
-import numpy as np
-class LOVE(Scene):
-  def construct(self):
-
-    # configuración de los textos `Text` y `Tex`
-
-    Texto = Text("All you need is...", t2c={'[8:12]': RED}).shift(3*UP)
-    Texto1 = Text("L-O-V-E", t2c={'[1:2]':WHITE, '[3:4]':WHITE, '[5:6]':WHITE}, color=RED, font_size=55).shift(3*DOWN)
-
-    Ecuación1 = MathTex(r"y=\frac{1}{2}")
-    Ecuación2 = MathTex(r"x^{2}+y^{2}-9=0")
-    Ecuación3 = MathTex(r"y=\mid -2x \mid")
-    Ecuación4 = MathTex(r"y=-3\mid siny \mid")
-
-    # fijamos los ejes y sus respectivas funciones
-
-    Ejes1 = Axes(x_range=([-5,3]), y_range=(-3,3),
-                 x_length=3, y_length=3,
-                 axis_config= {"tip_width":0.2, "tip_height":0.2}
-              
-                 ).move_to([-5.2,0,0])
-
-    Gráfica1 = Ejes1.plot(lambda x: np.clip(1/x, -3, 3), x_range=[0.1, 3], color=RED)  # Limita los valores de y a un rango de -5 a 5
-  
-    Ejes2 = Axes(x_range=([-5,5]), y_range=(-5,5),
-                 x_length=3, y_length=3,
-                 axis_config= {"tip_width":0.2, "tip_height":0.2}
-              
-                 ).move_to([-1.85,0,0])
-    Gráfica2 = Ejes2.plot_implicit_curve(lambda x,y: x**2 + y**2 - 9, color=RED)
-
-    Ejes3 = Axes(x_range=([-5,5]), y_range=(-5,5),
-                 x_length=3, y_length=3,
-                 axis_config= {"tip_width":0.2, "tip_height":0.2}
-              
-                 ).move_to([1.65,0,0])
-    Gráfico3 = Ejes3.plot(lambda x: np.abs(-2*x), x_range=[-2.5,2.5], color=RED)
-
-    Ejes4 = Axes(x_range=([-5,5]), y_range=(-5,5),
-                 x_length=3, y_length=3,
-                 axis_config= {"tip_width":0.2, "tip_height":0.2}
-              
-                 ).move_to([5,0,0])
-    Gráfico4 = Ejes4.plot_parametric_curve(lambda t: [t, -3*np.abs(np.sin(t)), 0], t_range=[-6,0], color=RED).rotate(-5/PI)         
-
-
-    # determinamos las posiciones para los Mobjects
- 
-    Ecuación1.next_to(Ejes1, UP)
-    Ecuación2.next_to(Ejes2, UP)
-    Ecuación3.next_to(Ejes3, UP)
-    Ecuación4.next_to(Ejes4, UP)
-
-    # creamos los VGroups necesarios 
-
-    VGrupo1 = VGroup(Ecuación1, Ejes1, Gráfica1)
-    VGrupo2 = VGroup(Ecuación2, Ejes2, Gráfica2)
-    VGrupo3 = VGroup(Ecuación3, Ejes3, Gráfico3)
-    VGrupo4 = VGroup(Ecuación4, Ejes4, Gráfico4)
- 
-    # establecemos las animaciones
-
-    self.play(DrawBorderThenFill(VGrupo1, VGrupo2, VGrupo3, VGrupo4), run_time=8)
-    self.wait(3)
-
-    self.play(Write(Texto), run_time=3)
-    self.play(FadeIn(Texto1), run_time=3)
-```
 ### Funciones Implícitas
 Una función implícita es aquella en la que la variable dependiente no aparece despejada en la expresión de la ecuación. En Manim, para representar este tipo de funciones utilizamos `ImplicitFunction`, a modo de ejemplo:
 ```python
@@ -1597,6 +1550,109 @@ class FunciónImpl(Scene):
     # gracias por la ayuda Erick! :)
 ```
 >![](https://github.com/BrosReys/ManimCE/blob/Images/Funci%C3%B3n%20impl%C3%ADcita.png)
+
+## Coordenadas y Funciones polares
+El plano polar es un sistema de coordenadas en el que los puntos se representan mediante su distancia al origen (radio) y el ángulo entre la línea que los conecta al origen y el eje x (ángulo polar). Manim proporciona la clase `PolarPlane` para trabajar con representaciones visuales de sistemas de coordenadas polares.
+
+**Parámetros para `PolarPlane`**
+- **azimuth_step (float | None):** Número de divisiones en el azimut (ángulo polar). Si es `None`, se usará el valor predeterminado especificado por `azimuth_units`. Valores no enteros resultarán en una división parcial al final del círculo.
+- **size (float | None):** Diámetro del plano polar.
+- **radius_step (float):** Distancia entre las líneas de radio atenuadas.
+- **radius_max (float):** Valor máximo del radio.
+- **azimuth_units (str | None):** Sistema de etiquetado predeterminado para el azimut. Opciones incluyen "PI radians", "TAU radians", "degrees", "gradians" o `None`.
+- **azimuth_compact_fraction (bool):** Si el sistema de etiquetado del azimut tiene etiquetas fraccionarias, elige si combinar la constante en una forma compacta (por ejemplo, 2π) en lugar de mostrarla por separado.
+- **azimuth_offset (float):** Desplazamiento angular del azimut, expresado en radianes.
+- **azimuth_direction (str):** Dirección del azimut, "CW" (sentido horario) o "CCW" (sentido antihorario).
+- **azimuth_label_buff (float):** Espacio adicional para las etiquetas del azimut.
+- **azimuth_label_font_size (float):** Tamaño de fuente de las etiquetas del azimut.
+- **radius_config (dict[str, Any] | None):** Configuración del eje para el radio.
+- **background_line_style (dict[str, Any] | None):** Estilo de línea para las líneas de fondo.
+- **faded_line_style (dict[str, Any] | None):** Estilo de línea para las líneas atenuadas.
+- **faded_line_ratio (int):** Relación de atenuación de las líneas.
+- **make_smooth_after_applying_functions (bool):** Indica si suavizar después de aplicar funciones.
+- **kwargs (Any):** Argumentos adicionales.
+
+>[!Important]
+>El azimut es un concepto utilizado en geometría y navegación que se refiere a la medida del ángulo en el plano horizontal entre un punto de referencia (generalmente el norte) y una dirección específica, medida en sentido horario. En términos más sencillos, el azimut proporciona la dirección de un objeto en relación con el norte en un plano horizontal.
+>En el contexto de Manim y gráficos polares, el azimut puede referirse al ángulo polar en coordenadas polares, donde se mide en relación con el eje horizontal en sentido horario. En este caso, el azimut es una medida angular que se utiliza para especificar la dirección de una línea o vector en el plano polar.
+
+Consecuentemente podemos importar el plano polar mediante `PolarPlane`, es decir:
+```python
+from manim import *
+class Planopolar(Scene):
+  def construct(self):
+
+    plano = PolarPlane(azimuth_units="PI radians",
+                       size=6,
+                       azimuth_label_font_size=33).add_coordinates()
+    self.add(plano)
+```
+>![](https://github.com/BrosReys/ManimCE/blob/Images/Plano%20Polar.png)
+
+Podemos personalizar el plano polar según nuestras necesidades, ajustando atributos como `background_line_style`, `radius`, `azimuth_angle`, etc. Además, podemos agregar funciones polares y objetos al plano, similar a cómo lo haríamos en un plano cartesiano.
+
+Concretamente distinguimos los siguientes métodos y atributos:
+
+**Métodos**
+| Método                          | Descripción                                                                   |
+|---------------------------------|-------------------------------------------------------------------------------|
+| `add_coordinates`               | Agrega las coordenadas al plano polar.                                        |
+| `get_axes`                      | Obtiene los ejes del plano polar.                                             |
+| `get_coordinate_labels`         | Obtiene las etiquetas de las coordenadas.                                     |
+| `get_radian_label`              | Obtiene la etiqueta en radianes para el azimut.                               |
+| `get_vector`                    | Obtiene el vector que representa el azimut y el radio en un punto específico. |
+| `prepare_for_nonlinear_transform`| Prepara para una transformación no lineal.                                    |
+
+**Atributos**
+| Atributo               | Descripción                                                                     |
+|------------------------|---------------------------------------------------------------------------------|
+| `animate`              | Se utiliza para animar la aplicación de cualquier método del propio objeto.    |
+| `animation_overrides`  | Configuraciones adicionales para anulación de animaciones.                     |
+| `color`                | Color del objeto.                                                               |
+| `depth`                | Profundidad del objeto en la escena.                                           |
+| `fill_color`           | Si hay múltiples colores (para degradado), devuelve el primero.                 |
+| `height`               | Altura del objeto.                                                             |
+| `n_points_per_curve`   | Número de puntos por curva para representar el objeto.                         |
+| `sheen_factor`         | Factor de brillo para efectos de brillo.                                       |
+| `stroke_color`         | Color del contorno del objeto.                                                 |
+| `width`                | Ancho del objeto.                                                              |
+
+### ¿Cómo importamos un función polar?
+La notación general para una función polar es r=f(θ), donde r es la distancia al origen y θ es el ángulo polar. 
+
+Analicemos las siguientes líneas de código:
+```python
+# Importamos las clases necesarias de Manim y NumPy
+from manim import *
+import numpy as np
+
+# Definimos una clase llamada FuncPolar que hereda de la clase Scene
+class FuncPolar(Scene):
+    # Método para construir la escena
+    def construct(self):
+        # Creamos una instancia de un plano polar con un radio máximo de 3
+        Ejes = PolarPlane(radius_max=3)
+        # Añadimos las coordenadas al plano polar
+        Ejes.add_coordinates()
+
+        # Definimos una función lambda y graficamos la función polar
+        f = Ejes.plot_polar_graph(lambda theta: 2 * np.sin(theta * 5), color=RED)
+
+        # Añadimos el plano polar y la función a la escena
+        self.add(Ejes, f)
+
+        # Esperamos 2 segundos antes de finalizar la escena
+        self.wait(2)
+
+```
+- `lambda theta: 2 * np.sin(theta * 5)`: Aquí se utiliza una expresión lambda para definir una función anónima que toma un parámetro theta y devuelve el valor de la función polar **r=2sin(5θ)**. La estructura general de una función lambda es lambda parámetro: expresión. En este caso, el parámetro es theta y la expresión es **2 * np.sin(theta * 5)**.
+- `f = Ejes.plot_polar_graph(...)`: Luego, la función lambda se pasa como argumento al método `plot_polar_graph` del objeto `Ejes` (un plano polar), que se encarga de graficar la función polar. El resultado de esta operación se asigna a la variable f.
+  
+>![](https://github.com/BrosReys/ManimCE/blob/Images/FuncPolar_ManimCE_v0.18.0.png)
+
+
+
+
 
 [^1]: Como usar LaTeX: https://manualdelatex.com/
 [^2]: Vídeo tutorial de posicionamiento: https://www.youtube.com/watch?v=1Fv0Nu-Tb7Q&t=676s
