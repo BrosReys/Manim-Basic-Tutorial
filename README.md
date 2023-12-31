@@ -1,6 +1,5 @@
 # **Manim (Mathematical Animation Engine)**
-### Libreta de código para programar animaciones en [Manim](https://www.manim.community/), para python, Enmanuel Damas Reyes
-
+### Libreta de código para programar animaciones en [Manim](https://www.manim.community/), para python.
 ## ¿Qué es Manim?
 
 **Manim** es una biblioteca de animación matemática de código abierto, concebida por Grant Sanderson, el creador de la plataforma educativa [3Blue1Brown](https://www.3blue1brown.com/). El nombre "Manim" proviene de "Mathematical Animation Engine". Lo que hace que Manim sea excepcional es su capacidad para permitir a los usuarios crear animaciones interactivas y visualizaciones matemáticas de alta calidad.
