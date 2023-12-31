@@ -1019,7 +1019,7 @@ class Llaves(Scene):
         Grupo = VGroup(cuadrado, llave) # creamos un VGroup
         self.add(cuadrado, llave, texto) # añadimos los mobjects a la escena
 ```
-![](https://github.com/BrosReys/ManimCE/blob/Images/Llaves_ManimCE_v0.18.0.png)
+![](https://github.com/BrosReys/ManimCE/blob/Images/Llavesbasic_ManimCE_v0.18.0.png)
 
 Dentro de los distintos tipos de "braces" distinguimos además, algunas variaciones, tal es el caso de `ArcBrace`: una clase que representa una llave formada por un arco, es decir:
 ```python
